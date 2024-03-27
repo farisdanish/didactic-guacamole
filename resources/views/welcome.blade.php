@@ -149,6 +149,23 @@
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN C : MAKLUMAT PEKERJAAN</b></h5></div>
             <div class="container">
                 <h6>Sila tanda mana yang berkenaan:</h6>
+                <div class="container maklumat-pekerjaan-selector mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">Default radio</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">Default checked radio</label>
+                    </div>
+                </div>
+                <h6>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</h6>
+                <div class="form-group row mb-3">
+                    <label for="lampiranKebenaran" class="col-sm-2 col-form-label">Lampiran:</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="lampiranKebenaran" name="lampiranKebenaran">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container tab">
