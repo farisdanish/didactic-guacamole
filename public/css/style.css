@@ -2,8 +2,12 @@
     margin: 0;
     padding: 0;
 }
+html{
+    height: 100%;
+}
 body{
-    min-height: 100vh;
+    min-height: 100%;
+    /*margin-bottom: 100px;*/
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(63, 61, 61);
 }
@@ -69,18 +73,27 @@ nav li:first-child{
 }
 .borang_ejkdb{
     background-color: #f7f7f7; /* Light gray background color */
+    height: 100%;
     padding: 20px; /* Adjust padding as needed */
-    border-top: 2px dashed #999;
+    border-top: 0.5px dashed #d4d4d4;
     border-radius: 0px; /* Optional: adjust corner radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
 }
+.borang_ejkdb_heading{
+    background-color: #dfdede; /* Light gray background color */
+    padding: 20px; /* Adjust padding as needed */
+    text-align: center;
+    border-radius: 8px; /* Optional: adjust corner radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+}
+
 footer {
     background-color: #dfdede; /* Gray color */
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(63, 61, 61); /* Text color */
     text-align: center;
     padding: 20px; /* Adjust as needed */
-    position: fixed; /* Fixed positioning */
+    position: static; /* Fixed positioning */
     left: 0;
     bottom: 0;
     width: 100%;
