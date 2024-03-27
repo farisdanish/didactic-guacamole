@@ -62,8 +62,17 @@ nav li:first-child{
     display: none;
 }
 .applicationFormHeading{
-    padding-top: 15px;
+    padding-top: 17px;
     padding-bottom: 15px;
+    width:100%;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+}
+.borang_ejkdb{
+    background-color: #f7f7f7; /* Light gray background color */
+    padding: 20px; /* Adjust padding as needed */
+    border-top: 2px dashed #999;
+    border-radius: 0px; /* Optional: adjust corner radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
 }
 footer {
     background-color: #dfdede; /* Gray color */
