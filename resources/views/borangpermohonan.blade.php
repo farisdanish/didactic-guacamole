@@ -148,19 +148,37 @@
             </div>
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN C : MAKLUMAT PEKERJAAN</b></h5></div>
-                <div class="container">
+                <div class="container mt-3">
                     <h6>Sila tanda mana yang berkenaan:</h6>
-                    <div class="container maklumat-pekerjaan-selector mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">Default radio</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">Default checked radio</label>
-                        </div>
+                    <div class="container dashed-line-table-selector justify-content-center mt-3 mb-3">
+                        <table style="margin: 0 auto;">
+                            <tr>
+                                <td width="10%">
+                                    <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Penjawat Awam">
+                                    <label for="penjawatAwam"><h6>Penjawat Awam</h6></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">
+                                    <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Penjawat Swasta">
+                                    <label for="penjawatAwam"><h6>Penjawat Swasta</h6></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">
+                                    <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Bekerja Sendiri">
+                                    <label for="penjawatAwam"><h6>Bekerja Sendiri</h6></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="10%">
+                                    <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Suri Rumah/Tidak Bekerja/Pesara">
+                                    <label for="penjawatAwam"><h6>Suri Rumah/ Tidak Bekerja / Pesara</h6></label>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                    <h6>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</h6>
+                    <h6><center>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</center></h6>
                     <div class="form-group row mb-3">
                         <label for="lampiranKebenaran" class="col-sm-2 col-form-label">Lampiran:</label>
                         <div class="col-sm-10">
@@ -210,7 +228,7 @@
             </div>
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN E : MAKLUMAT KESIHATAN</b></h5></div>
-                <div class="container row justify-content-center">
+                <div class="container row justify-content-center mt-3 mb-3">
                     <div class="row text-center">
                         <h6>Saya menghidapi/ <u>tidak menghidapi</u> masalah kesihatan yang serius seperti berikut</h6>
                     </div>
@@ -239,19 +257,38 @@
             </div>
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN F : PENGAKUAN</b></h5></div>
-                <div class="container">
-                    <h6>Dengan ini saya mengakui bahawa semasa permohonan jawatan ini dibuat:</h6>
-                    <div class="container maklumat-pekerjaan-selector mb-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">Default radio</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">Default checked radio</label>
-                        </div>
+                <div class="container mt-3">
+                    <div class="text-center"><h6>Dengan ini saya mengakui bahawa semasa permohonan jawatan ini dibuat:</h6></div>
+                    <div class="container dashed-line-table-selector justify-content-center mt-3 mb-3">
+                        <table style="margin: 0 auto;">
+                            <tr>
+                                <th style="text-align:center">KETERANGAN</th>
+                                <th style="text-align:center">YA</th>
+                                <th style="text-align:center">TIDAK</th>
+                            </tr>
+                            <tr>
+                                <td><h6>i.SAYA TELAH DIISYTIHARKAN MUFLIS</h6></td>
+                                <td width="10%" style="text-align:center"><input type="radio" id="akuanmuflis" class="input-box" name="akuanmuflis" value="Yes"></td>
+                                <td width="10%" style="text-align:center"><input type="radio" id="akuanmuflis" class="input-box" name="akuanmuflis" value="No"></td>
+                            </tr>
+                            <tr>
+                                <td><h6>ii.SAYA PERNAH MEMPUNYAI REKOD JENAYAH</h6></td>
+                                <td style="text-align:center"><input type="radio" id="akuanjenayah" class="input-box" name="akuanjenayah" value="Yes"></td>
+                                <td style="text-align:center"><input type="radio" id="akuanjenayah" class="input-box" name="akuanjenayah" value="No"></td>
+                            </tr>
+                            <tr>
+                                <td><h6>iii.SAYA PERNAH TERLIBAT DENGAN PENYALAHGUNAAN DADAH</h6></td>
+                                <td style="text-align:center"><input type="radio" id="akuandadah" class="input-box" name="akuandadah" value="Yes"></td>
+                                <td style="text-align:center"><input type="radio" id="akuandadah" class="input-box" name="akuandadah" value="No"></td>
+                            </tr>
+                            <tr>
+                                <td><h6>iv.SAYA SIHAT MENTAL DAN FIZIKAL UNTUK MELAKSANAKAN TUGAS YANG AKAN DIBERIKAN</h6></td>
+                                <td style="text-align:center"><input type="radio" id="akuankesihatan" class="input-box" name="akuankesihatan" value="Yes"></td>
+                                <td style="text-align:center"><input type="radio" id="akuankesihatan" class="input-box" name="akuankesihatan" value="No"></td>
+                            </tr>
+                        </table>
                     </div>
-                    <h6>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</h6>
+                    <h6><center>Semua keterangan saya di bahagian A-F adalah benar. Bersama-sama ini juga disertakan salinan Dokumen berikut:</center></h6>
                     <table class="table mt-3 mb-3" id="tablependidikan">
                         <tr>
                             <th>#</th>
@@ -262,14 +299,14 @@
                         <tr>
                             <td>1</td>
                             <td>GAMBAR PASSPORT</td>
-                            <td><input type="checkbox" id="spmsetaraf" name="spmsetaraf" value="Yes"></td>
-                            <td><input type="file" class="form-control" id="sijilspmsetaraf" name="sijilspmsetaraf" placeholder="Passport.pdf"></td>
+                            <td><input type="checkbox" id="gambarpassport" name="gambarpassport" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="gambarpassportfile" name="gambarpassportfile"></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>SALINAN KAD PENGENALAN</td>
-                            <td><input type="checkbox" id="diploma" name="diploma" value="Yes"></td>
-                            <td><input type="file" class="form-control" id="sijildiploma" name="sijildiploma"></td>
+                            <td><input type="checkbox" id="kadIC" name="kadIC" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="kadICSalinan" name="kadICSalinan"></td>
                         </tr>
                     </table>
                 </div>

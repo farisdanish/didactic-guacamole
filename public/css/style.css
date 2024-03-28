@@ -86,7 +86,7 @@ nav li:first-child{
     border-radius: 8px; /* Optional: adjust corner radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
 }
-.maklumat-pekerjaan-selector{
+.dashed-line-table-selector{
     padding: 20px; /* Adjust padding as needed */
     border: 2.5px dashed #252525;
     border-radius: 8px; /* Optional: adjust corner radius */
