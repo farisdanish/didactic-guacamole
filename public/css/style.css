@@ -92,6 +92,34 @@ nav li:first-child{
     border-radius: 8px; /* Optional: adjust corner radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
 }
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form:
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+} */
+
+/* Mark the active step: */
+.step.active {
+    color: rgb(136, 26, 226);
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    color: #464646;
+}
+
 footer {
     background-color: #dfdede; /* Gray color */
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -117,4 +145,3 @@ footer {
         width: 100%;
     }
 }
-
