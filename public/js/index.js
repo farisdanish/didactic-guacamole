@@ -12,9 +12,12 @@ function showTab(n) {
         document.getElementById("prevBtn").style.display = "inline";
     }
     if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Submit";
+        document.getElementById("nextBtn").innerHTML = "Hantar";
+        document.getElementById("nextBtn").className += " btn btn-success";
     } else {
-        document.getElementById("nextBtn").innerHTML = "Next";
+        document.getElementById("nextBtn").innerHTML = "Seterusnya";
+        document.getElementById("nextBtn").className = document.getElementById("nextBtn").className.replace("btn btn-success", "");
+        document.getElementById("nextBtn").className += " btn btn-secondary";
     }
     // ... and run a function that displays the correct step indicator:
     fixStepIndicator(n)
@@ -27,6 +30,9 @@ function nextPrev(n) {
     //if (n == 1 && !validateForm()) return false;
     // Hide the current tab:
     x[currentTab].style.display = "none";
+    //scroll to top of page on next/prev button click
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
     // if you have reached the end of the form... :

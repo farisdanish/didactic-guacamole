@@ -7,7 +7,7 @@
     <h1>Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">
-    <form id="borang_ejkdb" action="" method="post">
+    <form id="borang_ejkdb" action="" method="">
         @csrf
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;margin-bottom:40px;">
@@ -173,18 +173,112 @@
         <div class="tab">
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN D : MAKLUMAT PENDIDIKAN</b></h5></div>
+                <div class="container row justify-content-center">
+                    <table class="table mt-3 mb-3" id="tablependidikan">
+                        <tr>
+                            <th>#</th>
+                            <th>TAHAP PENDIDIKAN TERTINGGI</th>
+                            <th>TANDAKAN (/) YANG BERKENAAN</th>
+                            <th>LAMPIRAN</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>SPM ATAU SETARAF</td>
+                            <td><input type="checkbox" id="spmsetaraf" name="spmsetaraf" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="sijilspmsetaraf" name="sijilspmsetaraf"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>DIPLOMA</td>
+                            <td><input type="checkbox" id="diploma" name="diploma" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="sijildiploma" name="sijildiploma"></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>IIJAZAH</td>
+                            <td><input type="checkbox" id="ijazah" name="ijazah" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="sijilijazah" name="sijilijazah"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>LAIN-LAIN</td>
+                            <td><input type="checkbox" id="lain2" name="lain2" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="lain2sijil" name="lain2sijil"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN E : MAKLUMAT KESIHATAN</b></h5></div>
+                <div class="container row justify-content-center">
+                    <div class="row text-center">
+                        <h6>Saya menghidapi/ <u>tidak menghidapi</u> masalah kesihatan yang serius seperti berikut</h6>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="penyakit1" class="col-sm-2 col-form-label">Penyakit(i):</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="penyakit1" name="penyakit1" placeholder="Nyatakan">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="penyakit2" class="col-sm-2 col-form-label">Penyakit(ii):</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="penyakit2" name="penyakit2" placeholder="Nyatakan">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="penyakit3" class="col-sm-2 col-form-label">Penyakit(iii):</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="penyakit3" name="penyakit3" placeholder="Nyatakan">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h6>Nota: (i) - (iii) tidak perlu diiisi sekiranya tidak meghadapi masalah kesihatan yang serius.</h6>
+                    </div>
+                </div>
             </div>
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN F : PENGAKUAN</b></h5></div>
+                <div class="container">
+                    <h6>Dengan ini saya mengakui bahawa semasa permohonan jawatan ini dibuat:</h6>
+                    <div class="container maklumat-pekerjaan-selector mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">Default radio</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">Default checked radio</label>
+                        </div>
+                    </div>
+                    <h6>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</h6>
+                    <table class="table mt-3 mb-3" id="tablependidikan">
+                        <tr>
+                            <th>#</th>
+                            <th>DOKUMEN</th>
+                            <th>TANDAKAN (/)</th>
+                            <th>LAMPIRAN</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>GAMBAR PASSPORT</td>
+                            <td><input type="checkbox" id="spmsetaraf" name="spmsetaraf" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="sijilspmsetaraf" name="sijilspmsetaraf" placeholder="Passport.pdf"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>SALINAN KAD PENGENALAN</td>
+                            <td><input type="checkbox" id="diploma" name="diploma" value="Yes"></td>
+                            <td><input type="file" class="form-control" id="sijildiploma" name="sijildiploma"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+            <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Kembali</button>
+            <button type="button" class="btn btn-secondary" id="nextBtn" onclick="nextPrev(1)">Seterusnya</button>
             </div>
         </div>
     </form>
