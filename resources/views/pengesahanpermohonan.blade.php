@@ -83,82 +83,99 @@
         </div>
         <div class="container">
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN B : MAKLUMAT PEMOHON</b></h5></div>
-            <div class="form-group row mt-3 mb-3">
+            {{-- <div class="form-group row mt-3 mb-3">
                 <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="text" class="form-control" id="namapenuh" name="namapenuh"> --}}
+                    <!--<input type="text" class="form-control" id="namapenuh" name="namapenuh">-->
                     MUHD FARIS DANISH BIN ANTONI
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="nomIC" class="col-sm-2 col-form-label">No. KP:</label>
+                <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="text" class="form-control" id="nomIC" name="nomIC"> --}}
+                    <!--<input type="text" class="form-control" id="nomIC" name="nomIC">-->
                     99120312****
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="tarikhlahir" class="col-sm-2 col-form-label">Tarikh Lahir:</label>
+                <label for="tarikhlahir" class="col-sm-2 col-form-label"><b>Tarikh Lahir:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="text" class="form-control" id="tarikhlahir" name="tarikhlahir"> --}}
-                    03/12/1999 (26 Tahun)
+                    <!-- <input type="text" class="form-control" id="tarikhlahir" name="tarikhlahir"> -->
+                    03/12/1999 (25 Tahun)
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="bangsa" class="col-sm-2 col-form-label">Bangsa:</label>
+                <label for="bangsa" class="col-sm-2 col-form-label"><b>Bangsa:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="text" class="form-control" id="bangsa" name="bangsa"> --}}
+                    <!-- <input type="text" class="form-control" id="bangsa" name="bangsa"> -->
                     Dusun
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="alamat" class="col-sm-2 col-form-label">Alamat Mastautin:</label>
+                <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin:</b></label>
                 <div class="col-sm-10">
-                    {{-- <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea> --}}
+                    <!-- <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea> -->
                     Kampung Tengkurus, Jalan Kem Paradise, 89150 Kota Belud, Sabah.
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="numPhone" class="col-sm-2 col-form-label">No. Telefon:</label>
+                <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="text" class="form-control" id="numPhone" name="numPhone"> --}}
+                    <!-- <input type="text" class="form-control" id="numPhone" name="numPhone"> -->
                     010-5819347
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <label for="email" class="col-sm-2 col-form-label"><b>Email:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="email" class="form-control" id="email" name="email"> --}}
+                    <!-- <input type="email" class="form-control" id="email" name="email"> -->
                     farisdanish.antoni@gmail.com
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="namaBank" class="col-sm-2 col-form-label">Nama & No Akaun Bank:</label>
+                <label for="namaBank" class="col-sm-2 col-form-label"><b>Nama & No Akaun Bank:</b></label>
                 <div class="col-sm-10 mb-3">
-                    {{-- <input type="text" class="form-control mb-1" id="namaBank" name="namaBank">
-                    <input type="text" class="form-control" id="noAkaunBank" name="noAkaunBank"> --}}
+                    <!-- <input type="text" class="form-control mb-1" id="namaBank" name="namaBank">
+                    <input type="text" class="form-control" id="noAkaunBank" name="noAkaunBank"> -->
                     BANK ISLAM BERHAD (10052021961011)
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="lampiranBank" class="col-sm-2 col-form-label">Lampiran Bank:</label>
+                <label for="lampiranBank" class="col-sm-2 col-form-label"><b>Lampiran Bank:</b></label>
                 <div class="col-sm-10">
-                    {{-- <input type="file" class="form-control" id="lampiranBank" name="lampiranBank"> --}}
+                    <!-- <input type="file" class="form-control" id="lampiranBank" name="lampiranBank"> -->
                     <a href="{{url('/storage/files/Penyata-Bank.pdf')}}">Penyata-Bank.pdf</a>
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label">Parti Komponen Kerajaan yang diwakili:</label>
+                <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan yang diwakili:</b></label>
                 <div class="col-sm-10 mb-3">
-                    {{-- <input type="text" class="form-control mb-1" id="partiKomponenKerajaan" name="partiKomponenKerajaan"> --}}
+                    <!-- <input type="text" class="form-control mb-1" id="partiKomponenKerajaan" name="partiKomponenKerajaan"> -->
                     XXXXXXXXXX
                 </div>
+            </div> --}}
+            <div class="container mb-3 mt-3 grid_table">
+                <div><b>Nama Penuh</b>&nbsp;</div><div class="mb-3">&ensp;MUHD FARIS DANISH BIN ANTONI</div>
+                <div><b>No. KP</b>&nbsp;</div><div class="mb-3">&ensp;99120312****</div>
+                <div><b>Tarikh Lahir</b>&nbsp;</div><div class="mb-3">&ensp;03/12/1999 (25 Tahun)</div>
+                <div><b>Bangsa</b>&nbsp;</div><div class="mb-3">&ensp;Dusun</div>
+                <div><b>Alamat Mastautin</b>&nbsp;</div>
+                <div class="mb-3">
+                    &ensp;Kampung Tengkurus, Jalan Kem Paradise, 89150 Kota Belud, Sabah.
+                </div>
+                <div><b>No.Telefon</b>&nbsp;</div><div class="mb-3">&ensp;010-5819347</div>
+                <div><b>Email</b>&nbsp;</div><div class="mb-3">&ensp;farisdanish.antoni@gmail.com</div>
+                <div><b>Nama & No. Akaun Bank</b>&nbsp;</div><div class="mb-3">&ensp;BANK ISLAM BERHAD (10052021961011)</div>
+                <div><b>Lampiran Bank</b>&nbsp;</div>
+                <div class="mb-3">
+                    &ensp;<a href="{{url('/storage/files/Penyata-Bank.pdf')}}">Penyata-Bank.pdf</a>
+                </div>
+                <div><b>Parti Komponen Kerajaan yang diwakili</b>&nbsp;</div><div class="mb-3">&ensp;XXXXXXXXXXX</div>
             </div>
         </div>
         <div class="container">
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN C : MAKLUMAT PEKERJAAN</b></h5></div>
             <div class="container mt-3">
-                <h6>Sila tanda mana yang berkenaan:</h6>
                 <div class="container dashed-line-table-selector justify-content-center mt-3 mb-3">
                     <table style="margin: 0 auto;">
                         <tr>
@@ -186,13 +203,6 @@
                             </td>
                         </tr>
                     </table>
-                </div>
-                <h6><center>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</center></h6>
-                <div class="form-group row mb-3">
-                    <label for="lampiranKebenaran" class="col-sm-2 col-form-label">Lampiran:</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="lampiranKebenaran" name="lampiranKebenaran">
-                    </div>
                 </div>
             </div>
         </div>
@@ -327,8 +337,8 @@
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
-            <button type="button" class="btn btn-success" id="sahBtn" href="/disahkan">Disahkan</button>
-            <button type="button" class="btn btn-danger" id="tolakBtn" href="/ditolak">Ditolak</button>
+            <button type="button" class="btn btn-success" id="sahBtn" onclick="">Disahkan</button>
+            <button type="button" class="btn btn-danger" id="tolakBtn" onclick="">Ditolak</button>
             </div>
         </div>
     </form>
