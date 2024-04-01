@@ -21,6 +21,11 @@ Route::get('/pengesahan', function () {
     return view('pengesahanpermohonan');
 });
 
+Route::get('/paparan', function () {
+    return view('paparanpermohonan');
+});
+
+
 Route::get('/layout', function () {
     return view('layout');
 });
