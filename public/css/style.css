@@ -93,6 +93,16 @@ nav li:first-child{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
 }
 
+/*To format the view of pengesahan borang permohonan*/
+.grid_table{
+    display: grid;
+    grid-template-columns: max-content max-content;
+}
+
+.grid_table > *:nth-child(even)::before {
+    content: " : ";
+}
+
 /* Hide all steps by default: */
 .tab {
     display: none;
