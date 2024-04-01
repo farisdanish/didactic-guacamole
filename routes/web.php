@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('borangpermohonan');
 });
 
+Route::get('/pengesahan', function () {
+    return view('pengesahanpermohonan');
+});
+
 Route::get('/layout', function () {
     return view('layout');
 });
