@@ -25,6 +25,13 @@ Route::get('/paparan', function () {
     return view('paparanpermohonan');
 });
 
+Route::get('/semakan', function () {
+    return view('semakanpermohonan');
+});
+
+Route::get('/paparansemak', function () {
+    return view('paparansemakpermohonan');
+});
 
 Route::get('/layout', function () {
     return view('layout');

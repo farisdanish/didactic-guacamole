@@ -19,8 +19,8 @@
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN A : MAKLUMAT PERUMAHAN</b></h5></div>
                 <div class="container row justify-content-center">
-                    <div class="form-group row mt-3 mb-3 w-50">
-                        <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
+                    <div class="form-group row mt-3 mb-3 w-75">
+                        <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB :</b></label>
                         <div class="col-sm-10">
                             <select class="form-select" id="namajkdb" name="name" aria-label="namajkdb-selector">
                                 <option disabled selected value>Pilih Nama JKDB</option>
@@ -30,40 +30,40 @@
                     </div>
                 </div>
                 <div class="container row justify-content-center">
-                    <div class="form-group row mb-3 w-50">
-                        <label for="negeri" class="col-sm-2 col-form-label"><b>Negeri:</b></label>
+                    <div class="form-group row mb-3 w-75">
+                        <label for="negeri" class="col-sm-2 col-form-label"><b>Negeri :</b></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="negeri" name="negeri">
                         </div>
                     </div>
                 </div>
                 <div class="container row justify-content-center">
-                    <div class="form-group row mb-3 w-50">
-                        <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah:</b></label>
+                    <div class="form-group row mb-3 w-75">
+                        <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="daerah" name="daerah">
                         </div>
                     </div>
                 </div>
                 <div class="container row justify-content-center">
-                    <div class="form-group row mb-3 w-50">
-                        <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen:</b></label>
+                    <div class="form-group row mb-3 w-75">
+                        <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="parlimen" name="parlimen">
                         </div>
                     </div>
                 </div>
                 <div class="container row justify-content-center">
-                    <div class="form-group row mb-3 w-50">
-                        <label for="dun" class="col-sm-2 col-form-label"><b>DUN:</b></label>
+                    <div class="form-group row mb-3 w-75">
+                        <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="dun" name="dun">
                         </div>
                     </div>
                 </div>
                 <div class="container row justify-content-center">
-                    <div class="form-group row mb-3 w-50">
-                        <label for="jawatan" class="col-sm-2 col-form-label"><b>Jawatan:</b></label>
+                    <div class="form-group row mb-3 w-75">
+                        <label for="jawatan" class="col-sm-2 col-form-label"><b>Jawatan :</b></label>
                         <div class="col-sm-10">
                             <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan-selector">
                                 <option disabled selected value>Pilih Jawatan</option>
@@ -77,70 +77,70 @@
             <div class="container">
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN B : MAKLUMAT PEMOHON</b></h5></div>
                 <div class="form-group row mt-3 mb-3">
-                    <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh:</b></label>
+                    <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="namapenuh" name="namapenuh">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP:</b></label>
+                    <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nomIC" name="nomIC">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <div class="row col-sm-9">
-                        <label for="tarikhlahir" class="col-sm-3 col-form-label"><b>Tarikh Lahir:</b></label>
+                        <label for="tarikhlahir" class="col-sm-3 col-form-label"><b>Tarikh Lahir :</b></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="tarikhlahir" name="tarikhlahir">
+                            <input type="date" class="form-control" id="tarikhlahir" name="tarikhlahir">
                         </div>
                     </div>
                     <div class="row col-sm-3">
-                        <label for="umur" class="col-sm-2 col-form-label"><b>Umur:</b></label>
-                        <div class="col-sm-10">
+                        <label for="umur" class="col-sm-3 col-form-label"><b>Umur:</b></label>
+                        <div class="col-sm-9">
                             <input type="text" class="form-control" id="umur" name="umur">
                         </div>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="bangsa" class="col-sm-2 col-form-label"><b>Bangsa:</b></label>
+                    <label for="bangsa" class="col-sm-2 col-form-label"><b>Bangsa :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="bangsa" name="bangsa">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin:</b></label>
+                    <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin :</b></label>
                     <div class="col-sm-10">
                         <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon:</b></label>
+                    <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="numPhone" name="numPhone">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="email" class="col-sm-2 col-form-label"><b>Email:</b></label>
+                    <label for="email" class="col-sm-2 col-form-label"><b>Email :</b></label>
                     <div class="col-sm-10">
                         <input type="email" class="form-control" id="email" name="email">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="namaBank" class="col-sm-2 col-form-label"><b>Nama & No Akaun Bank:</b></label>
+                    <label for="namaBank" class="col-sm-2 col-form-label"><b>Nama & No Akaun Bank :</b></label>
                     <div class="col-sm-10 mb-3">
                         <input type="text" class="form-control mb-1" id="namaBank" name="namaBank">
                         <input type="text" class="form-control" id="noAkaunBank" name="noAkaunBank">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="lampiranBank" class="col-sm-2 col-form-label"><b>Lampiran Bank:</b></label>
+                    <label for="lampiranBank" class="col-sm-2 col-form-label"><b>Lampiran Bank :</b></label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control" id="lampiranBank" name="lampiranBank">
                     </div>
                 </div>
                 <div class="form-group row mb-3">
-                    <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan yang diwakili:</b></label>
+                    <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan yang diwakili :</b></label>
                     <div class="col-sm-10 mb-3">
                         <input type="text" class="form-control mb-1" id="partiKomponenKerajaan" name="partiKomponenKerajaan">
                     </div>
@@ -155,25 +155,25 @@
                             <tr>
                                 <td width="10%">
                                     <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Penjawat Awam">
-                                    <label for="penjawatAwam"><h6>Penjawat Awam</h6></label>
+                                    <label for="pekerjaan"><h6>Penjawat Awam</h6></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="10%">
                                     <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Penjawat Swasta">
-                                    <label for="penjawatAwam"><h6>Penjawat Swasta</h6></label>
+                                    <label for="pekerjaan"><h6>Penjawat Swasta</h6></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="10%">
                                     <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Bekerja Sendiri">
-                                    <label for="penjawatAwam"><h6>Bekerja Sendiri</h6></label>
+                                    <label for="pekerjaan"><h6>Bekerja Sendiri</h6></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="10%">
                                     <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Suri Rumah/Tidak Bekerja/Pesara">
-                                    <label for="penjawatAwam"><h6>Suri Rumah/ Tidak Bekerja / Pesara</h6></label>
+                                    <label for="pekerjaan"><h6>Suri Rumah/ Tidak Bekerja / Pesara</h6></label>
                                 </td>
                             </tr>
                         </table>
@@ -324,4 +324,24 @@
 @endsection
 
 @section('scripts')
+<script>  
+document.addEventListener("DOMContentLoaded", function() {
+    $("#tarikhlahir").change(function(){
+        var dob = $("#tarikhlahir").val();
+    
+        if(dob != null || dob != ""){
+            $("#umur").val(getAge(dob));
+        }
+    });
+
+    function getAge(birth) {
+        ageMS = Date.parse(Date()) - Date.parse(birth);
+        age = new Date();
+        age.setTime(ageMS);
+        ageYear = age.getFullYear() - 1970;
+
+        return ageYear;
+    }
+});
+</script> 
 @endsection
