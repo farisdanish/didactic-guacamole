@@ -25,7 +25,7 @@
             <div class="container mb-3 mt-3 grid_table">
                 <div><b>Nama Penuh</b>&nbsp;</div><div class="mb-3">&ensp;MUHD FARIS DANISH BIN ANTONI</div>
                 <div><b>No. KP</b>&nbsp;</div><div class="mb-3">&ensp;99120312****</div>
-                <div><b>Tarikh Lahir</b>&nbsp;</div><div class="mb-3">&ensp;03/12/1999 (25 Tahun)</div>
+                <div><b>Tarikh Lahir</b>&nbsp;</div><div class="mb-3">&ensp;03/12/1999 (24 Tahun)</div>
                 <div><b>Bangsa</b>&nbsp;</div><div class="mb-3">&ensp;Dusun</div>
                 <div><b>Alamat Mastautin</b>&nbsp;</div>
                 <div class="mb-3">
