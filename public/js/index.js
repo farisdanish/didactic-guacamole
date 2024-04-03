@@ -38,7 +38,6 @@ function nextPrev(n) {
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
         //...the form gets submitted:
-        document.getElementById("nextBtn").setAttribute("data-toggle","confirmation"); //should make the button ask user for confirmation but not working
         document.getElementById("nextBtn").setAttribute("type","submit");
         document.getElementById("borang-ejkdb").submit();
         return false;
