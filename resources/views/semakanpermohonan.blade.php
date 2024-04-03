@@ -215,8 +215,26 @@
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
-            <button type="button" class="btn btn-success" id="disemakBtn" onclick="">Disemak</button>
-            <button type="button" class="btn btn-danger" id="dikembaliBtn" onclick="">Dikembalikan</button>
+                <button type="button" class="btn btn-success" id="disemakBtn" data-bs-toggle="modal" data-bs-target="#confirm-semakan">Disemak</button>
+                <button type="button" class="btn btn-danger" id="dikembaliBtn" onclick="">Dikembalikan</button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="confirm-semakan" tabindex="-1" aria-labelledby="confirmSemakanModelLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirm-semakan">Sahkan Semakan Permohonan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Sahkan Semakan Permohonan ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary">Disemak</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
@@ -225,4 +243,11 @@
 @endsection
 
 @section('scripts')
+<script>
+var myModal = document.getElementById('exampleModal')
+
+myModal.addEventListener('shown.bs.modal', function () {
+    myInput.focus()
+})
+</script>
 @endsection

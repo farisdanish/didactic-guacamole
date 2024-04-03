@@ -337,8 +337,26 @@
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
-            <button type="button" class="btn btn-success" id="sahBtn" onclick="">Disahkan</button>
-            <button type="button" class="btn btn-danger" id="tolakBtn" onclick="">Ditolak</button>
+                <button type="button" class="btn btn-success" id="disemakBtn" data-bs-toggle="modal" data-bs-target="#confirm-pengesahan">Disahkan</button>
+                <button type="button" class="btn btn-danger" id="dikembaliBtn" onclick="">Ditolak</button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="confirm-pengesahan" tabindex="-1" aria-labelledby="confirmPengesahanModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirm-pengesahan">Sahkan Permohonan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Sahkan Permohonan ini?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary">Disahkan</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
