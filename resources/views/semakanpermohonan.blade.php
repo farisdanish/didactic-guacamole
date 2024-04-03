@@ -4,7 +4,7 @@
 
 @section('main-content')
 <div class="container applicationFormHeading">
-    <h1>Paparan Borang Permohonan</h1>
+    <h1>Semakan Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">
     <form id="borang_ejkdb" action="/hantar" method="post">
