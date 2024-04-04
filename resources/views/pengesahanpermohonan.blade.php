@@ -73,7 +73,7 @@
                 </div>
             </div> --}}
             <div class="container justify-content-center mb-3 mt-3 grid_table">
-                <div><b>Nama JKDB</b>&nbsp;</div><div class="mb-3">&ensp;Taman Semarak</div>
+                <div><b>Nama JKDB</b>&nbsp;</div><div class="mb-3">&ensp;Kg. Tengkurus Abadi</div>
                 <div><b>Negeri</b>&nbsp;</div><div class="mb-3">&ensp;Sabah</div>
                 <div><b>Daerah</b>&nbsp;</div><div class="mb-3">&ensp;Kota Belud</div>
                 <div><b>Parlimen</b>&nbsp;</div><div class="mb-3">&ensp;P169 Kota Belud</div>

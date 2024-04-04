@@ -324,7 +324,7 @@
 @endsection
 
 @section('scripts')
-<script>  
+<script>
 document.addEventListener("DOMContentLoaded", function() {
     $("#tarikhlahir").change(function(){
         var dob = $("#tarikhlahir").val();
