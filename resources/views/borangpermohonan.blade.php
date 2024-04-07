@@ -230,7 +230,7 @@
                 <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN E : MAKLUMAT KESIHATAN</b></h5></div>
                 <div class="container row justify-content-center mt-3 mb-3">
                     <div class="row text-center">
-                        <h6>Saya menghidapi/ <u>tidak menghidapi</u> masalah kesihatan yang serius seperti berikut</h6>
+                        <h6>Saya menghidapi/tidak menghidapi masalah kesihatan yang serius seperti berikut</h6>
                     </div>
                     <div class="form-group row mb-3">
                         <label for="penyakit1" class="col-sm-2 col-form-label"><b>Penyakit(i):</b></label>
