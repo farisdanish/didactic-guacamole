@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s<!DOCTYPE html>
 <html>
 <head>
   <title>@yield('title', 'eJKDB - Home')</title>
@@ -12,6 +12,8 @@
   <link rel="shortcut icon" href="{{ asset('/favicon.png') }}">
 
   <!-- plugin css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ asset('assets/plugins/@mdi/font/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') }}">
   <!-- end plugin css -->
@@ -41,8 +43,8 @@
   </div>
 
   <!-- base js -->
-  <link rel="text/javascript" href="{{ asset('js/app.js') }}">
-  <link rel="text/javascript" href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}">
+  <script rel="text/javascript" src="{{ asset('js/app.js') }}"></script>
+  <script rel="text/javascript" src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -53,11 +55,11 @@
   <!-- end plugin js -->
 
   <!-- common js -->
-  <link rel="text/javascript" href="{{ asset('assets/js/off-canvas.js') }}">
-  <link rel="text/javascript" href="{{ asset('assets/js/hoverable-collapse.js') }}">
-  <link rel="text/javascript" href="{{ asset('assets/js/misc.js') }}">
-  <link rel="text/javascript" href="{{ asset('assets/js/settings.js') }}">
-  <link rel="text/javascript" href="{{ asset('assets/js/todolist.js') }}">
+  <script rel="text/javascript" src="{{ asset('assets/js/off-canvas.js') }}"></script>
+  <script rel="text/javascript" src="{{ asset('assets/js/hoverable-collapse.js') }}"></script>
+  <script rel="text/javascript" src="{{ asset('assets/js/misc.js') }}"></script>
+  <script rel="text/javascript" src="{{ asset('assets/js/settings.js') }}"></script>
+  <script rel="text/javascript" src="{{ asset('assets/js/todolist.js') }}"></script>
   <!-- end common js -->
 
   @stack('custom-scripts')

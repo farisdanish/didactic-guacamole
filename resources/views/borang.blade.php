@@ -15,7 +15,7 @@
   <form id="borang_ejkdb" action="/submitpermohonan" method="post">
       @csrf
       <!-- Circles which indicates the steps of the form: -->
-      <div style="text-align:center;margin-top:40px;margin-bottom:40px;">
+      <div style="text-align:center; margin-bottom:40px;">
           <span class="step">BAHAGIAN A,B,C</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path style="fill: gray" d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
           <span class="step">BAHAGIAN D,E,F</span>
@@ -25,7 +25,7 @@
               <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN A : MAKLUMAT PERUMAHAN</b></h5></div>
               <div class="container row justify-content-center">
                   <div class="form-group row mt-3 mb-3 w-75">
-                      <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB :</b></label>
+                      <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                       <div class="col-sm-10">
                           <select class="form-select" id="namajkdb" name="name" aria-label="namajkdb-selector">
                               <option disabled selected value>Pilih Nama JKDB</option>
@@ -328,13 +328,13 @@
 @endsection
 
 @push('plugin-scripts')
-<link rel="text/javascript" href="{{ asset('/assets/plugins/chartjs/chart.min.js') }}">
-<link rel="text/javascript" href="{{ asset('/assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}">
+<script src="{{ asset('/assets/plugins/chartjs/chart.min.js') }}"></script>
+<script src="{{ asset('/assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 @endpush
 
 @push('custom-scripts')
-<link rel="text/javascript" href="{{ asset('/assets/js/dashboard.js') }}">
-<link rel="text/javascript" href="{{ asset('/js/borang.js') }}">
+<script src="{{ asset('/assets/js/dashboard.js') }}"></script>
+<script src="{{ asset('/js/borang.js') }} "></script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
       $("#tarikhlahir").change(function(){
