@@ -39,358 +39,358 @@
         </button>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['/']) }}">
-      <a class="nav-link" href="{{ url('/') }}">
+    <li class="nav-item">
+      <a class="nav-link" href="">
         <i class="menu-icon mdi mdi-television"></i>
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
-    <li class="nav-item {{ active_class(['basic-ui/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="{{ is_active_route(['basic-ui/*']) }}" aria-controls="basic-ui">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#basic-ui" aria-expanded="" aria-controls="basic-ui">
         <i class="menu-icon mdi mdi-dna"></i>
         <span class="menu-title">Basic UI Elements</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['basic-ui/*']) }}" id="basic-ui">
+      <div class="collapse " id="basic-ui">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['basic-ui/accordions']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/accordions') }}">Accordions</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Accordions</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/buttons']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/buttons') }}">Buttons</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Buttons</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/badges']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/badges') }}">Badges</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Badges</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/breadcrumbs']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/breadcrumbs') }}">Breadcrumbs</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Breadcrumbs</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/dropdowns']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/dropdowns') }}">Dropdowns</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Dropdowns</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/modals']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/modals') }}">Modals</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Modals</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/progress-bar']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/progress-bar') }}">Progress Bar</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Progress Bar</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/pagination']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/pagination') }}">Pagination</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Pagination</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/tabs']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/tabs') }}">Tabs</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Tabs</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/typography']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/typography') }}">Typography</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Typography</a>
           </li>
-          <li class="nav-item {{ active_class(['basic-ui/tooltips']) }}">
-            <a class="nav-link" href="{{ url('/basic-ui/tooltips') }}">Tooltips</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Tooltips</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['advanced-ui/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#advanced-ui" aria-expanded="{{ is_active_route(['advanced-ui/*']) }}" aria-controls="advanced-ui">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#advanced-ui" aria-expanded="" aria-controls="advanced-ui">
         <i class="menu-icon mdi mdi-cards-variant"></i>
         <span class="menu-title">Advanced UI Elements</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['advanced-ui/*']) }}" id="advanced-ui">
+      <div class="collapse " id="advanced-ui">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['advanced-ui/dragula']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/dragula') }}">Dragula</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Dragula</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/clipboard']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/clipboard') }}">Clipboard</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Clipboard</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/context-menu']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/context-menu') }}">Context Menu</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Context Menu</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/popups']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/popups') }}">Popups</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Popups</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/sliders']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/sliders') }}">Sliders</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Sliders</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/carousel']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/carousel') }}">Carousel</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Carousel</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/loaders']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/loaders') }}">Loaders</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Loaders</a>
           </li>
-          <li class="nav-item {{ active_class(['advanced-ui/tree-view']) }}">
-            <a class="nav-link" href="{{ url('/advanced-ui/tree-view') }}">Tree View</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Tree View</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['forms/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#forms" aria-expanded="{{ is_active_route(['forms/*']) }}" aria-controls="forms">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#forms" aria-expanded="" aria-controls="forms">
         <i class="menu-icon mdi mdi-format-list-bulleted"></i>
         <span class="menu-title">Forms</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['forms/*']) }}" id="forms">
+      <div class="collapse " id="forms">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['forms/basic-elements']) }}">
-            <a class="nav-link" href="{{ url('/forms/basic-elements') }}">Basic Elements</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Basic Elements</a>
           </li>
-          <li class="nav-item {{ active_class(['forms/advanced-elements']) }}">
-            <a class="nav-link" href="{{ url('/forms/advanced-elements') }}">Advanced Elements</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Advanced Elements</a>
           </li>
-          <li class="nav-item {{ active_class(['forms/form-validation']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/forms/form-validation') }}">Validation</a>
           </li>
-          <li class="nav-item {{ active_class(['forms/step-wizard']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/forms/step-wizard') }}">Step Wizard</a>
           </li>
-          <li class="nav-item {{ active_class(['forms/wizard']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/forms/wizard') }}">Wizard</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['editors/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="{{ is_active_route(['editors/*']) }}" aria-controls="editors">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#editors" aria-expanded="" aria-controls="editors">
         <i class="menu-icon mdi mdi-code-tags"></i>
         <span class="menu-title">Editors</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['editors/*']) }}" id="editors">
+      <div class="collapse " id="editors">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['editors/text-editor']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/editors/text-editor') }}">Text Editor</a>
           </li>
-          <li class="nav-item {{ active_class(['editors/code-editor']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/editors/code-editor') }}">Code Editor</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['charts/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="{{ is_active_route(['charts/*']) }}" aria-controls="charts">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="" aria-controls="charts">
         <i class="menu-icon mdi mdi-chart-line"></i>
         <span class="menu-title">Charts</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['charts/*']) }}" id="charts">
+      <div class="collapse " id="charts">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['charts/chartjs']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/chartjs') }}">Chart Js</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/morris']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/morris') }}">Morris</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/flot']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/flot') }}">Flot</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/google-charts']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/google-charts') }}">Google Charts</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/sparklinejs']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/sparklinejs') }}">Sparkline Js</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/c3-charts']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/c3-charts') }}">C3 Charts</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/chartist']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/chartist') }}">Chartist</a>
           </li>
-          <li class="nav-item {{ active_class(['charts/justgage']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/charts/justgage') }}">JustGage</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['tables/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="{{ is_active_route(['tables/*']) }}" aria-controls="tables">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="" aria-controls="tables">
         <i class="menu-icon mdi mdi-table-large"></i>
         <span class="menu-title">Tables</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['tables/*']) }}" id="tables">
+      <div class="collapse " id="tables">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['tables/basic-table']) }}">
-            <a class="nav-link" href="{{ url('/tables/basic-table') }}">Basic Table</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Basic Table</a>
           </li>
-          <li class="nav-item {{ active_class(['tables/data-table']) }}">
-            <a class="nav-link" href="{{ url('/tables/data-table') }}">Data Table</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Data Table</a>
           </li>
-          <li class="nav-item {{ active_class(['tables/js-grid']) }}">
-            <a class="nav-link" href="{{ url('/tables/js-grid') }}">Js-grid</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Js-grid</a>
           </li>
-          <li class="nav-item {{ active_class(['tables/sortable-table']) }}">
-            <a class="nav-link" href="{{ url('/tables/sortable-table') }}">Sortable Table</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="">Sortable Table</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['notifications']) }}">
+    <li class="nav-item ">
       <a class="nav-link" href="{{ url('notifications') }}">
         <i class="menu-icon mdi mdi-bell-outline"></i>
         <span class="menu-title">Notifications</span>
       </a>
     </li>
-        <li class="nav-item {{ active_class(['icons/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="{{ is_active_route(['icons/*']) }}" aria-controls="icons">
+        <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="" aria-controls="icons">
         <i class="menu-icon mdi mdi-emoticon-happy-outline"></i>
         <span class="menu-title">Icons</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['icons/*']) }}" id="icons">
+      <div class="collapse " id="icons">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['icons/material']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/icons/material') }}">Material</a>
           </li>
-          <li class="nav-item {{ active_class(['icons/flag-icons']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/icons/flag-icons') }}">Flag Icons</a>
           </li>
-          <li class="nav-item {{ active_class(['icons/font-awesome']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/icons/font-awesome') }}">Font Awesome</a>
           </li>
-          <li class="nav-item {{ active_class(['icons/simple-line-icons']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/icons/simple-line-icons') }}">Simple Line Icons</a>
           </li>
-          <li class="nav-item {{ active_class(['icons/themify']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/icons/themify') }}">Themify</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['maps/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#maps" aria-expanded="{{ is_active_route(['maps/*']) }}" aria-controls="maps">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#maps" aria-expanded="" aria-controls="maps">
         <i class="menu-icon mdi mdi-map-marker-outline"></i>
         <span class="menu-title">Maps</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['maps/*']) }}" id="maps">
+      <div class="collapse " id="maps">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['maps/vector-map']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/maps/vector-map') }}">Vector Map</a>
           </li>
-          <li class="nav-item {{ active_class(['maps/mapael']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/maps/mapael') }}">Mapael</a>
           </li>
-          <li class="nav-item {{ active_class(['maps/google-maps']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/maps/google-maps') }}">Google Maps</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['user-pages/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#user-pages" aria-expanded="{{ is_active_route(['user-pages/*']) }}" aria-controls="user-pages">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#user-pages" aria-expanded="" aria-controls="user-pages">
         <i class="menu-icon mdi mdi-lock-outline"></i>
         <span class="menu-title">User Pages</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['user-pages/*']) }}" id="user-pages">
+      <div class="collapse " id="user-pages">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['user-pages/login']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/user-pages/login') }}">Login</a>
           </li>
-          <li class="nav-item {{ active_class(['user-pages/login-2']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/user-pages/login-2') }}">Login 2</a>
           </li>
-          <li class="nav-item {{ active_class(['user-pages/multi-step-login']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/user-pages/multi-step-login') }}">Multi Step Logins</a>
           </li>
-          <li class="nav-item {{ active_class(['user-pages/register']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/user-pages/register') }}">Register</a>
           </li>
-          <li class="nav-item {{ active_class(['user-pages/register-2']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/user-pages/register-2') }}">Register 2</a>
           </li>
-          <li class="nav-item {{ active_class(['user-pages/lock-screen']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/user-pages/lock-screen') }}">Lock Screen</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['error-pages/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#error-pages" aria-expanded="{{ is_active_route(['error-pages/*']) }}" aria-controls="error-pages">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#error-pages" aria-expanded="" aria-controls="error-pages">
         <i class="menu-icon mdi mdi-information-outline"></i>
         <span class="menu-title">Error Pages</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['error-pages/*']) }}" id="error-pages">
+      <div class="collapse " id="error-pages">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['error-pages/error-404']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/error-pages/error-404') }}">404</a>
           </li>
-          <li class="nav-item {{ active_class(['error-pages/error-500']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/error-pages/error-500') }}">500</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['general-pages/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="{{ is_active_route(['general-pages/*']) }}" aria-controls="general-pages">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="" aria-controls="general-pages">
         <i class="menu-icon mdi mdi-bookmark-outline"></i>
         <span class="menu-title">General Pages</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['general-pages/*']) }}" id="general-pages">
+      <div class="collapse " id="general-pages">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['general-pages/blank-page']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/blank-page') }}">Blank Page</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/landing-page']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/landing-page') }}">Landing Page</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/profile']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/profile') }}">Profile</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/email-templates']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/email-templates') }}">Email Templates</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/faq']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/faq') }}">FAQ</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/faq-2']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/faq-2') }}">FAQ 2</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/news-grid']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/news-grid') }}">News Grid</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/timeline']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/timeline') }}">Timeline</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/search-results']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/search-results') }}">Search Results</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/portfolio']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/portfolio') }}">Portfolio</a>
           </li>
-          <li class="nav-item {{ active_class(['general-pages/user-listing']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/general-pages/user-listing') }}">User Listing</a>
           </li>
         </ul>
       </div>
     </li>
-    <li class="nav-item {{ active_class(['ecommerce/*']) }}">
-      <a class="nav-link" data-toggle="collapse" href="#ecommerce" aria-expanded="{{ is_active_route(['ecommerce/*']) }}" aria-controls="ecommerce">
+    <li class="nav-item ">
+      <a class="nav-link" data-toggle="collapse" href="#ecommerce" aria-expanded="" aria-controls="ecommerce">
         <i class="menu-icon mdi mdi-cart-outline"></i>
         <span class="menu-title">Ecommerce</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse {{ show_class(['ecommerce/*']) }}" id="ecommerce">
+      <div class="collapse " id="ecommerce">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item {{ active_class(['ecommerce/invoice']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/ecommerce/invoice') }}">Invoice</a>
           </li>
-          <li class="nav-item {{ active_class(['ecommerce/invoice-2']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/ecommerce/invoice-2') }}">Invoice 2</a>
           </li>
-          <li class="nav-item {{ active_class(['ecommerce/pricing']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/ecommerce/pricing') }}">Pricing</a>
           </li>
-          <li class="nav-item {{ active_class(['ecommerce/product-catalogue']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/ecommerce/product-catalogue') }}">Product Catalogue</a>
           </li>
-          <li class="nav-item {{ active_class(['ecommerce/project-list']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/ecommerce/project-list') }}">Project List</a>
           </li>
-          <li class="nav-item {{ active_class(['ecommerce/orders']) }}">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ url('/ecommerce/orders') }}">Orders</a>
           </li>
         </ul>

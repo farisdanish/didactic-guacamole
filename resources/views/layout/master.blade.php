@@ -12,14 +12,14 @@
   <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 
   <!-- plugin css -->
-  {!! Html::style('assets/plugins/@mdi/font/css/materialdesignicons.min.css') !!}
-  {!! Html::style('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') !!}
+  <link rel="stylesheet" href="{{ asset('assets/plugins/@mdi/font/css/materialdesignicons.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') }}">
   <!-- end plugin css -->
 
   @stack('plugin-styles')
 
   <!-- common css -->
-  {!! Html::style('css/app.css') !!}
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <!-- end common css -->
 
   @stack('style')
@@ -41,8 +41,8 @@
   </div>
 
   <!-- base js -->
-  {!! Html::script('js/app.js') !!}
-  {!! Html::script('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') !!}
+  <link rel="text/javascript" href="{{ asset('js/app.js') }}">
+  <link rel="text/javascript" href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}">
   <!-- end base js -->
 
   <!-- plugin js -->
@@ -50,11 +50,11 @@
   <!-- end plugin js -->
 
   <!-- common js -->
-  {!! Html::script('assets/js/off-canvas.js') !!}
-  {!! Html::script('assets/js/hoverable-collapse.js') !!}
-  {!! Html::script('assets/js/misc.js') !!}
-  {!! Html::script('assets/js/settings.js') !!}
-  {!! Html::script('assets/js/todolist.js') !!}
+  <link rel="text/javascript" href="{{ asset('assets/js/off-canvas.js') }}">
+  <link rel="text/javascript" href="{{ asset('assets/js/hoverable-collapse.js') }}">
+  <link rel="text/javascript" href="{{ asset('assets/js/misc.js') }}">
+  <link rel="text/javascript" href="{{ asset('assets/js/settings.js') }}">
+  <link rel="text/javascript" href="{{ asset('assets/js/todolist.js') }}">
   <!-- end common js -->
 
   @stack('custom-scripts')
