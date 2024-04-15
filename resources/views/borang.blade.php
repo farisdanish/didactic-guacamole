@@ -198,45 +198,35 @@
         <div class="container">
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN D : MAKLUMAT PENDIDIKAN</b></h5></div>
             <div class="container row justify-content-center">
-                <table class="table mt-3 mb-3" id="tablependidikan">
-                    <tr>
-                        <th>#</th>
-                        <th>TAHAP PENDIDIKAN TERTINGGI</th>
-                        <th>TANDAKAN (/) YANG BERKENAAN</th>
-                        <th>LAMPIRAN</th>
-                    </tr>
-                    <tr>
-                        <td><b>1</b></td>
-                        <td>SPM ATAU SETARAF</td>
-                        <td><input type="checkbox" id="spmsetaraf" name="spmsetaraf" value="Yes"></td>
-                        <td><input type="file" class="form-control" id="sijilspmsetaraf" name="sijilspmsetaraf"></td>
-                    </tr>
-                    <tr>
-                        <td><b>2</b></td>
-                        <td>DIPLOMA</td>
-                        <td><input type="checkbox" id="diploma" name="diploma" value="Yes"></td>
-                        <td><input type="file" class="form-control" id="sijildiploma" name="sijildiploma"></td>
-                    </tr>
-                    <tr>
-                        <td><b>3</b></td>
-                        <td>IIJAZAH</td>
-                        <td><input type="checkbox" id="ijazah" name="ijazah" value="Yes"></td>
-                        <td><input type="file" class="form-control" id="sijilijazah" name="sijilijazah"></td>
-                    </tr>
-                    <tr>
-                        <td><b>4</b></td>
-                        <td>LAIN-LAIN</td>
-                        <td><input type="checkbox" id="lain2" name="lain2" value="Yes"></td>
-                        <td><input type="file" class="form-control" id="lain2sijil" name="lain2sijil"></td>
-                    </tr>
-                </table>
+                <div class="form-group row mt-3 mb-3 w-100">
+                    <label for="namajkdb" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
+                    <div class="col-sm-10">
+                        <select class="form-select" id="namajkdb" name="name" aria-label="namajkdb-selector">
+                            <option disabled selected value>Pilih Tahap Pendidikan Tertinggi Anda</option>
+                            <option value="1">SPM ATAU SETARAF</option>
+                            <option value="2">DIPLOMA</option>
+                            <option value="3">IIJAZAH</option>
+                            <option value="4">LAIN-LAIN</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mt-3 mb-3 w-75">
+                    <input type="file" class="form-control" id="sijilpendidikantertinggi" name="sijilpendidikantertinggi">
+                </div>
             </div>
         </div>
         <div class="container">
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN E : MAKLUMAT KESIHATAN</b></h5></div>
             <div class="container row justify-content-center mt-3 mb-3">
                 <div class="row text-center">
-                    <h6>Saya menghidapi/tidak menghidapi masalah kesihatan yang serius seperti berikut</h6>
+                    <h6>Saya 
+                        <label class="radio-inline">
+                            <input type="radio" name="haveIllness" value="yes" checked> menghidapi/
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="haveIllness" value="no"> tidak menghidapi
+                        </label>
+                    masalah kesihatan yang serius seperti berikut</h6>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="penyakit1" class="col-sm-2 col-form-label"><b>Penyakit(i):</b></label>
