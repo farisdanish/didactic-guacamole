@@ -25,7 +25,7 @@ s<!DOCTYPE html>
 
   @stack('style')
 </head>
-<body data-base-url="{{url('/')}}">
+<body data-base-url="{{url('/')}}" class="sidebar-dark">
 
   <div class="container-scroller" id="app">
     @include('layout.header')

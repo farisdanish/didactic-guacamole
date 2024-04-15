@@ -9,10 +9,10 @@
     <div class="d-flex align-items-center justify-content-between border-bottom">
       <p class="settings-heading font-weight-bold border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Template Skins</p>
     </div>
-    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+    <div class="sidebar-bg-options" id="sidebar-light-theme">
       <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
     </div>
-    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+    <div class="sidebar-bg-options selected" id="sidebar-dark-theme">
       <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
     </div>
     <p class="settings-heading font-weight-bold mt-2">Header Skins</p>
