@@ -201,7 +201,7 @@
                 <div class="form-group row mt-3 mb-3 w-100">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="namajkdb" name="name" aria-label="namajkdb-selector">
+                        <select class="form-select" id="pendidikantertinggi-selector" name="pendidikantertinggi-selector" aria-label="pendidikantertinggi-selector">
                             <option disabled selected value>Pilih Tahap Pendidikan Tertinggi Anda</option>
                             <option value="1">SPM ATAU SETARAF</option>
                             <option value="2">DIPLOMA</option>
@@ -211,6 +211,7 @@
                     </div>
                 </div>
                 <div class="form-group row mt-3 mb-3 w-75">
+                    <label for="sijilpendidikantertinggi"><b>*Sila muatnaik sijil untuk tahap pendidikan tertinggi anda</b></label>
                     <input type="file" class="form-control" id="sijilpendidikantertinggi" name="sijilpendidikantertinggi">
                 </div>
             </div>
