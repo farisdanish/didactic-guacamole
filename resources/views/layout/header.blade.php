@@ -10,7 +10,15 @@
       <span class="mdi mdi-menu"></span>
     </button>
     <ul class="navbar-nav navbar-nav-left header-links">
-      
+      <li class="nav-item d-none d-xl-flex">
+        <a href="#" class="nav-link">Senarai Permohonan {{-- <span class="badge badge-primary ml-1">New</span> --}}
+        </a>
+      </li>
+      <li class="nav-item d-none d-xl-flex">
+        <a href="#" class="nav-link">Borang Permohonan {{-- <span class="badge badge-primary ml-1">New</span> --}}
+        </a>
+      </li>
+    </ul>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item dropdown">
         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
