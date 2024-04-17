@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('jawatanjkdb', function (Blueprint $table) {
-            $table->bigIncrements('kodjawatan')->primary();
+            $table->increments('kodjawatan');
             $table->char('namajawatan',100);
             $table->char('daftar',12);
             $table->dateTime('tardaftar');

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('parti', function (Blueprint $table) {
-            $table->bigIncrements('kodparti')->primary();
+            $table->increments('kodparti');
             $table->char('namaparti',100);
             $table->char('daftar',12);
             $table->dateTime('tardaftar');
