@@ -5,6 +5,9 @@
 @push('plugin-styles')
 {{-- <link rel="stylesheet" href="{{ asset('/assets/plugins/plugin.css') }}"> --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 <link rel="stylesheet" href="{{ asset('/css/borang-style.css') }}">
 @endpush
 
@@ -28,9 +31,11 @@
                 <div class="form-group row mt-3 mb-3 w-75">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="namajkdb" name="name" aria-label="namajkdb-selector">
-                            <option disabled selected value>Pilih Nama JKDB</option>
-                            <option value="1">Taman Semarak</option>
+                        <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb-selector" data-placeholder="Sila Pilih JKDB Anda">
+                            <option></option>
+                            @foreach ($jkdb as $key => $data)
+                            <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -39,7 +44,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="negeri" class="col-sm-2 col-form-label"><b>Negeri :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="negeri" name="negeri">
+                        <input type="text" class="form-control jkdb-info" id="negeri" name="negeri">
                     </div>
                 </div>
             </div>
@@ -47,7 +52,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="daerah" name="daerah">
+                        <input type="text" class="form-control jkdb-info" id="daerah" name="daerah">
                     </div>
                 </div>
             </div>
@@ -55,7 +60,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="parlimen" name="parlimen">
+                        <input type="text" class="form-control jkdb-info" id="parlimen" name="parlimen">
                     </div>
                 </div>
             </div>
@@ -63,7 +68,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="dun" name="dun">
+                        <input type="text" class="form-control jkdb-info" id="dun" name="dun">
                     </div>
                 </div>
             </div>
@@ -74,7 +79,8 @@
                         <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan-selector">
                             <option disabled selected value>Pilih Jawatan</option>
                             <option value="1">Pengerusi</option>
-                            <option value="2">Naib Pengerusi</option>
+                            <option value="2">Setiausaha</option>
+                            <option value="3">Ahli Jawatankuasa</option>
                         </select>
                     </div>
                 </div>
@@ -320,31 +326,38 @@
 @endsection
 
 @push('plugin-scripts')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('/assets/plugins/chartjs/chart.min.js') }}"></script>
 <script src="{{ asset('/assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @endpush
 
 @push('custom-scripts')
 <script src="{{ asset('/assets/js/dashboard.js') }}"></script>
 <script src="{{ asset('/js/borang.js') }} "></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      $("#tarikhlahir").change(function(){
-          var dob = $("#tarikhlahir").val();
-      
-          if(dob != null || dob != ""){
-              $("#umur").val(getAge(dob));
-          }
-      });
-  
-      function getAge(birth) {
-          ageMS = Date.parse(Date()) - Date.parse(birth);
-          age = new Date();
-          age.setTime(ageMS);
-          ageYear = age.getFullYear() - 1970;
-  
-          return ageYear;
-      }
-  });
+document.addEventListener("DOMContentLoaded", function() {
+    $("#tarikhlahir").change(function(){
+        var dob = $("#tarikhlahir").val();
+    
+        if(dob != null || dob != ""){
+            $("#umur").val(getAge(dob));
+        }
+    });
+
+    function getAge(birth) {
+        ageMS = Date.parse(Date()) - Date.parse(birth);
+        age = new Date();
+        age.setTime(ageMS);
+        ageYear = age.getFullYear() - 1970;
+
+        return ageYear;
+    }
+
+    $("#namajkdb").change(function(){
+        var jkdb_select = 
+        ubahMaklumatJKDB();
+    });
+});
 </script> 
 @endpush

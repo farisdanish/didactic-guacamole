@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('borang');
+    $jkdb = DB::table('jkdb')->get();
+
+    return view('borang', ['jkdb' => $jkdb]);
 });
 
 Route::get('/senaraipermohonan', function () {
