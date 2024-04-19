@@ -355,20 +355,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     var select = document.getElementById('namajkdb');
+
     function getDaerah(){
-
-    }
-
-    function getParlimen(){
-
-    }
-
-    function getDUN(){
+        var daerah = @json($daerah);
         
     }
 
+    function getParlimen(){
+        var parlimen = @json($parlimen);
+    }
+
+    function getDUN(){
+        var dun =@json($dun);
+    }
+
     select.change(function(){
-        ubahMaklumatJKDB(select, getJKDBData);
+        ubahMaklumatJKDB(select, getDaerah, getParlimen, getDUN);
     });
 });
 </script> 

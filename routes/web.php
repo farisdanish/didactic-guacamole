@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $jkdb = DB::table('jkdb')->get();
     $daerah = DB::table('daerah')->get();
-    $parlimen = DB::table('jkdb')->get();
-    $jkdb = DB::table('jkdb')->get();
+    $parlimen = DB::table('parlimen')->get();
+    $dun = DB::table('dun')->get();
 
-    return view('borang', ['jkdb' => $jkdb]);
+    return view('borang', ['jkdb' => $jkdb,'daerah' => $daerah,'parlimen' => $parlimen,'dun' => $dun]);
 });
 
 Route::get('/senaraipermohonan', function () {
