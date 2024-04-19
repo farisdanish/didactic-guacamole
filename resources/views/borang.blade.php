@@ -44,7 +44,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="negeri" class="col-sm-2 col-form-label"><b>Negeri :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="negeri" name="negeri">
+                        <input type="text" class="form-control jkdb-info" id="negeri" name="negeri" value="Sabah" readonly>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="daerah" name="daerah">
+                        <input type="text" class="form-control jkdb-info" id="daerah" name="daerah" readonly>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="parlimen" name="parlimen">
+                        <input type="text" class="form-control jkdb-info" id="parlimen" name="parlimen" readonly>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="dun" name="dun">
+                        <input type="text" class="form-control jkdb-info" id="dun" name="dun" readonly>
                     </div>
                 </div>
             </div>
@@ -354,9 +354,21 @@ document.addEventListener("DOMContentLoaded", function() {
         return ageYear;
     }
 
-    $("#namajkdb").change(function(){
-        var jkdb_select = 
-        ubahMaklumatJKDB();
+    var select = document.getElementById('namajkdb');
+    function getDaerah(){
+
+    }
+
+    function getParlimen(){
+
+    }
+
+    function getDUN(){
+        
+    }
+
+    select.change(function(){
+        ubahMaklumatJKDB(select, getJKDBData);
     });
 });
 </script> 

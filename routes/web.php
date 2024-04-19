@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $jkdb = DB::table('jkdb')->get();
+    $daerah = DB::table('daerah')->get();
+    $parlimen = DB::table('jkdb')->get();
+    $jkdb = DB::table('jkdb')->get();
 
     return view('borang', ['jkdb' => $jkdb]);
 });
