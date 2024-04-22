@@ -5,7 +5,6 @@
 @push('plugin-styles')
 {{-- <link rel="stylesheet" href="{{ asset('/assets/plugins/plugin.css') }}"> --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 <link rel="stylesheet" href="{{ asset('/css/borang-style.css') }}">
@@ -44,7 +43,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="negeri" class="col-sm-2 col-form-label"><b>Negeri :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="negeri" name="negeri" value="Sabah" readonly>
+                        <input type="text" class="form-control" id="negeri" name="negeri" value="Sabah" readonly>
                     </div>
                 </div>
             </div>
@@ -52,7 +51,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="daerah" name="daerah" readonly>
+                        <input type="text" class="form-control jkdb-info" id="daerah" name="daerah" value="" readonly>
                     </div>
                 </div>
             </div>
@@ -60,7 +59,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="parlimen" name="parlimen" readonly>
+                        <input type="text" class="form-control jkdb-info" id="parlimen" name="parlimen" value="" readonly>
                     </div>
                 </div>
             </div>
@@ -68,7 +67,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="dun" name="dun" readonly>
+                        <input type="text" class="form-control jkdb-info" id="dun" name="dun" value="" readonly>
                     </div>
                 </div>
             </div>
@@ -354,23 +353,54 @@ document.addEventListener("DOMContentLoaded", function() {
         return ageYear;
     }
 
-    var select = document.getElementById('namajkdb');
+    function ubahMaklumatJKDB(jkdb, daerah, parlimen, DUN) {
+        var elems = document.getElementsByClassName('jkdb-info'); //get all elements with "jkdb-info" class to be changed
 
-    function getDaerah(){
-        var daerah = @json($daerah);
-        
+        for (var i = 0; i < elems.length; i++) {
+            if (i == 0){
+                for (var i=0 ; i < daerah.list.length ; i++){
+                    if (daerah.list[i]["koddaerah"] == jkdb[5]) {
+                        elems[i].value = daerah[i];
+                    }
+                }
+            }else if (i == 1){
+                for (var i=0 ; i < parlimen.list.length ; i++){
+                    if (parlimen.list[i]["kodparlimen"] == 169) {
+                        elems[i].value = parlimen[i];
+                    }
+                }
+            }else if (i == 2){
+                for (var i=0 ; i < dun.list.length ; i++){
+                    if (dun.list[i]["koddun"] == 11) {
+                        elems[i].value = dun[i];
+                    }
+                }
+            }
+        }
+
+        var searchField = "name";
+        var searchVal = "my Name";
     }
 
-    function getParlimen(){
-        var parlimen = @json($parlimen);
+
+    function getJKDBData(id_jkdb){
+        var jkdb = @json($jkdb);
+        var jkdbData;
+        for (let i=0 ; i < jkdb.length ; i++){
+            if (jkdb[i].id_jkdb == id_jkdb) {
+                jkdbData = jkdb[i];
+                console.log(jkdb[i]);
+            }
+        }
+        return jkdbData;
     }
 
-    function getDUN(){
-        var dun =@json($dun);
-    }
-
-    select.change(function(){
-        ubahMaklumatJKDB(select, getDaerah, getParlimen, getDUN);
+    $('#namajkdb').on("change", function () { 
+        var data = getJKDBData($('#namajkdb').value);
+        var Daerah = @json($daerah);
+        var Parlimen = @json($parlimen);
+        var DUN = @json($dun);
+        ubahMaklumatJKDB(data, Daerah, Parlimen, DUN); 
     });
 });
 </script> 
