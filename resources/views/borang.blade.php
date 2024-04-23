@@ -213,7 +213,7 @@
                             <option disabled selected value>Pilih Tahap Pendidikan Tertinggi Anda</option>
                             <option value="1">SPM ATAU SETARAF</option>
                             <option value="2">DIPLOMA</option>
-                            <option value="3">IIJAZAH</option>
+                            <option value="3">IJAZAH</option>
                             <option value="4">LAIN-LAIN</option>
                         </select>
                     </div>

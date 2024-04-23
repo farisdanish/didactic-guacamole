@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BorangController extends Controller
+class PemohonController extends Controller
 {
     //
 }
