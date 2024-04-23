@@ -51,7 +51,8 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="daerah" name="daerah" value="" readonly>
+                        <input type="text" class="form-control jkdb-info" id="daerahView" name="daerahView" value="" readonly>
+                        <input type="hidden" class="form-control jkdb-info" id="daerah" name="daerah" value="">
                     </div>
                 </div>
             </div>
@@ -59,7 +60,8 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="parlimen" name="parlimen" value="" readonly>
+                        <input type="text" class="form-control jkdb-info" id="parlimenView" name="parlimenView" value="" readonly>
+                        <input type="hidden" class="form-control jkdb-info" id="parlimen" name="parlimen" value="">
                     </div>
                 </div>
             </div>
@@ -67,7 +69,8 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="dun" name="dun" value="" readonly>
+                        <input type="text" class="form-control jkdb-info" id="dunView" name="dunView" value="" readonly>
+                        <input type="hidden" class="form-control jkdb-info" id="dun" name="dun" value="">
                     </div>
                 </div>
             </div>
@@ -353,54 +356,55 @@ document.addEventListener("DOMContentLoaded", function() {
         return ageYear;
     }
 
-    function ubahMaklumatJKDB(jkdb, daerah, parlimen, DUN) {
-        var elems = document.getElementsByClassName('jkdb-info'); //get all elements with "jkdb-info" class to be changed
-
-        for (var i = 0; i < elems.length; i++) {
-            if (i == 0){
-                for (var i=0 ; i < daerah.list.length ; i++){
-                    if (daerah.list[i]["koddaerah"] == jkdb[5]) {
-                        elems[i].value = daerah[i];
-                    }
-                }
-            }else if (i == 1){
-                for (var i=0 ; i < parlimen.list.length ; i++){
-                    if (parlimen.list[i]["kodparlimen"] == 169) {
-                        elems[i].value = parlimen[i];
-                    }
-                }
-            }else if (i == 2){
-                for (var i=0 ; i < dun.list.length ; i++){
-                    if (dun.list[i]["koddun"] == 11) {
-                        elems[i].value = dun[i];
-                    }
+    function ubahMaklumatJKDB(selectedData, Daerah, Parlimen, DUN) {
+        if (selectedData) {
+            // Update the input fields with the selected JKDB data
+            for (var i = 0; i < Daerah.length; i++) {
+                if (Daerah[i].koddaerah == selectedData.daerah) {
+                    $('#daerah').val(Daerah[i].koddaerah); //actual value passed to db
+                    $('#daerahView').val(Daerah[i].namadaerah); //view only field for readability
                 }
             }
+            for (var i = 0; i < Parlimen.length; i++) {
+                if (Parlimen[i].kodparlimen == selectedData.daerah) {
+                    $('#parlimen').val(Parlimen[i].kodparlimen);
+                    $('#parlimenView').val(Parlimen[i].namaparlimen); //view only field for readability
+                }
+            }
+            for (var i = 0; i < DUN.length; i++) {
+                if (DUN[i].koddun == selectedData.dun) {
+                    $('#dun').val(DUN[i].koddun);
+                    $('#dunView').val(DUN[i].namadun); //view only field for readability
+                }
+            }
+        } else {
+            // Clear the input fields if no data is selected
+            $('#daerah').val('');
+            $('#parlimen').val('');
+            $('#dun').val('');
         }
-
-        var searchField = "name";
-        var searchVal = "my Name";
     }
 
-
-    function getJKDBData(id_jkdb){
-        var jkdb = @json($jkdb);
-        var jkdbData;
-        for (let i=0 ; i < jkdb.length ; i++){
-            if (jkdb[i].id_jkdb == id_jkdb) {
-                jkdbData = jkdb[i];
-                console.log(jkdb[i]);
+    function getJKDBData(selectedValue) {
+        // Assuming you have a JavaScript array `jkdbData` containing all JKDB data
+        // You can modify this function based on how your data is structured
+        var jkdbData = @json($jkdb);
+        for (var i = 0; i < jkdbData.length; i++) {
+            if (jkdbData[i].id_jkdb == selectedValue) {
+                return jkdbData[i];
             }
         }
-        return jkdbData;
+        return null; // Return null if no matching data found
     }
 
     $('#namajkdb').on("change", function () { 
-        var data = getJKDBData($('#namajkdb').value);
+        var selectedValue = $(this).val();
+        console.log(selectedValue);
+        var selectedData = getJKDBData(selectedValue);
         var Daerah = @json($daerah);
         var Parlimen = @json($parlimen);
         var DUN = @json($dun);
-        ubahMaklumatJKDB(data, Daerah, Parlimen, DUN); 
+        ubahMaklumatJKDB(selectedData, Daerah, Parlimen, DUN); 
     });
 });
 </script> 
