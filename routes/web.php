@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PemohonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,12 @@ Route::get('/', function () {
 
 Route::get('/senaraipermohonan', function () {
     return view('senaraipermohonan');
+});
+
+//Controller Route Example
+Route::controller(PemohonController::class)->group(function(){
+    Route::post('/create_permohonan', 'create_permohonan')->name('post.create_permohonan');
+    Route::get('/edit_permohonan/{permohonan}', 'showEditPermohonan')->name('post.show_edit_permohonan');
+    Route::put('/edit_permohonan/{permohonan}', 'editPermohonan')->name('post.edit');
+    Route::delete('/delete_permohonan/{permohonan}', 'deletePermohonan')->name('post.delete'); 
 });
