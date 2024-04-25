@@ -11,7 +11,6 @@
             <div class="dropdown" data-display="static">
               <a href="#" class="nav-link d-flex user-switch-dropdown-toggler" id="UsersettingsDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <small class="designation text-muted">Setiausaha</small>
-                <span class="status-indicator online"></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="UsersettingsDropdown">
                 <a class="dropdown-item p-0">
@@ -88,19 +87,19 @@
       </div>
     </li> --}}
     <li class="nav-item ">
-      <a class="nav-link" data-toggle="collapse" href="#advanced-ui" aria-expanded="" aria-controls="advanced-ui">
+      <a class="nav-link" href="/">
         <i class="menu-icon mdi mdi-cards-variant"></i>
         <span class="menu-title">Login/Register</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#advanced-ui" aria-expanded="" aria-controls="advanced-ui">
+      <a class="nav-link" href="/borang_permohonan">
         <i class="menu-icon mdi mdi-file-document"></i>
         <span class="menu-title">Borang Permohonan</span> {{-- <span class="badge badge-primary ml-1">New</span> --}}
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#advanced-ui" aria-expanded="" aria-controls="advanced-ui">
+      <a class="nav-link" href="#advanced-ui">
         <i class="menu-icon mdi mdi-format-list-bulleted-type"></i>
         <span class="menu-title">Senarai Permohonan</span> {{-- <span class="badge badge-primary ml-1">New</span> --}}
       </a>

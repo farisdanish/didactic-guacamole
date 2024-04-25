@@ -17,7 +17,7 @@ use App\Http\Controllers\PemohonController;
 
 Route::get('/', function () {
     return view('login');
-});
+})->name('login_request');
 
 Route::get('/borang_permohonan', function () {
     $jkdb = DB::table('jkdb')->get();
@@ -34,8 +34,8 @@ Route::get('/senarai_permohonan', function () {
 
 //Controller Route Example
 Route::controller(PemohonController::class)->group(function(){
-    Route::post('/create_permohonan', 'create_permohonan')->name('post.create_permohonan');
-    Route::get('/edit_permohonan/{permohonan}', 'showEditPermohonan')->name('post.show_edit_permohonan');
-    Route::put('/edit_permohonan/{permohonan}', 'editPermohonan')->name('post.edit');
-    Route::delete('/delete_permohonan/{permohonan}', 'deletePermohonan')->name('post.delete'); 
+    Route::post('/create_permohonan', 'create_permohonan')->name('pemohon.create_permohonan');
+    Route::get('/edit_permohonan/{permohonan}', 'showEditPermohonan')->name('pemohon.show_edit_permohonan');
+    Route::put('/edit_permohonan/{permohonan}', 'editPermohonan')->name('pemohon.edit');
+    Route::delete('/delete_permohonan/{permohonan}', 'deletePermohonan')->name('pemohon.delete'); 
 });
