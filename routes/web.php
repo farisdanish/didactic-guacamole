@@ -16,6 +16,10 @@ use App\Http\Controllers\PemohonController;
 */
 
 Route::get('/', function () {
+    return view('login');
+});
+
+Route::get('/borang_permohonan', function () {
     $jkdb = DB::table('jkdb')->get();
     $daerah = DB::table('daerah')->get();
     $parlimen = DB::table('parlimen')->get();
@@ -24,7 +28,7 @@ Route::get('/', function () {
     return view('borang', ['jkdb' => $jkdb,'daerah' => $daerah,'parlimen' => $parlimen,'dun' => $dun]);
 });
 
-Route::get('/senaraipermohonan', function () {
+Route::get('/senarai_permohonan', function () {
     return view('senaraipermohonan');
 });
 
