@@ -17,13 +17,18 @@ use App\Http\Controllers\PemohonController;
 
 Route::get('/', function () {
     return view('login');
+
 })->name('login_request');
 
 Route::get('/borang_permohonan', function () {
+    //pass data from the following tables in the db
     $jkdb = DB::table('jkdb')->get();
     $daerah = DB::table('daerah')->get();
     $parlimen = DB::table('parlimen')->get();
     $dun = DB::table('dun')->get();
+
+    //pass user variable
+    
 
     return view('borang', ['jkdb' => $jkdb,'daerah' => $daerah,'parlimen' => $parlimen,'dun' => $dun]);
 });
