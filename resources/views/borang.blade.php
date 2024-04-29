@@ -209,7 +209,7 @@
                 <div class="form-group row mt-3 mb-3 w-100">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="pendidikantertinggi-selector" name="pendidikantertinggi-selector" aria-label="pendidikantertinggi-selector">
+                        <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan">
                             <option disabled selected value>Pilih Tahap Pendidikan Tertinggi Anda</option>
                             <option value="1">SPM ATAU SETARAF</option>
                             <option value="2">DIPLOMA</option>
@@ -220,7 +220,7 @@
                 </div>
                 <div class="form-group row mt-3 mb-3 w-75">
                     <label for="sijilpendidikantertinggi"><b>*Sila muatnaik sijil untuk tahap pendidikan tertinggi anda</b></label>
-                    <input type="file" class="form-control" id="sijilpendidikantertinggi" name="sijilpendidikantertinggi">
+                    <input type="file" class="form-control" id="sijilpendidikan" name="sijilpendidikan">
                 </div>
             </div>
         </div>
@@ -230,10 +230,10 @@
                 <div class="row text-center">
                     <h6>Saya 
                         <label class="radio-inline">
-                            <input type="radio" name="haveIllness" value="yes" checked> menghidapi/
+                            <input type="radio" name="penyakitstatus" value="yes" checked> menghidapi/
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="haveIllness" value="no"> tidak menghidapi
+                            <input type="radio" name="penyakitstatus" value="no"> tidak menghidapi
                         </label>
                     masalah kesihatan yang serius seperti berikut</h6>
                 </div>
@@ -273,23 +273,23 @@
                         </tr>
                         <tr>
                             <td><h6>i.SAYA TELAH DIISYTIHARKAN MUFLIS</h6></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="akuanmuflis" class="input-box" name="akuanmuflis" value="Yes"></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="akuanmuflis" class="input-box" name="akuanmuflis" value="No"></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Yes"></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="No"></td>
                         </tr>
                         <tr>
                             <td><h6>ii.SAYA PERNAH MEMPUNYAI REKOD JENAYAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="akuanjenayah" class="input-box" name="akuanjenayah" value="Yes"></td>
-                            <td style="text-align:center"><input type="radio" id="akuanjenayah" class="input-box" name="akuanjenayah" value="No"></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Yes"></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="No"></td>
                         </tr>
                         <tr>
                             <td><h6>iii.SAYA PERNAH TERLIBAT DENGAN PENYALAHGUNAAN DADAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="akuandadah" class="input-box" name="akuandadah" value="Yes"></td>
-                            <td style="text-align:center"><input type="radio" id="akuandadah" class="input-box" name="akuandadah" value="No"></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Yes"></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="No"></td>
                         </tr>
                         <tr>
                             <td><h6>iv.SAYA SIHAT MENTAL DAN FIZIKAL UNTUK MELAKSANAKAN TUGAS YANG AKAN DIBERIKAN</h6></td>
-                            <td style="text-align:center"><input type="radio" id="akuankesihatan" class="input-box" name="akuankesihatan" value="Yes"></td>
-                            <td style="text-align:center"><input type="radio" id="akuankesihatan" class="input-box" name="akuankesihatan" value="No"></td>
+                            <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="Yes"></td>
+                            <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="No"></td>
                         </tr>
                     </table>
                 </div>

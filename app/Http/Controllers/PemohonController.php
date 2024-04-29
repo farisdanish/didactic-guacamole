@@ -50,7 +50,7 @@ class PemohonController extends Controller
 
         // $incomingFields["title"] = strip_tags($incomingFields["title"]);
         // $incomingFields["content"] = strip_tags($incomingFields["content"]);
-        $incomingFields["user_id"] = auth()->id();
+        // $incomingFields["user_id"] = auth()->id();
 
         // Post::create($incomingFields);
         // return redirect()->route("user.home")->with("success","Post added successfuly");
