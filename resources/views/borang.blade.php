@@ -30,7 +30,7 @@
                 <div class="form-group row mt-3 mb-3 w-75">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb-selector" data-placeholder="Sila Pilih JKDB Anda">
+                        <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb" data-placeholder="Sila Pilih JKDB Anda">
                             <option></option>
                             @foreach ($jkdb as $key => $data)
                             <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
@@ -78,7 +78,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="jawatan" class="col-sm-2 col-form-label"><b>Jawatan :</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan-selector">
+                        <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan">
                             <option disabled selected value>Pilih Jawatan</option>
                             <option value="1">Pengerusi</option>
                             <option value="2">Setiausaha</option>
@@ -154,9 +154,14 @@
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan yang diwakili :</b></label>
+                <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan:</b></label>
                 <div class="col-sm-10 mb-3">
-                    <input type="text" class="form-control mb-1" id="partiKomponenKerajaan" name="partiKomponenKerajaan">
+                    <select class="form-select" id="partiKomponenKerajaan" name="partiKomponenKerajaan" aria-label="partiKomponenKerajaan" data-placeholder="Sila Pilih Parti Komponen Kerajaan yang diwakili anda">
+                        <option></option>
+                        @foreach ($parti as $key => $data)
+                        <option value="{{$data->kodparti}}">{{$data->namaparti}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -166,30 +171,14 @@
                 <h5><b>Sila tanda mana yang berkenaan:</b></h5>
                 <div class="container dashed-line-table-selector justify-content-center mt-3 mb-3">
                     <table style="margin: 0 auto;">
+                        @foreach ($penjawat as $key => $data)
                         <tr>
                             <td width="10%">
-                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Penjawat Awam">
-                                <label for="pekerjaan"><h6>Penjawat Awam</h6></label>
+                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="{{$data->kodpenjawat}}">
+                                <label for="pekerjaan"><h6>{{$data->namapenjawat}}</h6></label>
                             </td>
                         </tr>
-                        <tr>
-                            <td width="10%">
-                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Penjawat Swasta">
-                                <label for="pekerjaan"><h6>Penjawat Swasta</h6></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10%">
-                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Bekerja Sendiri">
-                                <label for="pekerjaan"><h6>Bekerja Sendiri</h6></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="10%">
-                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="Suri Rumah/Tidak Bekerja/Pesara">
-                                <label for="pekerjaan"><h6>Suri Rumah/ Tidak Bekerja / Pesara</h6></label>
-                            </td>
-                        </tr>
+                        @endforeach
                     </table>
                 </div>
                 <p><center><b>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</b></center></p>
@@ -209,12 +198,11 @@
                 <div class="form-group row mt-3 mb-3 w-100">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan">
-                            <option disabled selected value>Pilih Tahap Pendidikan Tertinggi Anda</option>
-                            <option value="1">SPM ATAU SETARAF</option>
-                            <option value="2">DIPLOMA</option>
-                            <option value="3">IJAZAH</option>
-                            <option value="4">LAIN-LAIN</option>
+                        <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda">
+                            <option></option>
+                            @foreach ($pendidikan as $key => $data)
+                            <option value="{{$data->kodpendidik}}">{{$data->namapendidik}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

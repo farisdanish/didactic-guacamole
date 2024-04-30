@@ -26,11 +26,19 @@ Route::get('/borang_permohonan', function () {
     $daerah = DB::table('daerah')->get();
     $parlimen = DB::table('parlimen')->get();
     $dun = DB::table('dun')->get();
+    $parti = DB::table('parti')->get();
+    $penjawat = DB::table('penjawat')->get();
+    $pendidikan = DB::table('pendidikan')->get();
 
     //pass user variable
-    
-
-    return view('borang', ['jkdb' => $jkdb,'daerah' => $daerah,'parlimen' => $parlimen,'dun' => $dun]);
+    return view('borang', [
+        'jkdb' => $jkdb,
+        'daerah' => $daerah,
+        'parlimen' => $parlimen,
+        'dun' => $dun, 
+        'parti' => $parti, 
+        'penjawat' => $penjawat, 
+        'pendidikan' => $pendidikan]);
 });
 
 Route::get('/senarai_permohonan', function () {
