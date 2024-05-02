@@ -15,7 +15,7 @@
 <h1>Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">
-<form id="borang_ejkdb" action="/submitpermohonan" method="post">
+<form id="borang_ejkdb" action="/create_permohonan" method="post" enctype="multipart/form-data">
     @csrf
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center; margin-bottom:40px;">
@@ -28,6 +28,7 @@
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN A : MAKLUMAT PERUMAHAN</b></h5></div>
             <div class="container row justify-content-center">
                 <div class="form-group row mt-3 mb-3 w-75">
+                    <input type="hidden" class="form-control" id="tahun" name="tahun" value="{{$year}}">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                     <div class="col-sm-10">
                         <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb" data-placeholder="Sila Pilih JKDB Anda">

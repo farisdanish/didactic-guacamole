@@ -20,33 +20,13 @@ Route::get('/', function () {
 
 })->name('login_request');
 
-Route::get('/borang_permohonan', function () {
-    //pass data from the following tables in the db
-    $jkdb = DB::table('jkdb')->get();
-    $daerah = DB::table('daerah')->get();
-    $parlimen = DB::table('parlimen')->get();
-    $dun = DB::table('dun')->get();
-    $parti = DB::table('parti')->get();
-    $penjawat = DB::table('penjawat')->get();
-    $pendidikan = DB::table('pendidikan')->get();
-
-    //pass user variable
-    return view('borang', [
-        'jkdb' => $jkdb,
-        'daerah' => $daerah,
-        'parlimen' => $parlimen,
-        'dun' => $dun, 
-        'parti' => $parti, 
-        'penjawat' => $penjawat, 
-        'pendidikan' => $pendidikan]);
-});
-
 Route::get('/senarai_permohonan', function () {
     return view('senaraipermohonan');
 });
 
 //Controller Route Example
 Route::controller(PemohonController::class)->group(function(){
+    Route::get('/borang_permohonan', 'borang_permohonan')->name('pemohon.borang_permohonan');
     Route::post('/create_permohonan', 'create_permohonan')->name('pemohon.create_permohonan');
     Route::get('/edit_permohonan/{permohonan}', 'showEditPermohonan')->name('pemohon.show_edit_permohonan');
     Route::put('/edit_permohonan/{permohonan}', 'editPermohonan')->name('pemohon.edit');

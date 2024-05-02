@@ -3,10 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemohon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PemohonController extends Controller
 {
+
+    public function borang_permohonan(){
+        //pass data from the following tables in the db
+        $jkdb = DB::table('jkdb')->get();
+        $daerah = DB::table('daerah')->get();
+        $parlimen = DB::table('parlimen')->get();
+        $dun = DB::table('dun')->get();
+        $parti = DB::table('parti')->get();
+        $penjawat = DB::table('penjawat')->get();
+        $pendidikan = DB::table('pendidikan')->get();
+
+        //get year
+        $year = date('Y');
+
+        //pass user variable
+        return view('borang', [
+            'jkdb' => $jkdb,
+            'daerah' => $daerah,
+            'parlimen' => $parlimen,
+            'dun' => $dun, 
+            'parti' => $parti, 
+            'penjawat' => $penjawat, 
+            'pendidikan' => $pendidikan,
+            'year' => $year
+        ]);
+    }
     public function create_permohonan(Request $request){
         $incomingFields = $request->validate([
             'tahun' => "required",
@@ -52,7 +79,7 @@ class PemohonController extends Controller
         // $incomingFields["content"] = strip_tags($incomingFields["content"]);
         // $incomingFields["user_id"] = auth()->id();
 
-        // Post::create($incomingFields);
-        // return redirect()->route("user.home")->with("success","Post added successfuly");
+        Pemohon::create($incomingFields);
+        return redirect()->route("user.home")->with("success","Permohonan telah disimpan");
     }
 }
