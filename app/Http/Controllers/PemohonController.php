@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pemohon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PemohonController extends Controller
 {
@@ -49,13 +50,13 @@ class PemohonController extends Controller
             'partikerajaan' => "required",
             'penjawat' => "required",
             'kebenarankj' => "required",
-            'tarikhkj',
+            'tarikhkj' => "required",
             'namakj' => "required",
             'jawatankj' => "required",
             'gredkj' => "required",
             'failkj' => "required",
             'pendidik' => "required",
-            'pendidiklain',
+            //'pendidiklain',
             'failpendidik' => "required",
             'penyakitstatus' => "required",
             'penyakit1',
@@ -64,19 +65,13 @@ class PemohonController extends Controller
             'muflis' => "required",
             'jenayah' => "required",
             'dadah' => "required",
-            'sihat' => "required",
-            'tamohon',
-            'hantar' => "required",
-            'sokong' => "required",
-            'nokp_sokong' => "required",
-            'tarsokong',
-            'terima' => "required",
-            'tarterima',
-            'stesen' => "required"
+            'sihat' => "required"
         ]);
 
-        // $incomingFields["title"] = strip_tags($incomingFields["title"]);
-        // $incomingFields["content"] = strip_tags($incomingFields["content"]);
+        $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
+
+        $currtime = Carbon::now(); //get current datetime
+        $incomingFields["tamohon"] = $currtime->toDateTimeString();
         // $incomingFields["user_id"] = auth()->id();
 
         Pemohon::create($incomingFields);

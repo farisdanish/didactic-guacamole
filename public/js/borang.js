@@ -16,6 +16,15 @@ $('#pendidikan').select2( {
     placeholder: $( this ).data( 'placeholder' ),
 } );
 
+//JS function for penyakit
+$('input:radio[name="penyakitstatus"]').change(function() {
+    $('input[name="penyakit1"]').prop("disabled", $(this).val() != 'yes');
+    $('input[name="penyakit1"]').prop("required", $(this).val() != 'yes');
+
+    $('input[name="penyakit2"]').prop("disabled", $(this).val() != 'yes');
+    $('input[name="penyakit3"]').prop("disabled", $(this).val() != 'yes');
+}).filter(':checked').trigger('change');
+
 /*Form Pages Control*/
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab

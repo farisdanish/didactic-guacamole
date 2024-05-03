@@ -42,6 +42,8 @@ return new class extends Migration
             $table->char('jenayah',1);
             $table->char('dadah',1);
             $table->char('sihat',150);
+            $table->char('failpassport',150);
+            $table->char('failsalinankp',150);
             $table->dateTime('tamohon');
             $table->char('hantar',1);
             $table->char('sokong',1);

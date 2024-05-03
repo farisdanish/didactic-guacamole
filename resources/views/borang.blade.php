@@ -126,7 +126,13 @@
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin :</b></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                    <textarea class="form-control" id="alamat1" name="alamat1" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label for="alamat" class="col-sm-2 col-form-label"><b>Sambungan Alamat :</b></label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" id="alamat2" name="alamat2" rows="3"></textarea>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -219,7 +225,7 @@
                 <div class="row text-center">
                     <h6>Saya 
                         <label class="radio-inline">
-                            <input type="radio" name="penyakitstatus" value="yes" checked> menghidapi/
+                            <input type="radio" name="penyakitstatus" value="yes" checked required> menghidapi/
                         </label>
                         <label class="radio-inline">
                             <input type="radio" name="penyakitstatus" value="no"> tidak menghidapi
