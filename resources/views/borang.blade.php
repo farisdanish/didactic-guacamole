@@ -15,7 +15,7 @@
 <h1>Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">
-<form id="borang_ejkdb" action="/create_permohonan" method="post" enctype="multipart/form-data">
+<form id="borang_ejkdb" action="/create_permohonan" method="POST" enctype="multipart/form-data">
     @csrf
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center; margin-bottom:40px;">

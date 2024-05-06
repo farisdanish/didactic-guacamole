@@ -56,7 +56,7 @@ class PemohonController extends Controller
             'gredkj' => "required",
             'failkj' => "required",
             'pendidik' => "required",
-            //'pendidiklain',
+            'pendidiklain',
             'failpendidik' => "required",
             'penyakitstatus' => "required",
             'penyakit1',
@@ -76,5 +76,32 @@ class PemohonController extends Controller
 
         Pemohon::create($incomingFields);
         return redirect()->route("user.home")->with("success","Permohonan telah disimpan");
+    }
+    public function senarai_permohonan(){
+        //pass data from the following tables in the db
+        $jkdb = DB::table('jkdb')->get();
+        $daerah = DB::table('daerah')->get();
+        $parlimen = DB::table('parlimen')->get();
+        $dun = DB::table('dun')->get();
+        $parti = DB::table('parti')->get();
+        $penjawat = DB::table('penjawat')->get();
+        $pendidikan = DB::table('pendidikan')->get();
+        $pemohon = DB::table('pemohon')->get();
+
+        //get year
+        $year = date('Y');
+
+        //pass user variable
+        return view('senaraipermohonan', [
+            'jkdb' => $jkdb,
+            'daerah' => $daerah,
+            'parlimen' => $parlimen,
+            'dun' => $dun, 
+            'parti' => $parti, 
+            'penjawat' => $penjawat, 
+            'pendidikan' => $pendidikan,
+            'pemohon' => $pemohon,
+            'year' => $year
+        ]);
     }
 }

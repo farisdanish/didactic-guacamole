@@ -99,7 +99,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#advanced-ui">
+      <a class="nav-link" href="/senarai_permohonan">
         <i class="menu-icon mdi mdi-format-list-bulleted-type"></i>
         <span class="menu-title">Senarai Permohonan</span> {{-- <span class="badge badge-primary ml-1">New</span> --}}
       </a>

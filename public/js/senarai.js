@@ -1,0 +1,1 @@
+new DataTable('#permohonan-list');
