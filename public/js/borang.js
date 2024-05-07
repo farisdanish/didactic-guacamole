@@ -36,18 +36,24 @@ function showTab(n) {
     // ... and fix the Previous/Next buttons:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
-        document.getElementById("nextBtn").setAttribute("type","button");
+        document.getElementById("submitbtn").style.display = "none";
+        document.getElementById("nextBtn").style.display = "inline";
     } else {
         document.getElementById("prevBtn").style.display = "inline";
+        document.getElementById("submitbtn").style.display = "inline";
+        document.getElementById("nextBtn").style.display = "none";
     }
-    if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Hantar";
-        document.getElementById("nextBtn").className += " btn btn-success";
-    } else {
-        document.getElementById("nextBtn").innerHTML = "Seterusnya";
-        document.getElementById("nextBtn").className = document.getElementById("nextBtn").className.replace("btn btn-success", "");
-        document.getElementById("nextBtn").className += " btn btn-secondary";
-    }
+    // if (n == (x.length - 1)) {
+    //     document.getElementById("nextBtn").innerHTML = "Hantar";
+    //     document.getElementById("nextBtn").className = document.getElementById("nextBtn").className.replace("btn btn-secondary", "");
+    //     document.getElementById("nextBtn").className += " btn btn-success";
+    //     document.getElementById("nextBtn").setAttribute('type', 'submit');
+    //     document.getElementById("nextBtn").removeAttribute("onclick");
+    // } else {
+    //     document.getElementById("nextBtn").innerHTML = "Seterusnya";
+    //     document.getElementById("nextBtn").className = document.getElementById("nextBtn").className.replace("btn btn-success", "");
+    //     document.getElementById("nextBtn").className += " btn btn-secondary";
+    // }
     // ... and run a function that displays the correct step indicator:
     fixStepIndicator(n)
 }
@@ -62,11 +68,12 @@ function nextPrev(n) {
     // Increase or decrease the current tab by 1:
     currentTab = currentTab + n;
     // if you have reached the end of the form... :
-    if (currentTab >= x.length) {
-        //...the form gets submitted:
-        document.getElementById("borang_ejkdb").submit();
-        return false;
-    }
+    // if (currentTab == x.length - 1) {
+    //     //...the form gets submitted:
+    //     //document.getElementById("borang_ejkdb").submit();
+    //     document.getElementById("nextBtn").setAttribute('type', 'submit');
+    //     return false;
+    // }
     // Otherwise, display the correct tab:
     showTab(currentTab);
 }
@@ -78,16 +85,18 @@ function validateForm() {
     y = x[currentTab].getElementsByTagName("input");
     // A loop that checks every input field in the current tab:
     for (i = 0; i < y.length; i++) {
-        // If a field is empty...
-        if (y[i].value == "") {
-        // add an "invalid" class to the field:
-        y[i].className += " invalid";
-        // and set the current valid status to false:
-        valid = false;
+        if(y[i].hasAttribute('required')){
+            // If a field is empty...
+            if (y[i].value == "") {
+                // add an "invalid" class to the field:
+                y[i].className += " invalid";
+                // and set the current valid status to false:
+                valid = false;
+            }
         }
     }
     // If the valid status is true, mark the step as finished and valid:
-    valid=true;
+    //valid=true;
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
     }

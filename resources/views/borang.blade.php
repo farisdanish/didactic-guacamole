@@ -32,7 +32,7 @@
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                     <div class="col-sm-10">
                         <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb" data-placeholder="Sila Pilih JKDB Anda" required>
-                            <option value=""></option>
+                            <option></option>
                             @foreach ($jkdb as $key => $data)
                             <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
                             @endforeach
@@ -94,39 +94,39 @@
             <div class="form-group row mt-3 mb-3">
                 <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="namapenuh" name="namapenuh">
+                    <input type="text" class="form-control" id="namapenuh" name="namapenuh" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nomIC" name="nomIC">
+                    <input type="text" class="form-control" id="nomIC" name="nomIC" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <div class="row col-sm-9">
                     <label for="tarikhlahir" class="col-sm-3 col-form-label"><b>Tarikh Lahir :</b></label>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" id="tarikhlahir" name="tarikhlahir">
+                        <input type="date" class="form-control" id="tarikhlahir" name="tarikhlahir" required>
                     </div>
                 </div>
                 <div class="row col-sm-3">
                     <label for="umur" class="col-sm-3 col-form-label"><b>Umur:</b></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" id="umur" name="umur">
+                        <input type="text" class="form-control" id="umur" name="umur" disabled>
                     </div>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="bangsa" class="col-sm-2 col-form-label"><b>Bangsa :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="bangsa" name="bangsa">
+                    <input type="text" class="form-control" id="bangsa" name="bangsa" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin :</b></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="alamat1" name="alamat1" rows="3"></textarea>
+                    <textarea class="form-control" id="alamat1" name="alamat1" rows="3" required></textarea>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -138,13 +138,13 @@
             <div class="form-group row mb-3">
                 <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="numPhone" name="numPhone">
+                    <input type="text" class="form-control" id="numPhone" name="numPhone" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="email" class="col-sm-2 col-form-label"><b>Email :</b></label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -163,7 +163,7 @@
             <div class="form-group row mb-3">
                 <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan:</b></label>
                 <div class="col-sm-10 mb-3">
-                    <select class="form-select" id="partiKomponenKerajaan" name="partiKomponenKerajaan" aria-label="partiKomponenKerajaan" data-placeholder="Sila Pilih Parti Komponen Kerajaan yang diwakili anda">
+                    <select class="form-select" id="partiKomponenKerajaan" name="partiKomponenKerajaan" aria-label="partiKomponenKerajaan" data-placeholder="Sila Pilih Parti Komponen Kerajaan yang diwakili anda" required>
                         <option></option>
                         @foreach ($parti as $key => $data)
                         <option value="{{$data->kodparti}}">{{$data->namaparti}}</option>
@@ -181,7 +181,7 @@
                         @foreach ($penjawat as $key => $data)
                         <tr>
                             <td width="10%">
-                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="{{$data->kodpenjawat}}">
+                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="{{$data->kodpenjawat}}" required>
                                 <label for="pekerjaan"><h6>{{$data->namapenjawat}}</h6></label>
                             </td>
                         </tr>
@@ -205,12 +205,13 @@
                 <div class="form-group row mt-3 mb-3 w-100">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda">
+                        <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda" required>
                             <option></option>
                             @foreach ($pendidikan as $key => $data)
                             <option value="{{$data->kodpendidik}}">{{$data->namapendidik}}</option>
                             @endforeach
                         </select>
+                        <input type="hidden" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="TestVal">
                     </div>
                 </div>
                 <div class="form-group row mt-3 mb-3 w-75">
@@ -268,22 +269,22 @@
                         </tr>
                         <tr>
                             <td><h6>i.SAYA TELAH DIISYTIHARKAN MUFLIS</h6></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Yes"></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Yes" required></td>
                             <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="No"></td>
                         </tr>
                         <tr>
                             <td><h6>ii.SAYA PERNAH MEMPUNYAI REKOD JENAYAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Yes"></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Yes" required></td>
                             <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="No"></td>
                         </tr>
                         <tr>
                             <td><h6>iii.SAYA PERNAH TERLIBAT DENGAN PENYALAHGUNAAN DADAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Yes"></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Yes" required></td>
                             <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="No"></td>
                         </tr>
                         <tr>
                             <td><h6>iv.SAYA SIHAT MENTAL DAN FIZIKAL UNTUK MELAKSANAKAN TUGAS YANG AKAN DIBERIKAN</h6></td>
-                            <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="Yes"></td>
+                            <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="Yes" required></td>
                             <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="No"></td>
                         </tr>
                     </table>
@@ -316,6 +317,7 @@
         <div style="float:right;">
         <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Kembali</button>
         <button type="button" class="btn btn-secondary" id="nextBtn" onclick="nextPrev(1)">Seterusnya</button>
+        <button type="submit" class="btn btn-success submit" id="submitbtn">Hantar</button>
         </div>
     </div>
 </form>

@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class PemohonController extends Controller
 {
-
+    //view borang permohonan
     public function borang_permohonan(){
         //pass data from the following tables in the db
         $jkdb = DB::table('jkdb')->get();
@@ -35,6 +35,8 @@ class PemohonController extends Controller
             'year' => $year
         ]);
     }
+
+    //send permohonan to database
     public function create_permohonan(Request $request){
         $incomingFields = $request->validate([
             'tahun' => "required",
@@ -69,7 +71,6 @@ class PemohonController extends Controller
         ]);
 
         $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
-
         $currtime = Carbon::now(); //get current datetime
         $incomingFields["tamohon"] = $currtime->toDateTimeString();
         // $incomingFields["user_id"] = auth()->id();
@@ -77,6 +78,7 @@ class PemohonController extends Controller
         Pemohon::create($incomingFields);
         return redirect()->route("user.home")->with("success","Permohonan telah disimpan");
     }
+    
     public function senarai_permohonan(){
         //pass data from the following tables in the db
         $jkdb = DB::table('jkdb')->get();
