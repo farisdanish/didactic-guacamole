@@ -31,8 +31,8 @@
                     <input type="hidden" class="form-control" id="tahun" name="tahun" value="{{$year}}">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb" data-placeholder="Sila Pilih JKDB Anda">
-                            <option></option>
+                        <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb" data-placeholder="Sila Pilih JKDB Anda" required>
+                            <option value=""></option>
                             @foreach ($jkdb as $key => $data)
                             <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
                             @endforeach
