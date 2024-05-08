@@ -53,6 +53,20 @@
     opacity: 0.5;
 } */
 
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+}
+textarea.invalid {
+    background-color: #ffdddd;
+}
+select.invalid {
+    background-color: #ffdddd;
+}
+.select2-selection.required {
+    background-color: #ffdddd !important;
+}
+
 /* Mark the active step: */
 .step.active {
     color: rgb(136, 26, 226);

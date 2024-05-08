@@ -4,16 +4,33 @@ $('#namajkdb').select2( {
     theme: 'bootstrap-5',
     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
     placeholder: $( this ).data( 'placeholder' ),
+    containerCssClass: function(e) { 
+        return $(e).attr('required') ? 'required' : '';
+    }
 } );
 $('#partiKomponenKerajaan').select2( {
     theme: 'bootstrap-5',
     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
     placeholder: $( this ).data( 'placeholder' ),
+    containerCssClass: function(e) { 
+        return $(e).attr('required') ? 'required' : '';
+    }
 } );
 $('#pendidikan').select2( {
     theme: 'bootstrap-5',
     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
     placeholder: $( this ).data( 'placeholder' ),
+    containerCssClass: function(e) { 
+        return $(e).attr('required') ? 'required' : '';
+    }
+} );
+$('#bangsa').select2( {
+    theme: 'bootstrap-5',
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    containerCssClass: function(e) { 
+        return $(e).attr('required') ? 'required' : '';
+    }
 } );
 
 //JS function for penyakit
@@ -80,16 +97,52 @@ function nextPrev(n) {
 
 function validateForm() {
     // This function deals with validation of the form fields
-    var x, y, i, valid = true;
+    var x, y, z, v, i, valid = true;
     x = document.getElementsByClassName("tab");
     y = x[currentTab].getElementsByTagName("input");
-    // A loop that checks every input field in the current tab:
+    z = x[currentTab].getElementsByTagName("textarea");
+    v = x[currentTab].getElementsByTagName("select");
+    u = x[currentTab].getElementsByClassName("radioInputBox");
+    // A loop that checks every input,textarea,select fields in the current tab:
     for (i = 0; i < y.length; i++) {
         if(y[i].hasAttribute('required')){
             // If a field is empty...
             if (y[i].value == "") {
                 // add an "invalid" class to the field:
                 y[i].className += " invalid";
+                // and set the current valid status to false:
+                valid = false;
+            }
+        }
+    }
+    for (i = 0; i < z.length; i++) {
+        if(z[i].hasAttribute('required')){
+            // If a field is empty...
+            if (z[i].value == "") {
+                // add an "invalid" class to the field:
+                z[i].className += " invalid";
+                // and set the current valid status to false:
+                valid = false;
+            }
+        }
+    }
+    for (i = 0; i < v.length; i++) {
+        if(v[i].hasAttribute('required')){
+            // If a field is empty...
+            if (v[i].value == "") {
+                // add an "invalid" class to the field:
+                v[i].className += " invalid";
+                // and set the current valid status to false:
+                valid = false;
+            }
+        }
+    }
+    for (i = 0; i < u.length; i++) {
+        if(u[i].hasAttribute('required')){
+            // If a field is empty...
+            if (u[i].value == "") {
+                // add an "invalid" class to the field:
+                u[i].className += " invalid";
                 // and set the current valid status to false:
                 valid = false;
             }

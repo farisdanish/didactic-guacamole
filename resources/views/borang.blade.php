@@ -79,7 +79,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="jawatan" class="col-sm-2 col-form-label"><b>Jawatan :</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan">
+                        <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan" required>
                             <option disabled selected value>Pilih Jawatan</option>
                             <option value="1">Pengerusi</option>
                             <option value="2">Setiausaha</option>
@@ -120,7 +120,22 @@
             <div class="form-group row mb-3">
                 <label for="bangsa" class="col-sm-2 col-form-label"><b>Bangsa :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="bangsa" name="bangsa" required>
+                    <select class="form-select" id="bangsa" name="bangsa" aria-label="bangsa" data-placeholder="Sila Bangsa Anda" required>
+                        <option></option>
+                        @foreach ($kaum as $key => $data)
+                        <option value="{{$data->kodkaum}}">{{$data->namakaum}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label for="bangsa" class="col-sm-2 col-form-label"><b>Jantina :</b></label>
+                <div class="col-sm-10">
+                    <select class="form-select" id="jantina" name="jantina" aria-label="bangsa" required>
+                        <option disabled selected value>Pilih Jantina Anda</option>
+                        <option value="L">Lelaki</option>
+                        <option value="P">Perempuan</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -132,7 +147,7 @@
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Sambungan Alamat :</b></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="alamat2" name="alamat2" rows="3"></textarea>
+                    <textarea class="form-control" id="alamat2" name="alamat2" rows="3" placeholder="Isi Jika Berkenaan Sahaja"></textarea>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -150,8 +165,8 @@
             <div class="form-group row mb-3">
                 <label for="namaBank" class="col-sm-2 col-form-label"><b>Nama & No Akaun Bank :</b></label>
                 <div class="col-sm-10 mb-3">
-                    <input type="text" class="form-control mb-1" id="namaBank" name="namaBank">
-                    <input type="text" class="form-control" id="noAkaunBank" name="noAkaunBank">
+                    <input type="text" class="form-control mb-1" id="namaBank" name="namaBank" placeholder="Nama Bank Anda" required>
+                    <input type="text" class="form-control" id="noAkaunBank" name="noAkaunBank" placeholder="No. Akaun Bank Anda" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -177,7 +192,7 @@
             <div class="container mt-3">
                 <h5><b>Sila tanda mana yang berkenaan:</b></h5>
                 <div class="container dashed-line-table-selector justify-content-center mt-3 mb-3">
-                    <table style="margin: 0 auto;">
+                    <table class="radioInputBox" style="margin: 0 auto;">
                         @foreach ($penjawat as $key => $data)
                         <tr>
                             <td width="10%">

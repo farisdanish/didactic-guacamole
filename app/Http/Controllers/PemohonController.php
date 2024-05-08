@@ -19,6 +19,7 @@ class PemohonController extends Controller
         $parti = DB::table('parti')->get();
         $penjawat = DB::table('penjawat')->get();
         $pendidikan = DB::table('pendidikan')->get();
+        $kaum = DB::table('kaum')->get();
 
         //get year
         $year = date('Y');
@@ -32,7 +33,8 @@ class PemohonController extends Controller
             'parti' => $parti, 
             'penjawat' => $penjawat, 
             'pendidikan' => $pendidikan,
-            'year' => $year
+            'year' => $year,
+            'kaum'=>$kaum
         ]);
     }
 
@@ -42,20 +44,25 @@ class PemohonController extends Controller
             'tahun' => "required",
             'id_jkdb' => "required",
             'kodjwtnjkdb' => "required",
-            'nama' => "required",
-            'nokp' => "required",
+            'nama' => "required|string",
+            'nokp' => "required|string|min:12|max:12",
             'tarikhlahir' => "required",
-            'kaum' => "required",
-            'jantina' => "required",
+            'kaum' => "required|integer",
+            'jantina' => "required|char|max:1",
             'alamat1' => "required",
             'alamat2',
+            'notel'=> "required",
+            'emel'=> "required|email",
+            'bank'=> "required",
+            'noakaun'=> "required",
+            'failakaun'=> "required",
             'partikerajaan' => "required",
             'penjawat' => "required",
-            'kebenarankj' => "required",
-            'tarikhkj' => "required",
-            'namakj' => "required",
-            'jawatankj' => "required",
-            'gredkj' => "required",
+            // 'kebenarankj' => "required",
+            // 'tarikhkj' => "required",
+            // 'namakj' => "required",
+            // 'jawatankj' => "required",
+            // 'gredkj' => "required",
             'failkj' => "required",
             'pendidik' => "required",
             'pendidiklain',
