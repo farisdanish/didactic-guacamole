@@ -22,6 +22,8 @@ class Pemohon extends Model
         'jantina',
         'alamat1',
         'alamat2',
+        // 'poskod',
+        // 'daerah',
         'notel',
         'emel',
         'bank',

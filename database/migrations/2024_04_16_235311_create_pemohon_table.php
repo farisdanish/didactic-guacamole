@@ -23,6 +23,8 @@ return new class extends Migration
             $table->char('jantina',1);
             $table->char('alamat1',150);
             $table->char('alamat2',150);
+            // $table->char('poskod',5);
+            // $table->integer('daerah')->length(11)->unsigned();
             $table->char('notel',11);
             $table->char('emel',100);
             $table->char('bank',150);
