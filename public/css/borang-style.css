@@ -54,7 +54,7 @@
 } */
 
 /* Mark input boxes that gets an error on validation: */
-input.invalid {
+/* input.invalid {
     background-color: #ffdddd;
 }
 textarea.invalid {
@@ -65,7 +65,7 @@ select.invalid {
 }
 .select2-selection.required {
     background-color: #ffdddd !important;
-}
+} */
 
 /* Mark the active step: */
 .step.active {

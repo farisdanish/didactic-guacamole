@@ -40,8 +40,7 @@ class PemohonController extends Controller
 
     //send permohonan to database
     public function create_permohonan(Request $request){
-        $incomingFields = $request->validate([
-            'tahun' => "required",
+        $request->validate([
             'id_jkdb' => "required",
             'kodjwtnjkdb' => "required",
             'nama' => "required|string",
@@ -50,7 +49,6 @@ class PemohonController extends Controller
             'kaum' => "required|integer",
             'jantina' => "required|char|max:1",
             'alamat1' => "required",
-            'alamat2',
             'notel'=> "required",
             'emel'=> "required|email",
             'bank'=> "required",
@@ -65,24 +63,66 @@ class PemohonController extends Controller
             // 'gredkj' => "required",
             'failkj' => "required",
             'pendidik' => "required",
-            'pendidiklain',
             'failpendidik' => "required",
             'penyakitstatus' => "required",
-            'penyakit1',
-            'penyakit2',
-            'penyakit3',
             'muflis' => "required",
             'jenayah' => "required",
             'dadah' => "required",
             'sihat' => "required"
         ]);
 
-        $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
-        $currtime = Carbon::now(); //get current datetime
-        $incomingFields["tamohon"] = $currtime->toDateTimeString();
-        // $incomingFields["user_id"] = auth()->id();
+        // $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
+        // $currtime = Carbon::now(); //get current datetime
+        // $incomingFields["tamohon"] = $currtime->toDateTimeString();
+        // // $incomingFields["user_id"] = auth()->id();
 
-        Pemohon::create($incomingFields);
+        // Pemohon::create($incomingFields);
+        Pemohon::create([
+            'tahun' => $request->tahun,
+            'id_jkdb' => $request->id_jkdb,
+            'kodjwtnjkdb' => $request->kodjwtnjkdb,
+            'nama'=> $request->nama,
+            'nokp'=> $request->nokp,
+            'tarikhlahir'=> $request->tarikhlahir,
+            'kaum'=> $request->kaum,
+            'jantina'=> $request->jantina,
+            'alamat1'=> $request->alamat1,
+            'alamat2'=> $request->alamat2,
+            // 'poskod',
+            // 'daerah',
+            'notel'=> $request->notel,
+            'emel'=> $request->emel,
+            'bank'=> $request->bank,
+            'noakaun'=> $request->noakaun,
+            //'failakaun'=> $request->failakaun,
+            'partikerajaan'=> $request->partikerajaan,
+            'penjawat'=> $request->penjawat,
+            // 'kebenarankj',
+            // 'tarikhkj',
+            // 'namakj',
+            // 'jawatankj',
+            // 'gredkj',
+            //'failkj'=> $request->failkj,
+            'pendidik'=> $request->pendidik,
+            //'pendidiklain'=> $request->pendidiklain,
+            //'failpendidik'=> $request->failpendidik,
+            'penyakitstatus'=> $request->penyakitstatus,
+            'penyakit1'=> $request->penyakit1,
+            'penyakit2'=> $request->penyakti2,
+            'penyakit3'=> $request->penyakit3,
+            'muflis'=> $request->muflis,
+            'jenayah'=> $request->jenayah,
+            'dadah'=> $request->dadah,
+            'sihat'=> $request->sihat,
+            //'tamohon',
+            'hantar'=> "N"
+            // 'sokong',
+            // 'nokp_sokong',
+            // 'tarsokong',
+            // 'terima',
+            // 'tarterima',
+            // 'stesen'    
+        ]);
         return redirect()->route("user.home")->with("success","Permohonan telah disimpan");
     }
     

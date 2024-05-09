@@ -31,7 +31,7 @@
                     <input type="hidden" class="form-control" id="tahun" name="tahun" value="{{$year}}">
                     <label for="namajkdb" class="col-sm-2 col-form-label"><b>Nama JKDB:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="namajkdb" name="namajkdb" aria-label="namajkdb" data-placeholder="Sila Pilih JKDB Anda" required>
+                        <select class="form-select" id="id_jkdb" name="id_jkdb" aria-label="id_jkdb" data-placeholder="Sila Pilih JKDB Anda" required>
                             <option></option>
                             @foreach ($jkdb as $key => $data)
                             <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
@@ -44,7 +44,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="negeri" class="col-sm-2 col-form-label"><b>Negeri :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="negeri" name="negeri" value="Sabah" readonly>
+                        <input type="text" class="form-control" id="negeri" name="negeri" value="Sabah" disabled>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="daerahView" name="daerahView" value="" readonly>
+                        <input type="text" class="form-control jkdb-info" id="daerahView" name="daerahView" value="" disabled>
                         <input type="hidden" class="form-control jkdb-info" id="daerah" name="daerah" value="">
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="parlimenView" name="parlimenView" value="" readonly>
+                        <input type="text" class="form-control jkdb-info" id="parlimenView" name="parlimenView" value="" disabled>
                         <input type="hidden" class="form-control jkdb-info" id="parlimen" name="parlimen" value="">
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="dunView" name="dunView" value="" readonly>
+                        <input type="text" class="form-control jkdb-info" id="dunView" name="dunView" value="" disabled>
                         <input type="hidden" class="form-control jkdb-info" id="dun" name="dun" value="">
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="jawatan" class="col-sm-2 col-form-label"><b>Jawatan :</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan" required>
+                        <select class="form-select" id="kodjwtnjkdb" name="kodjwtnjkdb" aria-label="kodjwtnjkdb" required>
                             <option disabled selected value>Pilih Jawatan</option>
                             <option value="1">Pengerusi</option>
                             <option value="2">Setiausaha</option>
@@ -94,13 +94,13 @@
             <div class="form-group row mt-3 mb-3">
                 <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="namapenuh" name="namapenuh" required>
+                    <input type="text" class="form-control" id="nama" name="nama" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nomIC" name="nomIC" required>
+                    <input type="text" class="form-control" id="nokp" name="nokp" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -120,7 +120,7 @@
             <div class="form-group row mb-3">
                 <label for="bangsa" class="col-sm-2 col-form-label"><b>Bangsa :</b></label>
                 <div class="col-sm-10">
-                    <select class="form-select" id="bangsa" name="bangsa" aria-label="bangsa" data-placeholder="Sila Bangsa Anda" required>
+                    <select class="form-select" id="kaum" name="kaum" aria-label="kaum" data-placeholder="Sila Pilih Bangsa Anda" required>
                         <option></option>
                         @foreach ($kaum as $key => $data)
                         <option value="{{$data->kodkaum}}">{{$data->namakaum}}</option>
@@ -153,7 +153,7 @@
             <div class="form-group row mb-3">
                 <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="numPhone" name="numPhone" required>
+                    <input type="text" class="form-control" id="notel" name="notel" required>
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -218,7 +218,7 @@
             <div class="borang_ejkdb_heading"><h5><b>BAHAGIAN D : MAKLUMAT PENDIDIKAN</b></h5></div>
             <div class="container row justify-content-center">
                 <div class="form-group row mt-3 mb-3 w-100">
-                    <label for="namajkdb" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
+                    <label for="pendidikan" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
                     <div class="col-sm-10">
                         <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda" required>
                             <option></option>
@@ -226,7 +226,12 @@
                             <option value="{{$data->kodpendidik}}">{{$data->namapendidik}}</option>
                             @endforeach
                         </select>
-                        <input type="hidden" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="TestVal">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="pendidiklain" class="col-sm-2 col-form-label"><b>Nyatakan Tahap Pendidikan anda:</b></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="">
                     </div>
                 </div>
                 <div class="form-group row mt-3 mb-3 w-75">
@@ -309,19 +314,16 @@
                     <tr>
                         <th>#</th>
                         <th>DOKUMEN</th>
-                        <th>TANDAKAN (/)</th>
                         <th>LAMPIRAN</th>
                     </tr>
                     <tr>
                         <td><b>1</b></td>
                         <td>GAMBAR PASSPORT</td>
-                        <td><input type="checkbox" id="gambarpassport" name="gambarpassport" value="Yes"></td>
                         <td><input type="file" class="form-control" id="gambarpassportfile" name="gambarpassportfile"></td>
                     </tr>
                     <tr>
                         <td><b>2</b></td>
                         <td>SALINAN KAD PENGENALAN</td>
-                        <td><input type="checkbox" id="kadIC" name="kadIC" value="Yes"></td>
                         <td><input type="file" class="form-control" id="kadICSalinan" name="kadICSalinan"></td>
                     </tr>
                 </table>
@@ -409,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return null; // Return null if no matching data found
     }
 
-    $('#namajkdb').on("change", function () { 
+    $('#id_jkdb').on("change", function () { 
         var selectedValue = $(this).val();
         console.log(selectedValue);
         var selectedData = getJKDBData(selectedValue);
