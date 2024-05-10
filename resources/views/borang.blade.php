@@ -228,7 +228,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group row mt-3 mb-3 w-100" id="hidePendidikLainInput" style="display:none;">
+                <div class="form-group row" id="hidePendidikLainInput" style="display:none; flex-direction: row; justify-content: center; align-items: center;">
                     <label for="pendidiklain" class="col-sm-2 col-form-label"><b>Lain-lain:</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="" placeholder="Tuliskan tahap pendidikan anda">
@@ -426,9 +426,11 @@ document.addEventListener("DOMContentLoaded", function() {
         var inputFieldContainer = document.getElementById('hidePendidikLainInput');
 
         if (selectedValue === '4') {
-            inputFieldContainer.style.display = 'block';
+            inputFieldContainer.style.display = 'flex';
+            document.getElementById('pendidiklain').required = true;
         } else {
             inputFieldContainer.style.display = 'none';
+            document.getElementById('pendidiklain').required = false;
         }
     });
 });
