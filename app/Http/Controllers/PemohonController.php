@@ -20,6 +20,7 @@ class PemohonController extends Controller
         $penjawat = DB::table('penjawat')->get();
         $pendidikan = DB::table('pendidikan')->get();
         $kaum = DB::table('kaum')->get();
+        $jawatanjkdb = DB::table('jawatanjkdb')->get();
 
         //get year
         $year = date('Y');
@@ -34,7 +35,8 @@ class PemohonController extends Controller
             'penjawat' => $penjawat, 
             'pendidikan' => $pendidikan,
             'year' => $year,
-            'kaum'=>$kaum
+            'kaum'=>$kaum,
+            'jawatanjkdb' => $jawatanjkdb
         ]);
     }
 

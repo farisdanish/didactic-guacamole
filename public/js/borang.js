@@ -8,6 +8,14 @@ $('#id_jkdb').select2( {
         return $(e).attr('required') ? 'required' : '';
     }
 } );
+$('#kodjwtnjkdb').select2( {
+    theme: 'bootstrap-5',
+    width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+    placeholder: $( this ).data( 'placeholder' ),
+    containerCssClass: function(e) { 
+        return $(e).attr('required') ? 'required' : '';
+    }
+} );
 $('#partiKomponenKerajaan').select2( {
     theme: 'bootstrap-5',
     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',

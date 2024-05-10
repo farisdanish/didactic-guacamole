@@ -79,11 +79,11 @@
                 <div class="form-group row mb-3 w-75">
                     <label for="jawatan" class="col-sm-2 col-form-label"><b>Jawatan :</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="kodjwtnjkdb" name="kodjwtnjkdb" aria-label="kodjwtnjkdb" required>
-                            <option disabled selected value>Pilih Jawatan</option>
-                            <option value="1">Pengerusi</option>
-                            <option value="2">Setiausaha</option>
-                            <option value="3">Ahli Jawatankuasa</option>
+                        <select class="form-select" id="kodjwtnjkdb" name="kodjwtnjkdb" aria-label="kodjwtnjkdb" data-placeholder="Pilih Jawatan" required>
+                            <option></option>
+                            @foreach ($jawatanjkdb as $key => $data)
+                            <option value="{{$data->kodjawatan}}">{{$data->namajawatan}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -228,10 +228,10 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group row mb-3">
-                    <label for="pendidiklain" class="col-sm-2 col-form-label"><b>Nyatakan Tahap Pendidikan anda:</b></label>
+                <div class="form-group row mt-3 mb-3 w-100" id="hidePendidikLainInput" style="display:none;">
+                    <label for="pendidiklain" class="col-sm-2 col-form-label"><b>Lain-lain:</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="">
+                        <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="" placeholder="Tuliskan tahap pendidikan anda">
                     </div>
                 </div>
                 <div class="form-group row mt-3 mb-3 w-75">
@@ -419,6 +419,17 @@ document.addEventListener("DOMContentLoaded", function() {
         var Parlimen = @json($parlimen);
         var DUN = @json($dun);
         ubahMaklumatJKDB(selectedData, Daerah, Parlimen, DUN); 
+    });
+
+    $('#pendidikan').on("change", function() {
+        var selectedValue = $(this).val();
+        var inputFieldContainer = document.getElementById('hidePendidikLainInput');
+
+        if (selectedValue === '4') {
+            inputFieldContainer.style.display = 'block';
+        } else {
+            inputFieldContainer.style.display = 'none';
+        }
     });
 });
 </script> 
