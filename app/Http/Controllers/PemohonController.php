@@ -43,34 +43,36 @@ class PemohonController extends Controller
     //send permohonan to database
     public function create_permohonan(Request $request){
         $request->validate([
-            'id_jkdb' => "required",
-            'kodjwtnjkdb' => "required",
-            'nama' => "required|string",
-            'nokp' => "required|string|min:12|max:12",
-            'tarikhlahir' => "required",
-            'kaum' => "required|integer",
-            'jantina' => "required|char|max:1",
-            'alamat1' => "required",
-            'notel'=> "required",
-            'emel'=> "required|email",
-            'bank'=> "required",
-            'noakaun'=> "required",
-            'failakaun'=> "required",
-            'partikerajaan' => "required",
-            'penjawat' => "required",
-            // 'kebenarankj' => "required",
-            // 'tarikhkj' => "required",
-            // 'namakj' => "required",
-            // 'jawatankj' => "required",
-            // 'gredkj' => "required",
-            'failkj' => "required",
-            'pendidik' => "required",
-            'failpendidik' => "required",
-            'penyakitstatus' => "required",
-            'muflis' => "required",
-            'jenayah' => "required",
-            'dadah' => "required",
-            'sihat' => "required"
+            'tahun' => 'required|numeric',
+            'id_jkdb' => 'required',
+            'kodjwtnjkdb' => 'required',
+            'nama' => 'required|string',
+            'nokp' => 'required|string|min:12|max:12',
+            'tarikhlahir' => 'required|date',
+            'kaum' => 'required|integer',
+            'jantina' => 'required|in:L,P',
+            'alamat1' => 'required|string',
+            'alamat2' => 'string',
+            'notel' => 'required|string',
+            'emel' => 'required|email',
+            'bank' => 'required',
+            'noakaun' => 'required',
+            'failakaun' => 'required',
+            'partikerajaan' => 'required',
+            'penjawat' => 'required',
+            // 'kebenarankj' => 'required',
+            // 'tarikhkj' => 'required',
+            // 'namakj' => 'required',
+            // 'jawatankj' => 'required',
+            // 'gredkj' => 'required',
+            'failkj' => 'required',
+            'pendidik' => 'required',
+            'failpendidik' => 'required',
+            'penyakitstatus' => 'required',
+            'muflis' => 'required',
+            'jenayah' => 'required',
+            'dadah' => 'required',
+            'sihat' => 'required',
         ]);
 
         // $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
@@ -79,7 +81,7 @@ class PemohonController extends Controller
         // // $incomingFields["user_id"] = auth()->id();
 
         // Pemohon::create($incomingFields);
-        Pemohon::create([
+        $pemohon = Pemohon::create([
             'tahun' => $request->tahun,
             'id_jkdb' => $request->id_jkdb,
             'kodjwtnjkdb' => $request->kodjwtnjkdb,
@@ -117,15 +119,26 @@ class PemohonController extends Controller
             'dadah'=> $request->dadah,
             'sihat'=> $request->sihat,
             //'tamohon',
-            'hantar'=> "N"
+            'hantar'=> "N",
             // 'sokong',
             // 'nokp_sokong',
             // 'tarsokong',
             // 'terima',
             // 'tarterima',
-            // 'stesen'    
+            // 'stesen',   
         ]);
-        return redirect()->route("user.home")->with("success","Permohonan telah disimpan");
+        
+        //return redirect()->route('pemohon.senarai_permohonan')->with("success","Permohonan anda telah disimpan");
+        return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
+        // if ($pemohon->wasRecentlyCreated) {
+        //     // Model was successfully created
+        //     // You can redirect to a route and send a success message
+        //     return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
+        // } else {
+        //     // Model was not created or there was an error
+        //     // You can handle the error or redirect to an error page
+        //     return redirect('/senarai_permohonan')->with('error', "Permohonan and tidak disimpan.");
+        // }
     }
     
     public function senarai_permohonan(){

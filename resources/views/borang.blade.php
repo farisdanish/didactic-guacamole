@@ -11,8 +11,21 @@
 @endpush
 
 @section('content')
+{{-- {{ dump(session('success'))}}
+{{ dump(session('error'))}} --}}
 <div class="container applicationFormHeading">
-<h1>Borang Permohonan</h1>
+    <div>
+        @If(session()->has('success'))
+            <div class="alert alert-success">
+                {{session('success')}}
+            </div>
+        @elseif(session()->has('error'))
+            <div class="alert alert-danger">
+                {{session('error')}}
+            </div>
+        @endif
+    </div>
+    <h1>Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">
 <form id="borang_ejkdb" action="/create_permohonan" method="POST" enctype="multipart/form-data">
@@ -37,6 +50,7 @@
                             <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
                             @endforeach
                         </select>
+                        @error('id_jkdb')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
             </div>
@@ -53,7 +67,7 @@
                     <label for="daerah" class="col-sm-2 col-form-label"><b>Daerah :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control jkdb-info" id="daerahView" name="daerahView" value="" disabled>
-                        <input type="hidden" class="form-control jkdb-info" id="daerah" name="daerah" value="">
+                        {{-- <input type="hidden" class="form-control jkdb-info" id="daerah" name="daerah" value=""> --}}
                     </div>
                 </div>
             </div>
@@ -62,7 +76,7 @@
                     <label for="parlimen" class="col-sm-2 col-form-label"><b>Parlimen :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control jkdb-info" id="parlimenView" name="parlimenView" value="" disabled>
-                        <input type="hidden" class="form-control jkdb-info" id="parlimen" name="parlimen" value="">
+                        {{-- <input type="hidden" class="form-control jkdb-info" id="parlimen" name="parlimen" value=""> --}}
                     </div>
                 </div>
             </div>
@@ -71,7 +85,7 @@
                     <label for="dun" class="col-sm-2 col-form-label"><b>DUN :</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control jkdb-info" id="dunView" name="dunView" value="" disabled>
-                        <input type="hidden" class="form-control jkdb-info" id="dun" name="dun" value="">
+                        {{-- <input type="hidden" class="form-control jkdb-info" id="dun" name="dun" value=""> --}}
                     </div>
                 </div>
             </div>
@@ -85,6 +99,7 @@
                             <option value="{{$data->kodjawatan}}">{{$data->namajawatan}}</option>
                             @endforeach
                         </select>
+                        @error('kodjwtnjkdb')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
             </div>
@@ -95,12 +110,14 @@
                 <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh :</b></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="nama" name="nama" required>
+                    @error('nama')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP :</b></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="nokp" name="nokp" required>
+                    @error('nokp')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -108,6 +125,7 @@
                     <label for="tarikhlahir" class="col-sm-3 col-form-label"><b>Tarikh Lahir :</b></label>
                     <div class="col-sm-9">
                         <input type="date" class="form-control" id="tarikhlahir" name="tarikhlahir" required>
+                        @error('tarikhlahir')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="row col-sm-3">
@@ -126,6 +144,7 @@
                         <option value="{{$data->kodkaum}}">{{$data->namakaum}}</option>
                         @endforeach
                     </select>
+                    @error('kaum')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -136,54 +155,63 @@
                         <option value="L">Lelaki</option>
                         <option value="P">Perempuan</option>
                     </select>
+                    @error('jantina')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin :</b></label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="alamat1" name="alamat1" rows="3" required></textarea>
+                    @error('alamat1')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Sambungan Alamat :</b></label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="alamat2" name="alamat2" rows="3" placeholder="Isi Jika Berkenaan Sahaja"></textarea>
+                    @error('alamat2')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon :</b></label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="notel" name="notel" required>
+                    @error('notel')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="email" class="col-sm-2 col-form-label"><b>Email :</b></label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="email" name="email" required>
+                    @error('email')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="namaBank" class="col-sm-2 col-form-label"><b>Nama & No Akaun Bank :</b></label>
                 <div class="col-sm-10 mb-3">
-                    <input type="text" class="form-control mb-1" id="namaBank" name="namaBank" placeholder="Nama Bank Anda" required>
-                    <input type="text" class="form-control" id="noAkaunBank" name="noAkaunBank" placeholder="No. Akaun Bank Anda" required>
+                    <input type="text" class="form-control mb-1" id="bank" name="bank" placeholder="Nama Bank Anda" required>
+                    @error('bank')<span class="text-danger">{{ $message }}</span>@enderror
+                    <input type="text" class="form-control" id="noakaun" name="noakaun" placeholder="No. Akaun Bank Anda" required>
+                    @error('noakaun')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="lampiranBank" class="col-sm-2 col-form-label"><b>Lampiran Bank :</b></label>
                 <div class="col-sm-10">
                     <input type="file" class="form-control" id="lampiranBank" name="lampiranBank">
+                    @error('failakaun')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="partiKomponenKerajaan" class="col-sm-2 col-form-label"><b>Parti Komponen Kerajaan:</b></label>
                 <div class="col-sm-10 mb-3">
-                    <select class="form-select" id="partiKomponenKerajaan" name="partiKomponenKerajaan" aria-label="partiKomponenKerajaan" data-placeholder="Sila Pilih Parti Komponen Kerajaan yang diwakili anda" required>
+                    <select class="form-select" id="partikerajaan" name="partikerajaan" aria-label="partikerajaan" data-placeholder="Sila Pilih Parti Komponen Kerajaan yang diwakili anda" required>
                         <option></option>
                         @foreach ($parti as $key => $data)
                         <option value="{{$data->kodparti}}">{{$data->namaparti}}</option>
                         @endforeach
                     </select>
+                    @error('partikerajaan')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
         </div>
@@ -196,18 +224,20 @@
                         @foreach ($penjawat as $key => $data)
                         <tr>
                             <td width="10%">
-                                <input type="radio" id="pekerjaan" class="input-box" name="pekerjaan" value="{{$data->kodpenjawat}}" required>
+                                <input type="radio" id="penjawat" class="input-box" name="penjawat" value="{{$data->kodpenjawat}}" required>
                                 <label for="pekerjaan"><h6>{{$data->namapenjawat}}</h6></label>
                             </td>
                         </tr>
                         @endforeach
+                        @error('penjawat')<span class="text-danger">{{ $message }}</span>@enderror
                     </table>
                 </div>
                 <p><center><b>*Bagi Penjawat Awam, Lampiran Kebenaran Ketua Jabatan Adalah Diwajibkan</b></center></p>
                 <div class="form-group row mb-3">
                     <label for="lampiranKebenaran" class="col-sm-2 col-form-label"><b>Lampiran:</b></label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" id="lampiranKebenaran" name="lampiranKebenaran">
+                        <input type="file" class="form-control" id="failkj" name="failkj">
+                        @error('failkj')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
             </div>
@@ -226,17 +256,20 @@
                             <option value="{{$data->kodpendidik}}">{{$data->namapendidik}}</option>
                             @endforeach
                         </select>
+                        @error('pendidikan')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row" id="hidePendidikLainInput" style="display:none; flex-direction: row; justify-content: center; align-items: center;">
                     <label for="pendidiklain" class="col-sm-2 col-form-label"><b>Lain-lain:</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="" placeholder="Tuliskan tahap pendidikan anda">
+                        @error('pendidiklain')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row mt-3 mb-3 w-75">
                     <label for="sijilpendidikantertinggi"><b>*Sila muatnaik sijil untuk tahap pendidikan tertinggi anda</b></label>
-                    <input type="file" class="form-control" id="sijilpendidikan" name="sijilpendidikan">
+                    <input type="file" class="form-control" id="failpendidik" name="failpendidik">
+                    @error('failpendidik')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
         </div>
@@ -252,23 +285,27 @@
                             <input type="radio" name="penyakitstatus" value="no"> tidak menghidapi
                         </label>
                     masalah kesihatan yang serius seperti berikut</h6>
+                    @error('penyakitstatus')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
                 <div class="form-group row mb-3">
                     <label for="penyakit1" class="col-sm-2 col-form-label"><b>Penyakit(i):</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="penyakit1" name="penyakit1" placeholder="Nyatakan">
+                        @error('penyakit1')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="penyakit2" class="col-sm-2 col-form-label"><b>Penyakit(ii):</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="penyakit2" name="penyakit2" placeholder="Nyatakan">
+                        @error('penyakit2')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="penyakit3" class="col-sm-2 col-form-label"><b>Penyakit(iii):</b></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="penyakit3" name="penyakit3" placeholder="Nyatakan">
+                        @error('penyakit3')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="text-center">
