@@ -52,12 +52,12 @@ class PemohonController extends Controller
             'kaum' => 'required|integer',
             'jantina' => 'required|in:L,P',
             'alamat1' => 'required|string',
-            'alamat2' => 'string',
+            'alamat2' => 'nullable|string',
             'notel' => 'required|string',
             'emel' => 'required|email',
             'bank' => 'required',
             'noakaun' => 'required',
-            'failakaun' => 'required',
+            //'failakaun' => 'required',
             'partikerajaan' => 'required',
             'penjawat' => 'required',
             // 'kebenarankj' => 'required',
@@ -65,14 +65,20 @@ class PemohonController extends Controller
             // 'namakj' => 'required',
             // 'jawatankj' => 'required',
             // 'gredkj' => 'required',
-            'failkj' => 'required',
+            //'failkj' => 'required',
             'pendidik' => 'required',
-            'failpendidik' => 'required',
+            'pendidiklain' => 'nullable|string',
+            //'failpendidik' => 'required',
             'penyakitstatus' => 'required',
+            'penyakit1' => 'nullable|string',
+            'penyakit2' => 'nullable|string',
+            'penyakit3' => 'nullable|string',
             'muflis' => 'required',
             'jenayah' => 'required',
             'dadah' => 'required',
             'sihat' => 'required',
+            //'failpassport' => 'required',
+            //'failsalinankp' => 'required',
         ]);
 
         // $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
@@ -129,16 +135,16 @@ class PemohonController extends Controller
         ]);
         
         //return redirect()->route('pemohon.senarai_permohonan')->with("success","Permohonan anda telah disimpan");
-        return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
-        // if ($pemohon->wasRecentlyCreated) {
-        //     // Model was successfully created
-        //     // You can redirect to a route and send a success message
-        //     return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
-        // } else {
-        //     // Model was not created or there was an error
-        //     // You can handle the error or redirect to an error page
-        //     return redirect('/senarai_permohonan')->with('error', "Permohonan and tidak disimpan.");
-        // }
+        //return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
+        if ($pemohon->wasRecentlyCreated) {
+            // Model was successfully created
+            // You can redirect to a route and send a success message
+            return redirect()->route('pemohon.senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
+        } else {
+            // Model was not created or there was an error
+            // You can handle the error or redirect to an error page
+            return redirect()->route('pemohon.senarai_permohonan')->with('error', "Permohonan and tidak disimpan.");
+        }
     }
     
     public function senarai_permohonan(){

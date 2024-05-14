@@ -109,14 +109,14 @@
             <div class="form-group row mt-3 mb-3">
                 <label for="namapenuh" class="col-sm-2 col-form-label"><b>Nama Penuh :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nama" name="nama" required>
+                    <input type="text" class="form-control" id="nama" name="nama" value="{{old('nama')}}" required>
                     @error('nama')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="nomIC" class="col-sm-2 col-form-label"><b>No. KP :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nokp" name="nokp" required>
+                    <input type="text" class="form-control" id="nokp" name="nokp" value="{{old('nokp')}}" required>
                     @error('nokp')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
@@ -161,37 +161,37 @@
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Alamat Mastautin :</b></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="alamat1" name="alamat1" rows="3" required></textarea>
+                    <textarea class="form-control" id="alamat1" name="alamat1" rows="3" required>{{old('alamat1')}}</textarea>
                     @error('alamat1')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="alamat" class="col-sm-2 col-form-label"><b>Sambungan Alamat :</b></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="alamat2" name="alamat2" rows="3" placeholder="Isi Jika Berkenaan Sahaja"></textarea>
+                    <textarea class="form-control" id="alamat2" name="alamat2" rows="3" placeholder="Isi Jika Berkenaan Sahaja">{{old('alamat2')}}</textarea>
                     @error('alamat2')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="numPhone" class="col-sm-2 col-form-label"><b>No. Telefon :</b></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="notel" name="notel" required>
+                    <input type="text" class="form-control" id="notel" name="notel" value="{{old('notel')}}" required>
                     @error('notel')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="email" class="col-sm-2 col-form-label"><b>Email :</b></label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" required>
                     @error('email')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
                 <label for="namaBank" class="col-sm-2 col-form-label"><b>Nama & No Akaun Bank :</b></label>
                 <div class="col-sm-10 mb-3">
-                    <input type="text" class="form-control mb-1" id="bank" name="bank" placeholder="Nama Bank Anda" required>
+                    <input type="text" class="form-control mb-1" id="bank" name="bank" placeholder="Nama Bank Anda" value="{{old('bank')}}" required>
                     @error('bank')<span class="text-danger">{{ $message }}</span>@enderror
-                    <input type="text" class="form-control" id="noakaun" name="noakaun" placeholder="No. Akaun Bank Anda" required>
+                    <input type="text" class="form-control" id="noakaun" name="noakaun" placeholder="No. Akaun Bank Anda" value="{{old('noakaun')}}" required>
                     @error('noakaun')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
@@ -262,7 +262,7 @@
                 <div class="form-group row" id="hidePendidikLainInput" style="display:none; flex-direction: row; justify-content: center; align-items: center;">
                     <label for="pendidiklain" class="col-sm-2 col-form-label"><b>Lain-lain:</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="" placeholder="Tuliskan tahap pendidikan anda">
+                        <input type="text" class="form-control jkdb-info" id="pendidiklain" name="pendidiklain" value="{{old('pendidiklain')}}" placeholder="Tuliskan tahap pendidikan anda">
                         @error('pendidiklain')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -328,21 +328,25 @@
                             <td><h6>i.SAYA TELAH DIISYTIHARKAN MUFLIS</h6></td>
                             <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Yes" required></td>
                             <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="No"></td>
+                            @error('muflis')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>ii.SAYA PERNAH MEMPUNYAI REKOD JENAYAH</h6></td>
                             <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Yes" required></td>
                             <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="No"></td>
+                            @error('jenayah')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>iii.SAYA PERNAH TERLIBAT DENGAN PENYALAHGUNAAN DADAH</h6></td>
                             <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Yes" required></td>
                             <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="No"></td>
+                            @error('dadah')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>iv.SAYA SIHAT MENTAL DAN FIZIKAL UNTUK MELAKSANAKAN TUGAS YANG AKAN DIBERIKAN</h6></td>
                             <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="Yes" required></td>
                             <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="No"></td>
+                            @error('kesihatan')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                     </table>
                 </div>
@@ -355,13 +359,19 @@
                     </tr>
                     <tr>
                         <td><b>1</b></td>
-                        <td>GAMBAR PASSPORT</td>
-                        <td><input type="file" class="form-control" id="gambarpassportfile" name="gambarpassportfile"></td>
+                        <td>
+                            GAMBAR PASSPORT
+                            @error('failpassport')<span class="text-danger">{{ $message }}</span>@enderror
+                        </td>
+                        <td><input type="file" class="form-control" id="failpassport" name="failpassport"></td>
                     </tr>
                     <tr>
                         <td><b>2</b></td>
-                        <td>SALINAN KAD PENGENALAN</td>
-                        <td><input type="file" class="form-control" id="kadICSalinan" name="kadICSalinan"></td>
+                        <td>
+                            SALINAN KAD PENGENALAN
+                            @error('failsalinankp')<span class="text-danger">{{ $message }}</span>@enderror
+                        </td>
+                        <td><input type="file" class="form-control" id="failsalinankp" name="failsalinankp"></td>
                     </tr>
                 </table>
             </div>
