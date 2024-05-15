@@ -58,6 +58,11 @@
                                         <td>{{$key->terima}}</td>
                                         <td>
                                             {{-- <button id="viewPemohonBtn" class="btn btn-outline-primary">View</button> --}}
+                                            <form action="/ubah_permohonan/{{$key->id}}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <button>Lengkapkan Permohonan</button>
+                                            </form>
                                             <form action="/sokong_permohonan/{{$key->id}}" method="post">
                                                 @csrf
                                                 @method('PUT')

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemohon;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Pemohon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PemohonController extends Controller
 {
@@ -82,57 +83,67 @@ class PemohonController extends Controller
         ]);
 
         // $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
-        // $currtime = Carbon::now(); //get current datetime
+        $currtime = Carbon::now(); //get current datetime
         // $incomingFields["tamohon"] = $currtime->toDateTimeString();
         // // $incomingFields["user_id"] = auth()->id();
 
         // Pemohon::create($incomingFields);
-        $pemohon = Pemohon::create([
-            'tahun' => $request->tahun,
-            'id_jkdb' => $request->id_jkdb,
-            'kodjwtnjkdb' => $request->kodjwtnjkdb,
-            'nama'=> $request->nama,
-            'nokp'=> $request->nokp,
-            'tarikhlahir'=> $request->tarikhlahir,
-            'kaum'=> $request->kaum,
-            'jantina'=> $request->jantina,
-            'alamat1'=> $request->alamat1,
-            'alamat2'=> $request->alamat2,
-            // 'poskod',
-            // 'daerah',
-            'notel'=> $request->notel,
-            'emel'=> $request->emel,
-            'bank'=> $request->bank,
-            'noakaun'=> $request->noakaun,
-            //'failakaun'=> $request->failakaun,
-            'partikerajaan'=> $request->partikerajaan,
-            'penjawat'=> $request->penjawat,
-            // 'kebenarankj',
-            // 'tarikhkj',
-            // 'namakj',
-            // 'jawatankj',
-            // 'gredkj',
-            //'failkj'=> $request->failkj,
-            'pendidik'=> $request->pendidik,
-            //'pendidiklain'=> $request->pendidiklain,
-            //'failpendidik'=> $request->failpendidik,
-            'penyakitstatus'=> $request->penyakitstatus,
-            'penyakit1'=> $request->penyakit1,
-            'penyakit2'=> $request->penyakti2,
-            'penyakit3'=> $request->penyakit3,
-            'muflis'=> $request->muflis,
-            'jenayah'=> $request->jenayah,
-            'dadah'=> $request->dadah,
-            'sihat'=> $request->sihat,
-            //'tamohon',
-            'hantar'=> "N",
-            // 'sokong',
-            // 'nokp_sokong',
-            // 'tarsokong',
-            // 'terima',
-            // 'tarterima',
-            // 'stesen',   
-        ]);
+
+        try {
+            $pemohon = Pemohon::create([
+                'tahun' => $request->tahun,
+                'id_jkdb' => $request->id_jkdb,
+                'kodjwtnjkdb' => $request->kodjwtnjkdb,
+                'nama'=> $request->nama,
+                'nokp'=> $request->nokp,
+                'tarikhlahir'=> $request->tarikhlahir,
+                'kaum'=> $request->kaum,
+                'jantina'=> $request->jantina,
+                'alamat1'=> $request->alamat1,
+                'alamat2'=> $request->alamat2,
+                // 'poskod',
+                // 'daerah',
+                'notel'=> $request->notel,
+                'emel'=> $request->emel,
+                'bank'=> $request->bank,
+                'noakaun'=> $request->noakaun,
+                //'failakaun'=> $request->failakaun,
+                'partikerajaan'=> $request->partikerajaan,
+                'penjawat'=> $request->penjawat,
+                // 'kebenarankj',
+                // 'tarikhkj',
+                // 'namakj',
+                // 'jawatankj',
+                // 'gredkj',
+                //'failkj'=> $request->failkj,
+                'pendidik'=> $request->pendidik,
+                'pendidiklain'=> $request->pendidiklain,
+                //'failpendidik'=> $request->failpendidik,
+                'penyakitstatus'=> $request->penyakitstatus,
+                'penyakit1'=> $request->penyakit1,
+                'penyakit2'=> $request->penyakti2,
+                'penyakit3'=> $request->penyakit3,
+                'muflis'=> $request->muflis,
+                'jenayah'=> $request->jenayah,
+                'dadah'=> $request->dadah,
+                'sihat'=> $request->sihat,
+                'tamohon' => $currtime->toDateTimeString(),
+                'hantar'=> "N",
+                // 'sokong',
+                // 'nokp_sokong',
+                // 'tarsokong',
+                // 'terima',
+                // 'tarterima',
+                // 'stesen',   
+            ]);
+            // success logic here
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Log the error
+            Log::error($e->getMessage());
+            
+            // Return a user-friendly message
+            return back()->withErrors(['message' => 'There was an issue saving the data. Please try again.']);
+        }
         
         //return redirect()->route('pemohon.senarai_permohonan')->with("success","Permohonan anda telah disimpan");
         //return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");

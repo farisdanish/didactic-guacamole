@@ -25,6 +25,16 @@
             </div>
         @endif
     </div>
+    <!-- Display validation errors -->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <h1>Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">
@@ -182,8 +192,8 @@
             <div class="form-group row mb-3">
                 <label for="email" class="col-sm-2 col-form-label"><b>Email :</b></label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}" required>
-                    @error('email')<span class="text-danger">{{ $message }}</span>@enderror
+                    <input type="emel" class="form-control" id="emel" name="emel" value="{{old('emel')}}" required>
+                    @error('emel')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row mb-3">
@@ -250,13 +260,13 @@
                 <div class="form-group row mt-3 mb-3 w-100">
                     <label for="pendidikan" class="col-sm-2 col-form-label"><b>Tahap Pendidikan Tertinggi:</b></label>
                     <div class="col-sm-10">
-                        <select class="form-select" id="pendidikan" name="pendidikan" aria-label="pendidikan" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda" required>
+                        <select class="form-select" id="pendidik" name="pendidik" aria-label="pendidik" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda" required>
                             <option></option>
                             @foreach ($pendidikan as $key => $data)
                             <option value="{{$data->kodpendidik}}">{{$data->namapendidik}}</option>
                             @endforeach
                         </select>
-                        @error('pendidikan')<span class="text-danger">{{ $message }}</span>@enderror
+                        @error('pendidik')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row" id="hidePendidikLainInput" style="display:none; flex-direction: row; justify-content: center; align-items: center;">
@@ -279,10 +289,10 @@
                 <div class="row text-center">
                     <h6>Saya 
                         <label class="radio-inline">
-                            <input type="radio" name="penyakitstatus" value="yes" checked required> menghidapi/
+                            <input type="radio" name="penyakitstatus" value="y" checked required> menghidapi/
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="penyakitstatus" value="no"> tidak menghidapi
+                            <input type="radio" name="penyakitstatus" value="n"> tidak menghidapi
                         </label>
                     masalah kesihatan yang serius seperti berikut</h6>
                     @error('penyakitstatus')<span class="text-danger">{{ $message }}</span>@enderror
@@ -326,27 +336,27 @@
                         </tr>
                         <tr>
                             <td><h6>i.SAYA TELAH DIISYTIHARKAN MUFLIS</h6></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Yes" required></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="No"></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Y" required></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="N"></td>
                             @error('muflis')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>ii.SAYA PERNAH MEMPUNYAI REKOD JENAYAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Yes" required></td>
-                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="No"></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Y" required></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="N"></td>
                             @error('jenayah')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>iii.SAYA PERNAH TERLIBAT DENGAN PENYALAHGUNAAN DADAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Yes" required></td>
-                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="No"></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Y" required></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="N"></td>
                             @error('dadah')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>iv.SAYA SIHAT MENTAL DAN FIZIKAL UNTUK MELAKSANAKAN TUGAS YANG AKAN DIBERIKAN</h6></td>
-                            <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="Yes" required></td>
-                            <td style="text-align:center"><input type="radio" id="kesihatan" class="input-box" name="kesihatan" value="No"></td>
-                            @error('kesihatan')<span class="text-danger">{{ $message }}</span>@enderror
+                            <td style="text-align:center"><input type="radio" id="sihat" class="input-box" name="sihat" value="Y" required></td>
+                            <td style="text-align:center"><input type="radio" id="sihat" class="input-box" name="sihat" value="N"></td>
+                            @error('sihat')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                     </table>
                 </div>
