@@ -6,13 +6,10 @@
 {{-- <link rel="stylesheet" href="{{ asset('/assets/plugins/plugin.css') }}"> --}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/2.0.6/css/dataTables.bootstrap5.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('/css/senarai-style.css') }}">
 @endpush
 
 @section('content')
-<div class="container applicationFormHeading">
-<h1>Senarai Permohonan</h1>
-</div>
-<div class="container">
     <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12 grid-margin">
@@ -28,12 +25,13 @@
                     @endif
                 </div>
                 <div class="card">
-                    <div class="card-header">
+                    {{-- <div class="card-header">
                         <h4>
                             <a href="" class="btn btn-primary float-end">Tambah Permohonan</a>
                         </h4>
-                    </div>
+                    </div> --}}
                     <div class="card-body">
+                        <h4 class="card-title">Senarai Permohonan</h4>
                         <div class="table-responsive">
                             <table id="permohonan-list" class="table">
                                 <thead>
@@ -42,6 +40,7 @@
                                         <th>Nama</th>
                                         <th>JKDB</th>
                                         <th>Jawatan Dipohon</th>
+                                        <th>Status Hantar</th>
                                         <th>Sokongan</th>
                                         <th>Status Diterima</th>
                                         <th>Action</th>
@@ -52,26 +51,67 @@
                                     <tr>
                                         <td>{{$key->id}}</td>
                                         <td>{{$key->nama}}</td>
-                                        <td>{{$key->id_jkdb}}</td>
-                                        <td>{{$key->kodjwtnjkdb}}</td>
-                                        <td>{{$key->sokong}}</td>
-                                        <td>{{$key->terima}}</td>
+                                        <td>
+                                            @foreach ($jkdb as $data)
+                                            @if($data->id_jkdb == $key->id_jkdb)         
+                                            {{$data->nama}}     
+                                            @endif
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach ($jwtnjkdb as $data)
+                                            @if($data->kodjawatan == $key->kodjwtnjkdb)         
+                                            {{$data->namajawatan}}     
+                                            @endif
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @if($key->hantar == "N")
+                                            Tidak Dihantar
+                                            @elseif($key->hantar == "Y")
+                                            Dihantar
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($key->hantar == "N")
+                                            N/A
+                                            @elseif($key->hantar == "Y")
+                                                @if($key->sokong == "")
+                                                Belum Disokong
+                                                @elseif($key->sokong != "")
+                                                INSERT NAMA PENYOKONG
+                                                @endif
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($key->hantar == "N")
+                                            N/A
+                                            @elseif($key->hantar == "Y")
+                                                @if($key->terima == "")
+                                                Belum Disokong
+                                                @elseif($key->terima != "")
+                                                INSERT NAMA PENYOKONG
+                                                @endif
+                                            @endif
+                                        </td>
                                         <td>
                                             {{-- <button id="viewPemohonBtn" class="btn btn-outline-primary">View</button> --}}
-                                            <form action="/ubah_permohonan/{{$key->id}}" method="post">
+                                            @if($key->hantar != "Y")
+                                            <form class="mb-1" action="/ubah_permohonan/{{$key->id}}" method="post">
                                                 @csrf
                                                 @method('PUT')
-                                                <button>Lengkapkan Permohonan</button>
+                                                <button class="btn btn-outline-primary btn-block">Ubah</button>
                                             </form>
-                                            <form action="/sokong_permohonan/{{$key->id}}" method="post">
+                                            @endif
+                                            <form class="mb-1" action="/sokong_permohonan/{{$key->id}}" method="post">
                                                 @csrf
                                                 @method('PUT')
-                                                <button>Sokong</button>
+                                                <button class="btn btn-outline-warning btn-block">Sokong</button>
                                             </form>
                                             <form action="/terima_permohonan/{{$key->id}}" method="post">
                                                 @csrf
                                                 @method('PUT')
-                                                <button>Terima</button>
+                                                <button class="btn btn-outline-success btn-block">Terima</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -84,7 +124,7 @@
             </div>
         </div>
     </div>
-</div>
+
 @endsection
 
 @push('plugin-scripts')
@@ -99,8 +139,6 @@
 <script src="{{ asset('/assets/js/dashboard.js') }}"></script>
 <script src="{{ asset('/js/senarai.js') }} "></script>
 <script type="text/javascript">
-    document.getElementById("viewPemohonBtn").onclick = function () {
-        location.href = "/";
-    };
+    
 </script>
 @endpush
