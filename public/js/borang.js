@@ -58,14 +58,17 @@ function showTab(n) {
   // This function will display the specified tab of the form ...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
+    window.scrollTo(0,0);
     // ... and fix the Previous/Next buttons:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
         document.getElementById("submitbtn").style.display = "none";
+        document.getElementById("savebtn").style.display = "none";
         document.getElementById("nextBtn").style.display = "inline";
     } else {
         document.getElementById("prevBtn").style.display = "inline";
         document.getElementById("submitbtn").style.display = "inline";
+        document.getElementById("savebtn").style.display = "inline";
         document.getElementById("nextBtn").style.display = "none";
     }
     // if (n == (x.length - 1)) {
@@ -161,15 +164,29 @@ function validateForm() {
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";
     }
+    // else if (valid && n == -1) {
+    //     document.getElementsByClassName("step")[currentTab].classNamereplace(" finish active", "");
+    // }
     return valid; // return the valid status
 }
 
 function fixStepIndicator(n) {
     // This function removes the "active" class of all steps...
     var i, x = document.getElementsByClassName("step");
+    console.log("one:" + x[n].className);
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
+        //x[i].className = x[i].className.className.replace(" finish", "");
+    }
+    x[n].className += " active";
+    console.log("two:" +x[n].className);
+    
+    var y = document.getElementsByClassName("finish")
+    console.log("three:" +y[n].className);
+    for (i = 0; i < y.length; i++) {
+        y[i].className = y[i].className.replace(" finish", "");
     }
     //... and adds the "active" class to the current step:
-    x[n].className += " active";
+    y[n].className += " active";
+    console.log("four:" +y[n].className);
 }

@@ -391,8 +391,7 @@
         <div style="float:right;">
         <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Kembali</button>
         <button type="button" class="btn btn-secondary" id="nextBtn" onclick="nextPrev(1)">Seterusnya</button>
-        <button type="submit" class="btn btn-info submit" name="savebtn" id="savebtn" value="Simpan">Simpan</button>
-        <button type="submit" class="btn btn-success submit" name="submitbtn" id="submitbtn" value="Hantar">Hantar</button>
+        <button type="submit" class="btn btn-success submit" id="submitbtn">Hantar</button>
         </div>
     </div>
 </form>

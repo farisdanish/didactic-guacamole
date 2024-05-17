@@ -67,9 +67,9 @@
                                         </td>
                                         <td>
                                             @if($key->hantar == "N")
-                                            Tidak Dihantar
+                                            <span style="color: #ff0000">Belum Dihantar</span>
                                             @elseif($key->hantar == "Y")
-                                            Dihantar
+                                            <span style="color: green">Telah Dihantar</span>
                                             @endif
                                         </td>
                                         <td>
@@ -77,9 +77,9 @@
                                             N/A
                                             @elseif($key->hantar == "Y")
                                                 @if($key->sokong == "")
-                                                Belum Disokong
+                                                <span style="color: #ff0000">Belum Disokong</span>
                                                 @elseif($key->sokong != "")
-                                                INSERT NAMA PENYOKONG
+                                                <span style="color: green">Disokong</span>
                                                 @endif
                                             @endif
                                         </td>
@@ -88,9 +88,9 @@
                                             N/A
                                             @elseif($key->hantar == "Y")
                                                 @if($key->terima == "")
-                                                Belum Disokong
+                                                <span style="color: #ff0000">Belum Diterima</span>
                                                 @elseif($key->terima != "")
-                                                INSERT NAMA PENYOKONG
+                                                <span style="color: green">Diterima</span>
                                                 @endif
                                             @endif
                                         </td>
@@ -100,7 +100,7 @@
                                             <form class="mb-1" action="/ubah_permohonan/{{$key->id}}" method="post">
                                                 @csrf
                                                 @method('PUT')
-                                                <button class="btn btn-outline-primary btn-block">Ubah</button>
+                                                <button class="btn btn-outline-primary btn-block">Ubah & Hantar</button>
                                             </form>
                                             @endif
                                             <form class="mb-1" action="/sokong_permohonan/{{$key->id}}" method="post">
