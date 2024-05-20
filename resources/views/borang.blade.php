@@ -57,7 +57,9 @@
                         <select class="form-select" id="id_jkdb" name="id_jkdb" aria-label="id_jkdb" data-placeholder="Sila Pilih JKDB Anda" required>
                             <option></option>
                             @foreach ($jkdb as $key => $data)
-                            <option value="{{$data->id_jkdb}}">{{$data->nama}}</option>
+                            <option value="{{$data->id_jkdb}}" @selected(old('id_jkdb') == $data->id_jkdb)>
+                                {{$data->nama}}
+                            </option>
                             @endforeach
                         </select>
                         @error('id_jkdb')<span class="text-danger">{{ $message }}</span>@enderror
@@ -106,7 +108,9 @@
                         <select class="form-select" id="kodjwtnjkdb" name="kodjwtnjkdb" aria-label="kodjwtnjkdb" data-placeholder="Pilih Jawatan" required>
                             <option></option>
                             @foreach ($jawatanjkdb as $key => $data)
-                            <option value="{{$data->kodjawatan}}">{{$data->namajawatan}}</option>
+                            <option value="{{$data->kodjawatan}}" @selected(old('kodjwtnjkdb') == $data->kodjawatan)>
+                                {{$data->namajawatan}}
+                            </option>
                             @endforeach
                         </select>
                         @error('kodjwtnjkdb')<span class="text-danger">{{ $message }}</span>@enderror
@@ -162,8 +166,8 @@
                 <div class="col-sm-10">
                     <select class="form-select" id="jantina" name="jantina" aria-label="bangsa" required>
                         <option disabled selected value>Pilih Jantina Anda</option>
-                        <option value="L">Lelaki</option>
-                        <option value="P">Perempuan</option>
+                        <option value="L" @selected(old('jantina') == "L")>Lelaki</option>
+                        <option value="P" @selected(old('jantina') == "P")>Perempuan</option>
                     </select>
                     @error('jantina')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>

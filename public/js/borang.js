@@ -173,20 +173,19 @@ function validateForm() {
 function fixStepIndicator(n) {
     // This function removes the "active" class of all steps...
     var i, x = document.getElementsByClassName("step");
-    console.log("one:" + x[n].className);
+
     for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
         //x[i].className = x[i].className.className.replace(" finish", "");
     }
     x[n].className += " active";
-    console.log("two:" +x[n].className);
+
     
     var y = document.getElementsByClassName("finish")
-    console.log("three:" +y[n].className);
+
     for (i = 0; i < y.length; i++) {
         y[i].className = y[i].className.replace(" finish", "");
     }
     //... and adds the "active" class to the current step:
     y[n].className += " active";
-    console.log("four:" +y[n].className);
 }
