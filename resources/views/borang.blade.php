@@ -138,7 +138,7 @@
                 <div class="row col-sm-9">
                     <label for="tarikhlahir" class="col-sm-3 col-form-label"><b>Tarikh Lahir :</b></label>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" id="tarikhlahir" name="tarikhlahir" required>
+                        <input type="date" class="form-control" id="tarikhlahir" name="tarikhlahir" value="{{ old('tarikhlahir', date('d/m/Y')) }}" required>
                         @error('tarikhlahir')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -155,7 +155,9 @@
                     <select class="form-select" id="kaum" name="kaum" aria-label="kaum" data-placeholder="Sila Pilih Bangsa Anda" required>
                         <option></option>
                         @foreach ($kaum as $key => $data)
-                        <option value="{{$data->kodkaum}}">{{$data->namakaum}}</option>
+                        <option value="{{$data->kodkaum}}" @selected(old('kaum') == $data->kodkaum)>
+                            {{$data->namakaum}}
+                        </option>
                         @endforeach
                     </select>
                     @error('kaum')<span class="text-danger">{{ $message }}</span>@enderror
@@ -222,7 +224,7 @@
                     <select class="form-select" id="partikerajaan" name="partikerajaan" aria-label="partikerajaan" data-placeholder="Sila Pilih Parti Komponen Kerajaan yang diwakili anda" required>
                         <option></option>
                         @foreach ($parti as $key => $data)
-                        <option value="{{$data->kodparti}}">{{$data->namaparti}}</option>
+                        <option value="{{$data->kodparti}}" @selected(old('partikerajaan') == $data->kodparti)>{{$data->namaparti}}</option>
                         @endforeach
                     </select>
                     @error('partikerajaan')<span class="text-danger">{{ $message }}</span>@enderror
@@ -238,7 +240,7 @@
                         @foreach ($penjawat as $key => $data)
                         <tr>
                             <td width="10%">
-                                <input type="radio" id="penjawat" class="input-box" name="penjawat" value="{{$data->kodpenjawat}}" required>
+                                <input type="radio" id="penjawat" class="input-box" name="penjawat" value="{{$data->kodpenjawat}}" @selected(old('pekerjaan') == $data->kodpenjawat) required>
                                 <label for="pekerjaan"><h6>{{$data->namapenjawat}}</h6></label>
                             </td>
                         </tr>
@@ -267,7 +269,7 @@
                         <select class="form-select" id="pendidik" name="pendidik" aria-label="pendidik" data-placeholder="Sila Pilih Tahap Pendidikan Tertinggi Anda" required>
                             <option></option>
                             @foreach ($pendidikan as $key => $data)
-                            <option value="{{$data->kodpendidik}}">{{$data->namapendidik}}</option>
+                            <option value="{{$data->kodpendidik}}" @selected(old('pendidik') == $data->kodpendidik)>{{$data->namapendidik}}</option>
                             @endforeach
                         </select>
                         @error('pendidik')<span class="text-danger">{{ $message }}</span>@enderror
@@ -293,10 +295,10 @@
                 <div class="row text-center">
                     <h6>Saya 
                         <label class="radio-inline">
-                            <input type="radio" name="penyakitstatus" value="y" checked required> menghidapi/
+                            <input type="radio" name="penyakitstatus" value="y" @checked(old('active', "y")) required> menghidapi/
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="penyakitstatus" value="n"> tidak menghidapi
+                            <input type="radio" name="penyakitstatus" value="n" @checked(old('active', "n"))> tidak menghidapi
                         </label>
                     masalah kesihatan yang serius seperti berikut</h6>
                     @error('penyakitstatus')<span class="text-danger">{{ $message }}</span>@enderror
@@ -304,21 +306,21 @@
                 <div class="form-group row mb-3">
                     <label for="penyakit1" class="col-sm-2 col-form-label"><b>Penyakit(i):</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="penyakit1" name="penyakit1" placeholder="Nyatakan">
+                        <input type="text" class="form-control" id="penyakit1" name="penyakit1" placeholder="Nyatakan" value="{{old('penyakit1')}}">
                         @error('penyakit1')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="penyakit2" class="col-sm-2 col-form-label"><b>Penyakit(ii):</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="penyakit2" name="penyakit2" placeholder="Nyatakan">
+                        <input type="text" class="form-control" id="penyakit2" name="penyakit2" placeholder="Nyatakan" value="{{old('penyakit2')}}">
                         @error('penyakit2')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="form-group row mb-3">
                     <label for="penyakit3" class="col-sm-2 col-form-label"><b>Penyakit(iii):</b></label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="penyakit3" name="penyakit3" placeholder="Nyatakan">
+                        <input type="text" class="form-control" id="penyakit3" name="penyakit3" placeholder="Nyatakan" value="{{old('penyakit3')}}">
                         @error('penyakit3')<span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -340,26 +342,26 @@
                         </tr>
                         <tr>
                             <td><h6>i.SAYA TELAH DIISYTIHARKAN MUFLIS</h6></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Y" required></td>
-                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="N"></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="Y" @checked(old('muflis', "Y")) required></td>
+                            <td width="10%" style="text-align:center"><input type="radio" id="muflis" class="input-box" name="muflis" value="N" @checked(old('muflis', "N"))></td>
                             @error('muflis')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>ii.SAYA PERNAH MEMPUNYAI REKOD JENAYAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Y" required></td>
-                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="N"></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="Y" @checked(old('jenayah', "Y")) required></td>
+                            <td style="text-align:center"><input type="radio" id="jenayah" class="input-box" name="jenayah" value="N" @checked(old('jenayah', "N"))></td>
                             @error('jenayah')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>iii.SAYA PERNAH TERLIBAT DENGAN PENYALAHGUNAAN DADAH</h6></td>
-                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Y" required></td>
-                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="N"></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="Y" @checked(old('dadah', "Y")) required></td>
+                            <td style="text-align:center"><input type="radio" id="dadah" class="input-box" name="dadah" value="N" @checked(old('dadah', "N"))></td>
                             @error('dadah')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                         <tr>
                             <td><h6>iv.SAYA SIHAT MENTAL DAN FIZIKAL UNTUK MELAKSANAKAN TUGAS YANG AKAN DIBERIKAN</h6></td>
-                            <td style="text-align:center"><input type="radio" id="sihat" class="input-box" name="sihat" value="Y" required></td>
-                            <td style="text-align:center"><input type="radio" id="sihat" class="input-box" name="sihat" value="N"></td>
+                            <td style="text-align:center"><input type="radio" id="sihat" class="input-box" name="sihat" value="Y" @checked(old('sihat', "Y")) required></td>
+                            <td style="text-align:center"><input type="radio" id="sihat" class="input-box" name="sihat" value="N" @checked(old('sihat', "N"))></td>
                             @error('sihat')<span class="text-danger">{{ $message }}</span>@enderror
                         </tr>
                     </table>
