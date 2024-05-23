@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PemohonController;
 
 /*
@@ -32,4 +33,16 @@ Route::controller(PemohonController::class)->group(function(){
     Route::get('/ubah_permohonan/{permohonan}', 'showEditPermohonan')->name('pemohon.show_edit_permohonan');
     Route::put('/ubah_permohonan/{permohonan}', 'editPermohonan')->name('pemohon.edit_permohonan');
     Route::delete('/padam_permohonan/{permohonan}', 'deletePermohonan')->name('pemohon.delete_permohonan'); 
+});
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    //Route::get('/home', [HomeController::class, 'index']);
+    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
