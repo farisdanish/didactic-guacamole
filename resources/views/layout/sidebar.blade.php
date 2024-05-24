@@ -87,7 +87,7 @@
       </div>
     </li> --}}
     <li class="nav-item ">
-      <a class="nav-link" href="/">
+      <a class="nav-link" href="/login">
         <i class="menu-icon mdi mdi-cards-variant"></i>
         <span class="menu-title">Login/Register</span>
       </a>

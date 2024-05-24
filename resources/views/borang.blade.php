@@ -34,7 +34,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+    @endif
     <h1>Borang Permohonan</h1>
 </div>
 <div class="container-fluid borang_ejkdb">

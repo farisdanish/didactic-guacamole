@@ -8,7 +8,46 @@
 @endpush
 
 @section('content')
+    {{-- @auth
+        <!--If user is logged in, it will display this-->
 
+    @else
+
+    @endauth --}}
+    <div class="container">
+        <div>
+            @If(session()->has('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>
+            @elseif(session()->has('error'))
+                <div class="alert alert-danger">
+                    {{session('error')}}
+                </div>
+            @endif
+        </div>
+        <!-- Display validation errors -->
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <h1>Ruang Halaman</h1>
+    </div>
+    <div class="container-fluid row">
+        <div class="col-sm-6">
+            <button class="btn btn-block btn-primary">Daftar Masuk</button>
+            <button class="btn btn-block btn-primary">Buat Akaun</button>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-block btn-primary">Buat Permohonan</button>
+            <button class="btn btn-block btn-primary">Lihat Senarai Permohonan</button>
+        </div>
+    </div>
 @endsection
 
 @push('plugin-scripts')

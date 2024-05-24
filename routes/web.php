@@ -17,7 +17,7 @@ use App\Http\Controllers\PemohonController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 
 })->name('login_request');
 
@@ -43,6 +43,10 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    //Route::get('/home', [HomeController::class, 'index']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+// Route::get('home', function () {
+//     // Only authenticated users may enter...
+//     return view('home');
+// })->middleware('auth')->name('login_request');
