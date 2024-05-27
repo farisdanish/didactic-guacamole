@@ -7,6 +7,8 @@ use App\Models\Pemohon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Exception;
 
 class PemohonController extends Controller
 {
@@ -86,8 +88,35 @@ class PemohonController extends Controller
         $currtime = Carbon::now(); //get current datetime
         // $incomingFields["tamohon"] = $currtime->toDateTimeString();
         // // $incomingFields["user_id"] = auth()->id();
-
         // Pemohon::create($incomingFields);
+
+        $failakaun = $request->file('failakaun'); // Retrieve the uploaded file from the request
+        $failkj = $request->file('failkj');
+        $failpendidik = $request->file('failpendidik');
+        $failpassport = $request->file('failpassport');
+        $failsalinankp = $request->file('failsalinankp');
+
+        $failakaunname = $failakaun->getClientOriginalName(); // Retrieve the original filename
+        $failkjname = $failakaun->getClientOriginalName();
+        $failpendidikname = $failakaun->getClientOriginalName();
+        $failpassportname = $failakaun->getClientOriginalName();
+        $failsalinankpname = $failakaun->getClientOriginalName();
+
+        $failakaunpath = public_path().'/storage/test'.$failakaunname;
+        $failkjpath = public_path().'/storage/test'.$failkjname;
+        $failpendidikpath = public_path().'/storage/test'.$failpendidikname;
+        $failpassportpath = public_path().'/storage/test'.$failpassportname;
+        $failsalinankppath = public_path().'/storage/test'.$failsalinankpname;
+
+        try{
+            Storage::disk('local')->put($failakaunpath, file_get_contents($failkj));
+            Storage::disk('local')->put($failkjpath, file_get_contents($failakaun));
+            Storage::disk('local')->put($failpendidikpath, file_get_contents($failpendidik));
+            Storage::disk('local')->put($failpassportpath, file_get_contents($failpassport));
+            Storage::disk('local')->put($failsalinankppath, file_get_contents($failsalinankp));
+        }catch(Exception $e){
+            return back()->withErrors(['file' => 'File upload failed: ' . $e->getMessage()]);
+        }
 
         try {
             $pemohon = Pemohon::create([
@@ -107,7 +136,7 @@ class PemohonController extends Controller
                 'emel'=> $request->emel,
                 'bank'=> $request->bank,
                 'noakaun'=> $request->noakaun,
-                //'failakaun'=> $request->failakaun,
+                'failakaun'=> $failakaunpath,
                 'partikerajaan'=> $request->partikerajaan,
                 'penjawat'=> $request->penjawat,
                 // 'kebenarankj',
@@ -115,10 +144,10 @@ class PemohonController extends Controller
                 // 'namakj',
                 // 'jawatankj',
                 // 'gredkj',
-                //'failkj'=> $request->failkj,
+                'failkj'=> $failkjpath,
                 'pendidik'=> $request->pendidik,
                 'pendidiklain'=> $request->pendidiklain,
-                //'failpendidik'=> $request->failpendidik,
+                'failpendidik'=> $failpendidikpath,
                 'penyakitstatus'=> $request->penyakitstatus,
                 'penyakit1'=> $request->penyakit1,
                 'penyakit2'=> $request->penyakti2,
@@ -127,6 +156,8 @@ class PemohonController extends Controller
                 'jenayah'=> $request->jenayah,
                 'dadah'=> $request->dadah,
                 'sihat'=> $request->sihat,
+                'failpassport' => $failpassportpath, 
+                'failsalinankp'=> $failsalinankppath, 
                 'tamohon' => $currtime->toDateTimeString(),
                 'hantar'=> "N",
                 // 'sokong',
@@ -134,8 +165,9 @@ class PemohonController extends Controller
                 // 'tarsokong',
                 // 'terima',
                 // 'tarterima',
-                // 'stesen',   
+                // 'stesen',
             ]);
+
             // success logic here
         } catch (\Illuminate\Database\QueryException $e) {
             // Log the error
@@ -144,9 +176,7 @@ class PemohonController extends Controller
             // Return a user-friendly message
             return back()->withErrors(['message' => 'There was an issue saving the data. Please try again.']);
         }
-        
-        //return redirect()->route('pemohon.senarai_permohonan')->with("success","Permohonan anda telah disimpan");
-        //return redirect('/senarai_permohonan')->with('success', "Permohonan anda telah disimpan.");
+
         if ($pemohon->wasRecentlyCreated) {
             // Model was successfully created
             // You can redirect to a route and send a success message
