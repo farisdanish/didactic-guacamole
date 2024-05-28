@@ -12,7 +12,7 @@
     <div class="col-lg-4">
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title">Register</h1>
+                <h4>Daftarkan Diri Anda</h4>
             </div>
             <div class="card-body">
                 @if(Session::has('success'))
@@ -23,16 +23,30 @@
                 <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Nama</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
+                        <label for="email" class="form-label">Alamat Emel</label>
                         <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="userType" class="form-label">Jabatan/Jawatan:</label>
+                        <select id="userType" name="userType" class="form-select">
+                            <option value="" disabled selected>Sila Pilih Jabatan/Jawatan Anda</option>
+                            <option value="PBT">PBT</option>
+                            <option value="Mayor/Presiden/Pengerusi">Mayor/Presiden/Pengerusi</option>
+                            <option value="KKTP">KKTP</option>
+                            <option value="SUT">SUT</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Kata Laluan</label>
                         <input type="password" name="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordConfirm" class="form-label">Sahkan Kata Laluan</label>
+                        <input type="password" name="passwordConfirm" class="form-control" id="passwordConfirm" required>
                     </div>
                     <div class="mb-3">
                         <div class="d-grid">
