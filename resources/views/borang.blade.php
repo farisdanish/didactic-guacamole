@@ -214,7 +214,7 @@
             <div class="form-group row mb-3">
                 <label for="lampiranBank" class="col-sm-2 col-form-label"><b>Lampiran Bank :</b></label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control" id="lampiranBank" name="lampiranBank">
+                    <input type="file" class="form-control" id="failakaun" name="failakaun">
                     @error('failakaun')<span class="text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
@@ -397,8 +397,8 @@
         <div style="float:right;">
         <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Kembali</button>
         <button type="button" class="btn btn-secondary" id="nextBtn" onclick="nextPrev(1)">Seterusnya</button>
-        <button type="submit" class="btn btn-info submit" name="savebtn" id="savebtn" value="Simpan">Simpan</button>
-        <button type="submit" class="btn btn-success submit" name="submitbtn" id="submitbtn" value="Hantar">Hantar</button>
+        <button type="submit" formaction="/create_permohonan" class="btn btn-info submit" name="savebtn" id="savebtn" value="Simpan">Simpan</button>
+        <button type="submit" formaction="/send_permohonan" class="btn btn-success submit" name="submitbtn" id="submitbtn" value="Hantar">Hantar</button>
         </div>
     </div>
 </form>

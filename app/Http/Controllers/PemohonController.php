@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File; 
 use Exception;
 
 class PemohonController extends Controller
@@ -84,11 +85,7 @@ class PemohonController extends Controller
             //'failsalinankp' => 'required',
         ]);
 
-        // $incomingFields["hantar"] = "N"; //Y - Dihantar, N - Belum Dihantar
         $currtime = Carbon::now(); //get current datetime
-        // $incomingFields["tamohon"] = $currtime->toDateTimeString();
-        // // $incomingFields["user_id"] = auth()->id();
-        // Pemohon::create($incomingFields);
 
         $failakaun = $request->file('failakaun'); // Retrieve the uploaded file from the request
         $failkj = $request->file('failkj');
@@ -96,24 +93,21 @@ class PemohonController extends Controller
         $failpassport = $request->file('failpassport');
         $failsalinankp = $request->file('failsalinankp');
 
-        $failakaunname = $failakaun->getClientOriginalName(); // Retrieve the original filename
-        $failkjname = $failakaun->getClientOriginalName();
-        $failpendidikname = $failakaun->getClientOriginalName();
-        $failpassportname = $failakaun->getClientOriginalName();
-        $failsalinankpname = $failakaun->getClientOriginalName();
+        $failakaunname = $request->nama.'-'.$failakaun->getClientOriginalName(); // Retrieve the original filename
+        $failkjname = $request->nama.'-'.$failkj->getClientOriginalName();
+        $failpendidikname = $request->nama.'-'.$failpendidik->getClientOriginalName();
+        $failpassportname = $request->nama.'-'.$failpassport->getClientOriginalName();
+        $failsalinankpname = $request->nama.'-'.$failsalinankp->getClientOriginalName();
 
-        $failakaunpath = public_path().'/storage/test'.$failakaunname;
-        $failkjpath = public_path().'/storage/test'.$failkjname;
-        $failpendidikpath = public_path().'/storage/test'.$failpendidikname;
-        $failpassportpath = public_path().'/storage/test'.$failpassportname;
-        $failsalinankppath = public_path().'/storage/test'.$failsalinankpname;
+        $path = '/storage/test/';
 
+        //upload files to public folder first
         try{
-            Storage::disk('local')->put($failakaunpath, file_get_contents($failkj));
-            Storage::disk('local')->put($failkjpath, file_get_contents($failakaun));
-            Storage::disk('local')->put($failpendidikpath, file_get_contents($failpendidik));
-            Storage::disk('local')->put($failpassportpath, file_get_contents($failpassport));
-            Storage::disk('local')->put($failsalinankppath, file_get_contents($failsalinankp));
+            $failakaun->move($path,$failakaunname);
+            $failakaun->move($path,$failakaunname);
+            $failakaun->move($path,$failakaunname);
+            $failakaun->move($path,$failakaunname);
+            $failakaun->move($path,$failakaunname);
         }catch(Exception $e){
             return back()->withErrors(['file' => 'File upload failed: ' . $e->getMessage()]);
         }
@@ -136,7 +130,7 @@ class PemohonController extends Controller
                 'emel'=> $request->emel,
                 'bank'=> $request->bank,
                 'noakaun'=> $request->noakaun,
-                'failakaun'=> $failakaunpath,
+                'failakaun'=> $path.$failakaunname,
                 'partikerajaan'=> $request->partikerajaan,
                 'penjawat'=> $request->penjawat,
                 // 'kebenarankj',
@@ -144,10 +138,10 @@ class PemohonController extends Controller
                 // 'namakj',
                 // 'jawatankj',
                 // 'gredkj',
-                'failkj'=> $failkjpath,
+                'failkj'=> $path.$failkjname ,
                 'pendidik'=> $request->pendidik,
                 'pendidiklain'=> $request->pendidiklain,
-                'failpendidik'=> $failpendidikpath,
+                'failpendidik'=> $path.$failpendidikname,
                 'penyakitstatus'=> $request->penyakitstatus,
                 'penyakit1'=> $request->penyakit1,
                 'penyakit2'=> $request->penyakti2,
@@ -156,8 +150,8 @@ class PemohonController extends Controller
                 'jenayah'=> $request->jenayah,
                 'dadah'=> $request->dadah,
                 'sihat'=> $request->sihat,
-                'failpassport' => $failpassportpath, 
-                'failsalinankp'=> $failsalinankppath, 
+                'failpassport' => $path.$failpassportname, 
+                'failsalinankp'=> $path.$failsalinankpname, 
                 'tamohon' => $currtime->toDateTimeString(),
                 'hantar'=> "N",
                 // 'sokong',
@@ -173,6 +167,13 @@ class PemohonController extends Controller
             // Log the error
             Log::error($e->getMessage());
             
+            //if the task fails, delete files previously uploaded
+            File::delete($path.$failakaunname);
+            File::delete($path.$failkjname);
+            File::delete($path.$failpendidikname);
+            File::delete($path.$failpassportname);
+            File::delete($path.$failsalinankpname);
+
             // Return a user-friendly message
             return back()->withErrors(['message' => 'There was an issue saving the data. Please try again.']);
         }

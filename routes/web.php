@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::controller(PemohonController::class)->group(function(){
     Route::get('/borang_permohonan', 'borang_permohonan')->name('pemohon.borang_permohonan');
     Route::post('/create_permohonan', 'create_permohonan')->name('pemohon.create_permohonan');
+    Route::post('/send_permohonan', 'send_permohonan')->name('pemohon.send_permohonan');
     Route::get('/senarai_permohonan', 'senarai_permohonan')->name('pemohon.senarai_permohonan');
     Route::get('/ubah_permohonan/{permohonan}', 'showEditPermohonan')->name('pemohon.show_edit_permohonan');
     Route::put('/ubah_permohonan/{permohonan}', 'editPermohonan')->name('pemohon.edit_permohonan');
