@@ -48,6 +48,8 @@ class Pemohon extends Model
         'jenayah',
         'dadah',
         'sihat',
+        'failpassport',
+        'failsalinankp',
         'tamohon',
         'hantar',
         'sokong',

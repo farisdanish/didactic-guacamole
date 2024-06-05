@@ -40,7 +40,7 @@
     </div>
     <div class="container-fluid row">
         <div class="col-sm-6">
-            <button class="btn btn-block btn-primary">Daftar Masuk</button>
+            <button class="btn btn-block btn-primary">Log Masuk</button>
             <button class="btn btn-block btn-primary">Buat Akaun</button>
         </div>
         <div class="col-sm-6">

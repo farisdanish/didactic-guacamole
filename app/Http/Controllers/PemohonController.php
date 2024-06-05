@@ -93,21 +93,25 @@ class PemohonController extends Controller
         $failpassport = $request->file('failpassport');
         $failsalinankp = $request->file('failsalinankp');
 
-        $failakaunname = $request->nama.'-'.$failakaun->getClientOriginalName(); // Retrieve the original filename
-        $failkjname = $request->nama.'-'.$failkj->getClientOriginalName();
-        $failpendidikname = $request->nama.'-'.$failpendidik->getClientOriginalName();
-        $failpassportname = $request->nama.'-'.$failpassport->getClientOriginalName();
-        $failsalinankpname = $request->nama.'-'.$failsalinankp->getClientOriginalName();
+        $failakaunname = str_replace(' ', '_', $request->nama).'-'.$failakaun->getClientOriginalName(); // Retrieve the original filename
+        $failkjname = str_replace(' ', '_', $request->nama).'-'.$failkj->getClientOriginalName();
+        $failpendidikname = str_replace(' ', '_', $request->nama).'-'.$failpendidik->getClientOriginalName();
+        $failpassportname = str_replace(' ', '_', $request->nama).'-'.$failpassport->getClientOriginalName();
+        $failsalinankpname = str_replace(' ', '_', $request->nama).'-'.$failsalinankp->getClientOriginalName();
 
-        $path = '/storage/test/';
+        $path = public_path().'/storage/test/'.str_replace(' ', '_', $request->nama);
+        // Check if the directory exists, if not create it
+        if (!Storage::exists($path)){
+            Storage::makeDirectory($path);
+        }
 
         //upload files to public folder first
         try{
             $failakaun->move($path,$failakaunname);
-            $failakaun->move($path,$failakaunname);
-            $failakaun->move($path,$failakaunname);
-            $failakaun->move($path,$failakaunname);
-            $failakaun->move($path,$failakaunname);
+            $failkj->move($path,$failkjname);
+            $failpendidik ->move($path,$failpendidikname);
+            $failpassport->move($path,$failpassportname);
+            $failsalinankp->move($path,$failsalinankpname);
         }catch(Exception $e){
             return back()->withErrors(['file' => 'File upload failed: ' . $e->getMessage()]);
         }
