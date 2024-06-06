@@ -93,25 +93,52 @@ class PemohonController extends Controller
         $failpassport = $request->file('failpassport');
         $failsalinankp = $request->file('failsalinankp');
 
-        $failakaunname = str_replace(' ', '_', $request->nama).'-'.$failakaun->getClientOriginalName(); // Retrieve the original filename
-        $failkjname = str_replace(' ', '_', $request->nama).'-'.$failkj->getClientOriginalName();
-        $failpendidikname = str_replace(' ', '_', $request->nama).'-'.$failpendidik->getClientOriginalName();
-        $failpassportname = str_replace(' ', '_', $request->nama).'-'.$failpassport->getClientOriginalName();
-        $failsalinankpname = str_replace(' ', '_', $request->nama).'-'.$failsalinankp->getClientOriginalName();
+        // $failakaunname = str_replace(' ', '_', $request->nama).'-'.$failakaun->getClientOriginalName(); // Retrieve the original filename
+        // $failkjname = str_replace(' ', '_', $request->nama).'-'.$failkj->getClientOriginalName();
+        // $failpendidikname = str_replace(' ', '_', $request->nama).'-'.$failpendidik->getClientOriginalName();
+        // $failpassportname = str_replace(' ', '_', $request->nama).'-'.$failpassport->getClientOriginalName();
+        // $failsalinankpname = str_replace(' ', '_', $request->nama).'-'.$failsalinankp->getClientOriginalName();
 
-        $path = public_path().'/storage/test/'.str_replace(' ', '_', $request->nama);
+        //Reformat Pemohon Name
+        $pemohonName = str_replace(' ', '_', $request->nama);
+
+        //Assign the path to the Pemohon's own folder
+        $path = public_path().'/storage/test/'.$pemohonName;
+
         // Check if the directory exists, if not create it
         if (!Storage::exists($path)){
             Storage::makeDirectory($path);
         }
 
+        // Function to store file and check if it already exists
+        $storeFile = function ($file, $path, $prefix) {
+            $fileName = $prefix . '-' . $file->getClientOriginalName();
+            $filePath = $path . '/' . $fileName;
+
+            // Check if the file already exists
+            if (Storage::exists($filePath)) {
+                return back()->withErrors(['file' => 'File in '.$filePath.' already exists.']);
+            }
+
+            // Store the file
+            $file->move($filePath,$fileName);
+            return $filePath;
+        };
+
         //upload files to public folder first
         try{
-            $failakaun->move($path,$failakaunname);
-            $failkj->move($path,$failkjname);
-            $failpendidik ->move($path,$failpendidikname);
-            $failpassport->move($path,$failpassportname);
-            $failsalinankp->move($path,$failsalinankpname);
+            // $failakaun->move($path,$failakaunname);
+            // $failkj->move($path,$failkjname);
+            // $failpendidik ->move($path,$failpendidikname);
+            // $failpassport->move($path,$failpassportname);
+            // $failsalinankp->move($path,$failsalinankpname);
+
+            // Store the files in the new directory
+            $failakaunPath = $storeFile($failakaun, $path, $pemohonName);
+            $failkjPath = $storeFile($failkj, $path, $pemohonName);
+            $failpendidikPath = $storeFile($failpendidik, $path, $pemohonName);
+            $failpassportPath = $storeFile($failpassport, $path, $pemohonName);
+            $failsalinankpPath = $storeFile($failsalinankp, $path, $pemohonName);
         }catch(Exception $e){
             return back()->withErrors(['file' => 'File upload failed: ' . $e->getMessage()]);
         }
@@ -134,7 +161,7 @@ class PemohonController extends Controller
                 'emel'=> $request->emel,
                 'bank'=> $request->bank,
                 'noakaun'=> $request->noakaun,
-                'failakaun'=> $path.$failakaunname,
+                'failakaun'=> $failakaunPath,
                 'partikerajaan'=> $request->partikerajaan,
                 'penjawat'=> $request->penjawat,
                 // 'kebenarankj',
@@ -142,10 +169,10 @@ class PemohonController extends Controller
                 // 'namakj',
                 // 'jawatankj',
                 // 'gredkj',
-                'failkj'=> $path.$failkjname ,
+                'failkj'=> $failkjPath,
                 'pendidik'=> $request->pendidik,
                 'pendidiklain'=> $request->pendidiklain,
-                'failpendidik'=> $path.$failpendidikname,
+                'failpendidik'=> $failpendidikPath,
                 'penyakitstatus'=> $request->penyakitstatus,
                 'penyakit1'=> $request->penyakit1,
                 'penyakit2'=> $request->penyakti2,
@@ -154,8 +181,8 @@ class PemohonController extends Controller
                 'jenayah'=> $request->jenayah,
                 'dadah'=> $request->dadah,
                 'sihat'=> $request->sihat,
-                'failpassport' => $path.$failpassportname, 
-                'failsalinankp'=> $path.$failsalinankpname, 
+                'failpassport' => $failpassportPath, 
+                'failsalinankp'=> $failsalinankpPath, 
                 'tamohon' => $currtime->toDateTimeString(),
                 'hantar'=> "N",
                 // 'sokong',
@@ -172,11 +199,11 @@ class PemohonController extends Controller
             Log::error($e->getMessage());
             
             //if the task fails, delete files previously uploaded
-            File::delete($path.$failakaunname);
-            File::delete($path.$failkjname);
-            File::delete($path.$failpendidikname);
-            File::delete($path.$failpassportname);
-            File::delete($path.$failsalinankpname);
+            File::delete($failakaunPath);
+            File::delete($failkjPath);
+            File::delete($failpendidikPath);
+            File::delete($failpassportPath);
+            File::delete($failsalinankpPath);
 
             // Return a user-friendly message
             return back()->withErrors(['message' => 'There was an issue saving the data. Please try again.']);
