@@ -18,7 +18,6 @@ use App\Http\Controllers\PemohonController;
 
 Route::get('/', function () {
     return view('home');
-
 })->name('login_request');
 
 // Route::get('/senarai_permohonan', function () {

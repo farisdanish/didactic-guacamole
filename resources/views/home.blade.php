@@ -39,13 +39,21 @@
         <h1>Ruang Halaman</h1>
     </div>
     <div class="container-fluid row">
-        <div class="col-sm-6">
-            <button class="btn btn-block btn-primary">Log Masuk</button>
-            <button class="btn btn-block btn-primary">Buat Akaun</button>
-        </div>
-        <div class="col-sm-6">
-            <button class="btn btn-block btn-primary">Buat Permohonan</button>
-            <button class="btn btn-block btn-primary">Lihat Senarai Permohonan</button>
+        <div class="row d-flex justify-content-center">
+            @auth
+                <div class="col-sm-6">
+                    <button class="btn btn-block btn-primary">Buat Permohonan</button>
+                    <button class="btn btn-block btn-primary">Lihat Senarai Permohonan</button>
+                    <button class="btn btn-block btn-danger">Log Keluar</button>
+                </div>
+            @endauth
+    
+            @guest
+                <div class="col-sm-6">
+                    <button class="btn btn-block btn-primary">Log Masuk</button>
+                    <button class="btn btn-block btn-primary">Buat Akaun</button>
+                </div>
+            @endguest
         </div>
     </div>
 @endsection
