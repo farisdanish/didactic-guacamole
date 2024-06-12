@@ -42,6 +42,16 @@
                                 {{ Session::get('success') }}
                             </div>
                         @endif
+                        <!-- Display validation errors -->
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <form action="{{ route('register') }}" id="daftarAkaun" method="POST">
                             @csrf
                             <div class="mb-3">
@@ -67,15 +77,18 @@
                                 <input type="password" name="password" class="form-control" id="password" onkeyup='checkMatch();' required>
                             </div>
                             <div class="mb-3">
-                                <label for="passwordConfirm" class="form-label">Sahkan Kata Laluan</label>
-                                <input type="password" name="passwordConfirm" class="form-control" id="passwordConfirm" onkeyup='checkMatch();' required>
+                                <label for="password_confirmation" class="form-label">Sahkan Kata Laluan</label>
+                                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" onkeyup='checkMatch();' required>
+                            </div>
+                            <div class="mb-3">
+                                <span id="length-message" style="color: red;"></span>
                             </div>
                             <div class="mb-3">
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                        Daftar
                                     </button>
-                                    <button class="btn btn-secondary" onclick="history.back()">
+                                    <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ route('login') }}'">
                                         Go Back
                                     </button>
                                 </div>
@@ -111,12 +124,21 @@
 <script>
     var checkMatch = function() {
         var password = document.getElementById('password');
-        var confirmPassword = document.getElementById('passwordConfirm');
+        var confirmPassword = document.getElementById('password_confirmation');
+        var lengthMessage = document.getElementById('length-message');
 
-        if (password.value === confirmPassword.value) {
+        if (password.value.length < 8) {
+            lengthMessage.textContent = 'Kata laluan mesti mengandungi sekurang-kurangnya 8 karakter';
+            password.style.borderColor = 'red';
+        } else {
+            lengthMessage.textContent = '';
+            password.style.borderColor = '';
+        }
+
+        if (password.value === confirmPassword.value && password.value.length >= 8) {
             password.style.borderColor = 'green';
             confirmPassword.style.borderColor = 'green';
-        } else {
+        } else if (password.value.length >= 8){
             password.style.borderColor = 'red';
             confirmPassword.style.borderColor = 'red';
         }
@@ -125,13 +147,13 @@
     // Function to handle form submission and show alert if passwords don't match
     var checkForm = function(event) {
         var password = document.getElementById('password');
-        var confirmPassword = document.getElementById('passwordConfirm');
+        var confirmPassword = document.getElementById('password_confirmation');
 
-        if (password.value !== confirmPassword.value) {
-            alert('Kata Laluan Tidak Sepadan, Sila Cuba Lagi.');
+        if (password.value.length < 8) {
+            alert('Kata laluan mesti mengandungi sekurang-kurangnya 8 aksara');
             event.preventDefault(); // Prevent form submission
-        }else if (password.value.length < 8) {
-            alert('Pastikan kata laluan anda mempunyai 8 atau lebih karakter');
+        } else if (password.value !== confirmPassword.value) {
+            alert('Kata laluan tidak sepadan');
             event.preventDefault(); // Prevent form submission
         }
     }

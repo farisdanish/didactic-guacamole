@@ -16,15 +16,24 @@ class AuthController extends Controller
 
     public function registerPost(Request $request)
     {
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'userType' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
         $user = new User();
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->userType = $request->userType;
         $user->password = Hash::make($request->password);
 
         $user->save();
 
-        return back()->with('success', 'Register successfully');
+        return redirect()->route('login')->with('success', 'Akaun anda telah didaftar, sila daftar masuk untuk mula sesi.');
     }
     
     public function login()
@@ -39,10 +48,10 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credetials)) {
-            return redirect('/home')->with('success', 'Login Success');
+            return redirect('/home')->with('success', 'Daftar masuk berjaya');
         }
 
-        return back()->with('error', 'Error Email or Password');
+        return back()->with('error', 'Salah Emel atau Kata Laluan. Sila cuba lagi');
     }
 
     public function logout()

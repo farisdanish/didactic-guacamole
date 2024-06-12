@@ -38,6 +38,11 @@
                     </div>
     
                     <div class="card-body">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
     
@@ -69,7 +74,7 @@
                                 </div>
                             </div>
     
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
@@ -77,7 +82,7 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
     
                             <div class="form-group row mb-4">
                                 <div class="col-md-8 offset-md-4">
