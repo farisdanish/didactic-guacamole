@@ -34,10 +34,11 @@
                     <div class="card-header">
                         <img src="{{ asset('/favicon.ico') }}" style="width: 10%;" class="card-img-top mb-3 float-right" alt="Login Image">
                         <br/>{{ __('Daftar Masuk eJKDB') }}
+                        <p>Sila daftar masuk untuk memulakan sesi.</p>
                     </div>
     
                     <div class="card-body">
-                        <form method="POST" action="{{-- route('Daftar Masuk') --}}">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
     
                             <div class="form-group row">
