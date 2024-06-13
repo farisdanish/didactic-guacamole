@@ -42,15 +42,19 @@ class AuthController extends Controller
     }
     public function loginPost(Request $request)
     {
-        $credetials = [
+        $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
-
-        if (Auth::attempt($credetials)) {
-            return redirect('/home')->with('success', 'Daftar masuk berjaya');
+    
+        if (Auth::attempt($credentials)) {
+            // Get the authenticated user
+            $user = Auth::user();
+    
+            // Pass user data to the view
+            return redirect('/')->with(['success' => 'Daftar masuk berjaya - '.$user->userType, 'user' => $user]);
         }
-
+    
         return back()->with('error', 'Salah Emel atau Kata Laluan. Sila cuba lagi');
     }
 
@@ -58,6 +62,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Successfully logged out');
     }
 }

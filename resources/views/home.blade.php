@@ -44,14 +44,24 @@
                 <div class="col-sm-6">
                     <button class="btn btn-block btn-primary">Buat Permohonan</button>
                     <button class="btn btn-block btn-primary">Lihat Senarai Permohonan</button>
-                    <button class="btn btn-block btn-danger">Log Keluar</button>
+                    <div class="btn-block">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-block btn-danger">Log Keluar</button>
+                        </form>
+                    </div>
                 </div>
             @endauth
     
             @guest
                 <div class="col-sm-6">
-                    <button class="btn btn-block btn-primary">Log Masuk</button>
-                    <button class="btn btn-block btn-primary">Buat Akaun</button>
+                    <button type="button" class="btn btn-block btn-primary" onclick="window.location.href='{{ route('login') }}'">
+                        Log Masuk
+                    </button>
+                    <button type="button" class="btn btn-block btn-primary" onclick="window.location.href='{{ route('register') }}'">
+                        Buat Akaun
+                    </button>
                 </div>
             @endguest
         </div>

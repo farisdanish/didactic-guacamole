@@ -88,7 +88,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Daftar
                                     </button>
-                                    <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ route('login') }}'">
+                                    <button type="button" class="btn btn-secondary" onclick="history.back()">
                                         Go Back
                                     </button>
                                 </div>
