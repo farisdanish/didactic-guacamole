@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title','eJKDB - Borang Permohonan')
+@section('title','Laman Utama')
 
 @push('plugin-styles')
 {{-- <link rel="stylesheet" href="{{ asset('/assets/plugins/plugin.css') }}"> --}}
@@ -36,11 +36,16 @@
             </ul>
         </div>
         @endif
-        <h1>Ruang Halaman</h1>
     </div>
     <div class="container-fluid row">
         <div class="row d-flex justify-content-center">
+            <center><h1>Ruang Halaman</h1></center>
+            <!-- Display user details if available -->
             @auth
+            @section('userName',Auth::user()->name)
+            <h1>Welcome, {{ Auth::user()->name }}!</h1>
+            <p>Your email: {{ Auth::user()->email }}</p>
+            <p>Your user type: {{ Auth::user()->userType }}</p>
                 <div class="col-sm-6">
                     <button class="btn btn-block btn-primary">Buat Permohonan</button>
                     <button class="btn btn-block btn-primary">Lihat Senarai Permohonan</button>
@@ -52,9 +57,9 @@
                         </form>
                     </div>
                 </div>
-            @endauth
-    
-            @guest
+            @else
+            <h1>Welcome, Guest!</h1>
+            <p>Please <a href="{{ route('login') }}">login</a> to access your details.</p>
                 <div class="col-sm-6">
                     <button type="button" class="btn btn-block btn-primary" onclick="window.location.href='{{ route('login') }}'">
                         Log Masuk
@@ -63,7 +68,7 @@
                         Buat Akaun
                     </button>
                 </div>
-            @endguest
+            @endauth
         </div>
     </div>
 @endsection
