@@ -24,12 +24,13 @@
       <li class="nav-item dropdown">
         
       </li>
+      @auth
       <li class="nav-item dropdown d-none d-xl-inline-block">
         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-          <span class="profile-text d-none d-md-inline-flex">
-            @yield('userName', ' ')
-          </span>
-          <img class="img-xs rounded-circle" src="{{ url('assets/images/faces/face8.jpg') }}" alt="Profile image"> </a>
+        <span class="profile-text d-none d-md-inline-flex">
+          @yield('userName', ' ')
+        </span>
+        <img class="img-xs rounded-circle" src="{{ url('assets/images/faces/face8.jpg') }}" alt="Profile image"> </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
           <a class="dropdown-item p-0">
             <div class="d-flex border-bottom w-100 justify-content-center">
@@ -50,6 +51,7 @@
           <a class="dropdown-item"> Sign Out </a>
         </div>
       </li>
+      @endauth
     </ul>
     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
       <span class="mdi mdi-menu icon-menu"></span>

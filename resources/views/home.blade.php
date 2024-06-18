@@ -43,12 +43,11 @@
             <!-- Display user details if available -->
             @auth
             @section('userName',Auth::user()->name)
+            @section('jabatan',Auth::user()->userType)
             <h1>Welcome, {{ Auth::user()->name }}!</h1>
-            <p>Your email: {{ Auth::user()->email }}</p>
-            <p>Your user type: {{ Auth::user()->userType }}</p>
                 <div class="col-sm-6">
-                    <button class="btn btn-block btn-primary">Buat Permohonan</button>
-                    <button class="btn btn-block btn-primary">Lihat Senarai Permohonan</button>
+                    <button class="btn btn-block btn-primary" onclick="window.location.href='{{ route('pemohon.borang_permohonan') }}'">Buat Permohonan</button>
+                    <button class="btn btn-block btn-primary" onclick="window.location.href='{{ route('pemohon.senarai_permohonan') }}'">Lihat Senarai Permohonan</button>
                     <div class="btn-block">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
