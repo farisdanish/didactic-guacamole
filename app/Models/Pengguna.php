@@ -13,18 +13,26 @@ class Pengguna extends Authenticatable
     use HasApiTokens, Notifiable, HasFactory;
 
     // Specify the custom table name
-    protected $table = 'custom_users';
+    protected $table = 'pengguna';
 
     // Specify the primary key if it's different from the default 'id'
-    protected $primaryKey = 'custom_id';
+    protected $primaryKey = 'id';
 
     // Add any other custom settings like timestamps, fillable fields, etc.
     public $timestamps = true;
 
     protected $fillable = [
-        'name',
+        'nokp',
+        'nama',
         'email',
-        'password',
+        'katalaluan',
+        'stesen',
+        'jawatan',
+        'gred',
+        'paras',
+        'aktif',
+        'daftar',
+        'tardaftar',
         // add other fields as necessary
     ];
 }
