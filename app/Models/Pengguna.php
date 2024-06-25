@@ -24,7 +24,6 @@ class Pengguna extends Authenticatable
     protected $fillable = [
         'nokp',
         'nama',
-        'email',
         'katalaluan',
         'stesen',
         'jawatan',
@@ -35,4 +34,10 @@ class Pengguna extends Authenticatable
         'tardaftar',
         // add other fields as necessary
     ];
+
+    // If necessary, specify the username field used by Laravel
+    public function getNoKp()
+    {
+        return 'nokp';
+    }
 }

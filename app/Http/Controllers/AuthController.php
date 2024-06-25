@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,7 +14,15 @@ class AuthController extends Controller
 {
     public function register()
     {
-        return view('register');
+        $jawatan = DB::table('jawatan')->get();
+        $stesen = DB::table('stesen')->get();
+        $paras = DB::table('paras')->get();
+
+        return view('register',[
+            'jawatan' => $jawatan,
+            'stesen' => $stesen,
+            'paras' => $paras,
+        ]);
     }
 
     public function registerPost(Request $request)
@@ -19,17 +30,27 @@ class AuthController extends Controller
         // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'userType' => 'required|string|max:255',
+            'nokp' => 'required|string||max:14|unique:pengguna',
+            'paras' => 'required',
             'password' => 'required|string|min:8|confirmed',
+            'stesen' => 'required',
+            'jawatan' => 'required',
+            'gred' => 'required',
         ]);
 
-        $user = new User();
+        $currtime = Carbon::now(); //get current datetime
 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->userType = $request->userType;
-        $user->password = Hash::make($request->password);
+        $user = new Pengguna();
+
+        $user->nama = $request->name;
+        $user->nokp = $request->nokp;
+        $user->paras = $request->paras;
+        $user->katalaluan = Hash::make($request->password);
+        $user->stesen = $request->stesen;
+        $user->jawatan = $request->jawatan;
+        $user->gred = $request->gred;
+        $user->aktif = "0";
+        $user->tardaftar = $currtime->toDateTimeString();
 
         $user->save();
 
@@ -40,22 +61,23 @@ class AuthController extends Controller
     {
         return view('login');
     }
+    
     public function loginPost(Request $request)
     {
         $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
+            'nokp' => $request->nokp,
+            'katalaluan' => $request->password,
         ];
     
         if (Auth::attempt($credentials)) {
-            // Get the authenticated user
+            // Get the authenticated pengguna
             $user = Auth::user();
     
             // Pass user data to the view
-            return redirect('/')->with(['success' => 'Daftar masuk berjaya - '.$user->userType, 'user' => $user]);
+            return redirect('/')->with(['success' => 'Daftar masuk berjaya - '.$user->paras, 'user' => $user]);
         }
     
-        return back()->with('error', 'Salah Emel atau Kata Laluan. Sila cuba lagi');
+        return back()->with('error', 'Salah No. Kad Pengenalan atau Kata Laluan. Sila cuba lagi');
     }
 
     public function logout()

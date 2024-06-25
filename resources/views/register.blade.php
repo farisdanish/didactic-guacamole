@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('assets/plugins/@mdi/font/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <!-- end plugin css -->
 
     @stack('plugin-styles')
@@ -56,20 +58,51 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nama</label>
-                                <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="ex: John Doe" required>
                             </div>
                             <div class="mb-3">
+                                <label for="nokp" class="form-label">No. Kad Pengenalan</label>
+                                <input type="text" name="nokp" class="form-control" id="nokp" placeholder="ex: 890212125449" required>
+                            </div>
+                            {{-- <div class="mb-3">
                                 <label for="email" class="form-label">Alamat Emel</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="ex: name@example.com" required>
+                            </div> --}}
+                            <div class="mb-3">
+                                <label for="jawatan" class="form-label">Jawatan</label>
+                                <select class="form-select" id="jawatan" name="jawatan" aria-label="jawatan" data-placeholder="Sila Pilih Jawatan Anda" required>
+                                    <option></option>
+                                    @foreach ($jawatan as $key => $data)
+                                    <option value="{{$data->kodjawatan}}" @selected(old('jawatan') == $data->kodjawatan)>
+                                        {{$data->namajawatan}}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="userType" class="form-label">Jabatan/Jawatan:</label>
-                                <select id="userType" name="userType" class="form-select" required>
-                                    <option value="" disabled selected>Sila Pilih Jabatan/Jawatan Anda</option>
-                                    <option value="PBT">PBT</option>
-                                    <option value="Mayor/Presiden/Pengerusi">Mayor/Presiden/Pengerusi</option>
-                                    <option value="KKTP">KKTP</option>
-                                    <option value="SUT">SUT</option>
+                                <label for="stesen" class="form-label">Stesen</label>
+                                <select class="form-select" id="stesen" name="stesen" aria-label="stesen" data-placeholder="Sila Pilih Stesen Anda" required>
+                                    <option></option>
+                                    @foreach ($stesen as $key => $data)
+                                    <option value="{{$data->kodstesen}}" @selected(old('stesen') == $data->kodstesen)>
+                                        {{$data->namastesen}}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="gred" class="form-label">Gred</label>
+                                <input type="text" name="gred" class="form-control" id="gred" placeholder="ex: J41" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="paras" class="form-label">Paras</label>
+                                <select class="form-select" id="paras" name="paras" aria-label="paras" data-placeholder="Sila Pilih Paras Pengguna Anda" required>
+                                    <option></option>
+                                    @foreach ($paras as $key => $data)
+                                    <option value="{{$data->kodparas}}" @selected(old('paras') == $data->kodparas)>
+                                        {{$data->namaparas}}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -106,6 +139,10 @@
 <script rel="text/javascript" src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('/assets/plugins/chartjs/chart.min.js') }}"></script>
+<script src="{{ asset('/assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- end base js -->
 
 <!-- plugin js -->
@@ -160,6 +197,32 @@
 
     // Attach the checkForm function to the form's submit event
     document.getElementById('daftarAkaun').addEventListener('submit', checkForm);
+
+    /*Form Dropdown with search bar*/
+    $('#paras').select2( {
+        theme: 'bootstrap-5',
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        placeholder: $( this ).data( 'placeholder' ),
+        containerCssClass: function(e) { 
+            return $(e).attr('required') ? 'required' : '';
+        }
+    } );
+    $('#jawatan').select2( {
+        theme: 'bootstrap-5',
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        placeholder: $( this ).data( 'placeholder' ),
+        containerCssClass: function(e) { 
+            return $(e).attr('required') ? 'required' : '';
+        }
+    } );
+    $('#stesen').select2( {
+        theme: 'bootstrap-5',
+        width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
+        placeholder: $( this ).data( 'placeholder' ),
+        containerCssClass: function(e) { 
+            return $(e).attr('required') ? 'required' : '';
+        }
+    } );
 </script>
 </body>
 </html>

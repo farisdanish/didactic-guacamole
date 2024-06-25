@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('pengguna', function (Blueprint $table) {
             $table->id();
-            $table->char('nokp',12);
+            $table->char('nokp',12)->unique();
             $table->char('nama',100);
-            $table->char('katalaluan',0);
+            $table->char('katalaluan',255);
             $table->char('stesen',10);
             $table->integer('jawatan')->length(11)->unsigned();
             $table->char('gred',4);

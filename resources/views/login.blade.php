@@ -43,18 +43,23 @@
                                 {{ Session::get('success') }}
                             </div>
                         @endif
+                        @if(Session::has('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('error') }}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
     
                             <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-mel') }}</label>
+                                <label for="nokp" class="col-sm-4 col-form-label text-md-right">{{ __('No. Kad Pengenalan') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                    <input id="nokp" type="text" class="form-control{{ $errors->has('nokp') ? ' is-invalid' : '' }}" name="nokp" value="{{ old('nokp') }}" required autofocus>
     
-                                    @if ($errors->has('email'))
+                                    @if ($errors->has('nokp'))
                                         <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong>{{ $errors->first('nokp') }}</strong>
                                         </span>
                                     @endif
                                 </div>
