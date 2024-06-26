@@ -9,9 +9,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class AuthController extends Controller
 {
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
+
+    /**
+     * Login username to be used by the controller.
+     *
+     * @var string
+     */
+    protected $nokp;
+
     public function register()
     {
         $jawatan = DB::table('jawatan')->get();
@@ -85,5 +102,15 @@ class AuthController extends Controller
         Auth::logout();
 
         return redirect()->route('login')->with('success', 'Successfully logged out');
+    }
+
+    /**
+     * Get username property.
+     *
+     * @return string
+     */
+    public function nokp()
+    {
+        return $this->nokp;
     }
 }
