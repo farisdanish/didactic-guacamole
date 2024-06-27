@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PemohonController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +37,13 @@ Route::controller(PemohonController::class)->group(function(){
     Route::delete('/padam_permohonan/{permohonan}', 'deletePermohonan')->name('pemohon.delete_permohonan'); 
 });
 
+Auth::routes();
+
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+    Route::get('/register', [RegisterController::class, 'register'])->name('register');
+    Route::post('/register', [RegisterController::class, 'registerPost'])->name('register');
+    // Route::get('/login', [AuthController::class, 'login'])->name('login');
+    // Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 });
 
 Route::group(['middleware' => 'auth'], function () {

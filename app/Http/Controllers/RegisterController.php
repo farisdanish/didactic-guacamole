@@ -2,33 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Pengguna;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Pengguna;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
 
-class AuthController extends Controller
+class RegisterController extends Controller
 {
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
-     * Login username to be used by the controller.
-     *
-     * @var string
-     */
-    protected $nokp;
-
+    //
     public function register()
     {
         $jawatan = DB::table('jawatan')->get();
@@ -72,45 +54,5 @@ class AuthController extends Controller
         $user->save();
 
         return redirect()->route('login')->with('success', 'Akaun anda telah didaftar, sila daftar masuk untuk mula sesi.');
-    }
-    
-    public function login()
-    {
-        return view('login');
-    }
-    
-    public function loginPost(Request $request)
-    {
-        $credentials = [
-            'nokp' => $request->nokp,
-            'katalaluan' => $request->password,
-        ];
-    
-        if (Auth::attempt($credentials)) {
-            // Get the authenticated pengguna
-            $user = Auth::user();
-    
-            // Pass user data to the view
-            return redirect('/')->with(['success' => 'Daftar masuk berjaya - '.$user->paras, 'user' => $user]);
-        }
-    
-        return back()->with('error', 'Salah No. Kad Pengenalan atau Kata Laluan. Sila cuba lagi');
-    }
-
-    public function logout()
-    {
-        Auth::logout();
-
-        return redirect()->route('login')->with('success', 'Successfully logged out');
-    }
-
-    /**
-     * Get username property.
-     *
-     * @return string
-     */
-    public function nokp()
-    {
-        return $this->nokp;
     }
 }
