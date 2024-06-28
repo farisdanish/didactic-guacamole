@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Pengguna;
+// use Carbon\Carbon;
+// use App\Models\User;
+// use App\Models\Pengguna;
+// use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -32,39 +35,27 @@ class LoginController extends Controller
     }
 
     /**
-     * Login username to be used by the controller.
+     * Override the credentials method to use username instead of email.
      *
-     * @var string
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
      */
-    protected $nokp;
-
-
-    /**
-     * Get the login username to be used by the controller.
-     *
-     * @return string
-     */
-    public function findUsername()
+    protected function credentials(Request $request)
     {
-        $login = request()->input('nokp');
-
-        $fieldType = 'nokp';
-
-        request()->merge([$fieldType => $login]);
-
-        return $fieldType;
+        return [
+            'nokp' => $request->get('nokp'), // Change 'username' if needed
+            'katalaluan' => $request->get('password'),
+        ];
     }
 
     /**
-     * Get username property.
+     * Override the username method to define the login field.
      *
      * @return string
      */
     public function username()
     {
-        // return $this->nokp;
-        $field = request()->nokp;
-        return $field;
+        return 'nokp'; // Change to 'username' if needed
     }
 
     // public function register()

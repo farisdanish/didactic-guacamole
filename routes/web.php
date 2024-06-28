@@ -46,9 +46,9 @@ Route::group(['middleware' => 'guest'], function () {
     // Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
-});
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+// });
 
 // Route::get('home', function () {
 //     // Only authenticated users may enter...
